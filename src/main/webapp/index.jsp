@@ -12,12 +12,12 @@
 
     <div class="topnav">
         <a class="active" href="#home">Home</a>
-        <a href="#">link2</a>
-        <a href="#">link3</a>
+        <a href="#">Profile</a>
+        <a href="#">Login</a>
         <div class="search-container">
             <form action="/action_page.php">
                 <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Submit</button>
+                <button type="submit">Search</button>
             </form>
         </div>
     </div>
