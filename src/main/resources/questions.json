@@ -1,0 +1,26 @@
+{
+  "name": "questions",
+  "description": "list of questions",
+  "questions" : [
+    {
+      "title" : "What does GOAT mean?",
+      "id" : 0,
+      "answers" : [1, 2, 3]
+    },
+    {
+      "title" : "What is Elodie's second name?",
+      "id" : 1,
+      "answers" : [11, 4, 6]
+    },
+    {
+      "title" : "Pourquoi tant d'erreurs?",
+      "id" : 2,
+      "answers" : [5, 7, 8]
+    },
+    {
+      "title" : "Why cats?",
+      "id" : 3,
+      "answers" : [9, 12, 13]
+    }
+  ]
+}
