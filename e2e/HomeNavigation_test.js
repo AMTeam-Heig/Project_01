@@ -4,5 +4,4 @@ Scenario('test home page', (I) => {
 I.amOnPage('/')
 I.see('StackOverGoat')
 I.see('search')
-I.I.seeElement({css: '//body/header'});
 });
