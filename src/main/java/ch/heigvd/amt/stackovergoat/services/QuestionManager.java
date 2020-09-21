@@ -9,9 +9,10 @@ import java.util.LinkedList;
 
 public class QuestionManager {
     public LinkedList<Question> getQuestions() {
-        // TODO : get all questions in database or .json file
-        JsonManager jsonManager = new JsonManager();
-        return questionsFromJSON(jsonManager.getJsonContent("/resources/questions.json"));
+        LinkedList<Question> questions = new LinkedList<Question>();
+        questions.add(new Question("Hello", 1));
+        return questions;
+        //return questionsFromJSON(new JsonManager().getJsonContent("src/main/resources/questions.json"));
     }
 
     public LinkedList<Question> questionsFromJSON(String jsonFile) {
@@ -20,7 +21,7 @@ public class QuestionManager {
         try {
             JSONArray jsonArray = new JSONArray(new JSONObject(jsonFile).getJSONArray("questions"));
 
-            for (int i = 0; i < jsonArray.length(); i++) {
+            for (int i = 0; i < jsonArray.length(); ++i) {
                 JSONObject jsonQuestion = jsonArray.getJSONObject(i);
                 questions.add(new Question(jsonQuestion.getString("title"), jsonQuestion.getInt("id")));
             }

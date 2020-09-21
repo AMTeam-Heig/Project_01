@@ -8,15 +8,7 @@
     <h1>Welcome to StackOverGoat <3</h1>
 
     <h2> All questions </h2>
-    <script type="text/javascript">
-        // get a HTMLCollection of elements in the page
-        let collection = ${requestScope.questions};
-
-        // using for/of iteration
-        for (item of collection) {
-            console.log(item);
-        }
-    </script>
+    ${requestScope.questions.title}
 
     </body>
 </html>
