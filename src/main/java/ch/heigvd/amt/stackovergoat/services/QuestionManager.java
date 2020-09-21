@@ -9,10 +9,9 @@ import java.util.LinkedList;
 
 public class QuestionManager {
     public LinkedList<Question> getQuestions() {
-        LinkedList<Question> questions = new LinkedList<Question>();
+        LinkedList<Question> questions = new LinkedList<>();
         questions.add(new Question("Hello", 1));
         return questions;
-        //return questionsFromJSON(new JsonManager().getJsonContent("src/main/resources/questions.json"));
     }
 
     public LinkedList<Question> questionsFromJSON(String jsonFile) {

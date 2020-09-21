@@ -11,7 +11,8 @@
     <center><h1>- StackOverGoat -</h1></center>
 
     <h2> All questions </h2>
-    ${requestScope.questions.title}
+    1 - ${requestScope.questions[0].title}<br/>
+    2 - ${requestScope.question.title}
 
     </body>
 </html>
