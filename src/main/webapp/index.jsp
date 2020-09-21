@@ -10,6 +10,7 @@
         <div class="topnav">
             <a class="active" href="#home">Home</a>
             <a href="#">Profile</a>
+            <a href="#">Ask</a>
             <a href="#">Login</a>
             <div class="search-container">
                 <form action="/action_page.php">
