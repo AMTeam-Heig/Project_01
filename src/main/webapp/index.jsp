@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <link rel="stylesheet" href="css/stylesheet.css">
@@ -28,8 +28,8 @@
 
 
     <h2> All questions </h2>
-    1 - ${requestScope.questions[0].title}<br/>
-    2 - ${requestScope.question.title}
+    1 - ${requestScope.questions.get(0).title}<br/>
+    2 - ${requestScope.questions.get(1).title}<br/>
 
     </body>
 </html>
