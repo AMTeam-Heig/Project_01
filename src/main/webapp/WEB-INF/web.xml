@@ -16,6 +16,6 @@
   <!-- Servlet mappings -->
   <servlet-mapping>
     <servlet-name>HomeServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/home</url-pattern>
   </servlet-mapping>
 </web-app>
