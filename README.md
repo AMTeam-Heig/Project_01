@@ -56,4 +56,4 @@ Commands
 - next page (navigation)
 - click question (navigation)
 
-![ main description ](mainArch.PNG)
+![ main description ](structure.pdf)
