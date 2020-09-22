@@ -1,12 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <link rel="stylesheet" href="../../css/stylesheet.css">
+    <link rel="stylesheet" href="./CSS/stylesheet.css">
     <title>Welcome to StackOverGoat</title>
 </head>
 <html>
     <header>
-
         <div class="topnav">
             <a class="active" href="#home">Home</a>
             <a href="#">Profile</a>
