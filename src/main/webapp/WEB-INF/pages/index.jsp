@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="../../css/stylesheet.css">
     <title>Welcome to StackOverGoat</title>
 </head>
 <html>
