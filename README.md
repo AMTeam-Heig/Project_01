@@ -56,4 +56,4 @@ Commands
 - next page (navigation)
 - click question (navigation)
 
-![ main description ](structure.pdf)
+![ Draft of the architecture ](structure.pdf)
