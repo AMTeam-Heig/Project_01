@@ -1,6 +1,12 @@
 exports.config = {
   tests: './*_test.js',
   output: './output',
+  //test with different browsers
+  multiple:{
+    basic:{
+      browsers:["chrome","safari"]
+    }
+  },
   helpers: {
     Puppeteer: {
       url: 'http://localhost:8080/Project_01/',
