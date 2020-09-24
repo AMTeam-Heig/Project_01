@@ -10,7 +10,7 @@
             <a class="active" href="#home">Home</a>
             <a href="#">Profile</a>
             <a href="#">Ask</a>
-            <a href="#">Login</a>
+            <a href="/Project_01/login">Login</a>
             <div class="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search..." name="search">
