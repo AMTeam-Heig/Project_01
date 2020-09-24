@@ -54,6 +54,18 @@
   </dependencies>
 
   <build>
-    <finalName>Project_01</finalName>
+    <finalName>${artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <warName>${project.build.finalName}</warName>
+          <outputDirectory>docker/images/payara/artifact</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
