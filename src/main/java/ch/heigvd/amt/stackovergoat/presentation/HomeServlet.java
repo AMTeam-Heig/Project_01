@@ -1,6 +1,6 @@
-package ch.heigvd.amt.stackovergoat.web;
+package ch.heigvd.amt.stackovergoat.presentation;
 
-import ch.heigvd.amt.stackovergoat.services.QuestionManager;
+import ch.heigvd.amt.stackovergoat.business.QuestionManager;
 
 import java.io.IOException;
 

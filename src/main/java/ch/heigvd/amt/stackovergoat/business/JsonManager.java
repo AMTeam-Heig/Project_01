@@ -1,4 +1,4 @@
-package ch.heigvd.amt.stackovergoat.services;
+package ch.heigvd.amt.stackovergoat.business;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package ch.heigvd.amt.stackovergoat.services;
+package ch.heigvd.amt.stackovergoat.business;
 
 import ch.heigvd.amt.stackovergoat.model.Question;
 
