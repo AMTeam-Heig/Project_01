@@ -1,6 +1,6 @@
-package ch.heigvd.amt.stackovergoat.web;
+package ch.heigvd.amt.stackovergoat.presentation;
 
-import ch.heigvd.amt.stackovergoat.services.QuestionManager;
+import ch.heigvd.amt.stackovergoat.business.QuestionManager;
 
 import java.io.IOException;
 
@@ -16,6 +16,6 @@ public class AskServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
             throws javax.servlet.ServletException, IOException {
         request.setAttribute("questions", questionManager.getQuestions());
-        request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/ask.jsp").forward(request, response);
     }
 }
