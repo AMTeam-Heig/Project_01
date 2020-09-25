@@ -1,4 +1,4 @@
-package ch.heigvd.amt.stackovergoat.web;
+package ch.heigvd.amt.stackovergoat.presentation;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

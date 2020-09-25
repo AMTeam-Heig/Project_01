@@ -10,15 +10,15 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>HomeServlet</servlet-name>
-    <servlet-class>ch.heigvd.amt.stackovergoat.web.HomeServlet</servlet-class>
+    <servlet-class>ch.heigvd.amt.stackovergoat.presentation.HomeServlet</servlet-class>
   </servlet>
     <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>ch.heigvd.amt.stackovergoat.web.LoginServlet</servlet-class>
+    <servlet-class>ch.heigvd.amt.stackovergoat.presentation.LoginServlet</servlet-class>
   </servlet>
     <servlet>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>ch.heigvd.amt.stackovergoat.web.RegisterServlet</servlet-class>
+    <servlet-class>ch.heigvd.amt.stackovergoat.presentation.RegisterServlet</servlet-class>
   </servlet>
   
 
@@ -39,7 +39,7 @@
   <!-- Filters -->
   <filter>
     <filter-name>MagicFilter</filter-name>
-    <filter-class>ch.heigvd.amt.stackovergoat.web.MagicFilter</filter-class>
+    <filter-class>ch.heigvd.amt.stackovergoat.presentation.MagicFilter</filter-class>
   </filter>
 
   <filter-mapping>
