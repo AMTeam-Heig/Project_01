@@ -35,5 +35,16 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
+
+  <!-- Filters -->
+  <filter>
+    <filter-name>MagicFilter</filter-name>
+    <filter-class>ch.heigvd.amt.stackovergoat.web.MagicFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MagicFilter</filter-name>
+    <servlet-name>LoginServlet</servlet-name>
+  </filter-mapping>
   
 </web-app>
