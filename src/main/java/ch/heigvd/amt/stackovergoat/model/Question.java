@@ -3,20 +3,15 @@ package ch.heigvd.amt.stackovergoat.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.LinkedList;
-
 @Getter @Setter
 public class Question {
     private final int id;
+    private final int authorId;
     private final String title;
-    private LinkedList<Integer> answers = new LinkedList<>();
 
-    public Question(String title, int id) {
+    public Question(String title, int id, int authorId) {
         this.id = id;
+        this.authorId = authorId;
         this.title = title;
-    }
-
-    public void answer(int id) {
-        answers.add(id);
     }
 }
