@@ -1,0 +1,35 @@
+package ch.heigvd.amt.stackovergoat.application.user;
+
+import ch.heigvd.amt.stackovergoat.domain.user.User;
+import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class UserFacade {
+    private IUserRepository userRepository;
+
+    public UserFacade(IUserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void proposeUser(ProposeUserCommand command) {
+        User submittedUser = User.builder()
+                .username(command.getUsername())
+                .build();
+        userRepository.save(submittedUser);
+    }
+
+    public UsersDTO getUsers(UsersQuery query) {
+        Collection<User> allUsers = userRepository.find(query);
+
+        List<UsersDTO.UserDTO> allUsersDTO = allUsers.stream().map(user -> UsersDTO.UserDTO.builder()
+                .username(user.getUsername())
+                .build()).collect(Collectors.toList());
+
+        return UsersDTO.builder()
+                .users(allUsersDTO)
+                .build();
+    }
+}
