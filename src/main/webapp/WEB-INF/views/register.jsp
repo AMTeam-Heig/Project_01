@@ -47,8 +47,7 @@
     </c:if>
 </div>
 <div class="login-block">
-    <span>Retour au login</span>
-    <a href="./login">Cliquez ici</a>
+    <a href="./login">Retour au login</a>
 </div>
 </body>
 </html>
