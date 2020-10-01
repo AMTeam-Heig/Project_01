@@ -21,7 +21,7 @@
     <div class="app-name">
         <span>Stack Over Goat</span>
     </div>
-    <form action="./login" method="POST">
+    <form action="./login.do" method="POST">
         <div class="form-group row">
             <div class="col-md-5">
                 <label for="login" class="col-form-label">Identifiant</label>
