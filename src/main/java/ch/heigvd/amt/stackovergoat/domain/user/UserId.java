@@ -4,7 +4,8 @@ import ch.heigvd.amt.stackovergoat.domain.Id;
 
 import java.util.UUID;
 
-public class UserId  extends Id {
+public class UserId  extends Id
+{
     public UserId() {
         super();
     }

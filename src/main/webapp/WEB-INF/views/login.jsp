@@ -50,5 +50,11 @@
 <div class="login-block">
     <a href="./register">Créer un compte</a>
 </div>
+
+<div class="messages">
+    <c:forEach var="error" items="${errors}">
+        <div class="error">${error}</div>
+    </c:forEach>
+</div>
 </body>
 </html>

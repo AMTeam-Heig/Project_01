@@ -63,7 +63,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Semestre 4/RES/Laboratoires" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -162,7 +162,6 @@
       <workItem from="1601402365705" duration="651000" />
       <workItem from="1601403180725" duration="1914000" />
       <workItem from="1601492997140" duration="283000" />
-      <workItem from="1601550004372" duration="800000" />
     </task>
     <servers />
   </component>
@@ -182,41 +181,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601550048185">
+    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601493083584">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601550048185" />
-    <state width="801" height="258" key="GridCell.Tab.0.bottom" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.0.center" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.0.left" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.0.right" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.1.bottom" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.1.center" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.1.left" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
-    <state width="801" height="258" key="GridCell.Tab.1.right" timestamp="1601550501450">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state width="801" height="258" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1601550501450" />
+    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601493083584" />
   </component>
 </project>
