@@ -8,7 +8,7 @@
 <html>
     <jsp:include  flush="true" page="WEB-INF/views/fragments/header.jsp"/>
     <body>
-    <br /><br />
+    <br3/>
     <center><h1>- StackOverGoat -</h1></center>
 
     <h2>Let the chickens era begins !</h2>

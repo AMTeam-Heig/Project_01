@@ -48,8 +48,7 @@
     </c:if>
 </div>
 <div class="login-block">
-    <span>Vous souhaitez vous enregistrer?</span>
-    <a href="./register">Cliquez ici</a>
+    <a href="./register">Créer un compte</a>
 </div>
 
 <div class="messages">
