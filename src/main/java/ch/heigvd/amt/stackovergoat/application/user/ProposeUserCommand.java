@@ -8,6 +8,9 @@ import lombok.Getter;
 @Getter
 @EqualsAndHashCode
 public class ProposeUserCommand {
-    @Builder.Default
-    private String username = "anonymous";
+    private String username;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String clearTextPassword;
 }

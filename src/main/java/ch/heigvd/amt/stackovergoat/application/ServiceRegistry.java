@@ -2,7 +2,11 @@ package ch.heigvd.amt.stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
+import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
+import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
@@ -47,14 +51,52 @@ public class ServiceRegistry {
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
         identityManagementFacade = new IdentityManagementFacade(userRepository);
+        initValues();
+    }
+
+    private void initValues() {
+/*
+        userFacade.proposeUser(ProposeUserCommand.builder()
+                .username("qwer")
+                .email("qwer@qwe.com")
+                .firstname("Ano")
+                .lastname("Nymous")
+                .clearTextPassword("1234")
+                .build());
+        userFacade.proposeUser(ProposeUserCommand.builder()
+                .username("wasa")
+                .email("wa@sa.lol")
+                .firstname("Wa")
+                .lastname("Sa")
+                .clearTextPassword("digi")
+                .build());
+
+        userFacade.proposeUser(ProposeUserCommand.builder()
+                .username("q")
+                .email("q")
+                .firstname("q")
+                .lastname("q")
+                .clearTextPassword("q")
+                .build());
+
+        questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
+                .text("Is this real life ??")
+                .author("Mimimi")
+                .build());
+
+        questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
+                .text("What ?")
+                .author("Elodie")
+                .build());
+
+        questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
+                .text("What is GOAT?")
+                .author("Walid")
+                .build());*/
     }
 
     public QuestionFacade getQuestionFacade() {
         return questionFacade;
-    }
-
-    public AnswerFacade getAnswerFacade() {
-        return answerFacade;
     }
 
     public UserFacade getUserFacade() {

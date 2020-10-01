@@ -32,10 +32,10 @@
         </div>
         <div class="form-group row">
             <div class="col-md-5">
-                <label for="password" class="col-form-label">Mot de passe</label>
+                <%--@declare id="cleartextpassword"--%><label for="clearTextPassword" class="col-form-label">Mot de passe</label>
             </div>
             <div class="col-md-6">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
+                <input type="password" name="clearTextPassword" id="password" class="form-control" placeholder="Mot de passe">
             </div>
         </div>
         <div class="form-group row">
