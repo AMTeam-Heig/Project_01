@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
@@ -25,6 +26,9 @@ public class ServiceRegistry {
     private static IUserRepository userRepository;
     private static UserFacade userFacade;
 
+    // Identity management
+    private static IdentityManagementFacade identityManagementFacade;
+
     public static ServiceRegistry getServiceRegistry() {
         if (singleton == null) {
             singleton = new ServiceRegistry();
@@ -42,6 +46,7 @@ public class ServiceRegistry {
 
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
+        identityManagementFacade = new IdentityManagementFacade(userRepository);
     }
 
     public QuestionFacade getQuestionFacade() {
@@ -54,5 +59,9 @@ public class ServiceRegistry {
 
     public UserFacade getUserFacade() {
         return userFacade;
+    }
+
+    public IdentityManagementFacade getIdentityManagementFacade() {
+        return identityManagementFacade;
     }
 }

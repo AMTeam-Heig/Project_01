@@ -5,6 +5,7 @@
       <artifact name="Project_01:war exploded" />
     </artifacts-to-build>
   </component>
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="e2e89fb3-d194-40aa-ac2b-9b36975c79ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
@@ -15,19 +16,57 @@
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e707aa40-41eb-446d-b1bc-971d26e4aa73" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/pipeline.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/payara/test.md" beforeDir="false" />
+    </list>
+>>>>>>> 11001b98724bb9ff0bc41b55adb89b6b411a2cbc
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
+<<<<<<< HEAD
     <execution>
       <executable />
     </execution>
+=======
+    <execution />
+>>>>>>> 11001b98724bb9ff0bc41b55adb89b6b411a2cbc
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -44,6 +83,178 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+=======
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GlassFish 5.2020.4" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.2020.4" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="Project_01:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Project_01:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9b5c20f-6a6b-4794-91db-088559d67d0a" name="Default Changelist" comment="" />
+      <created>1601389398161</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601389398161</updated>
+      <workItem from="1601389400001" duration="1590000" />
+      <workItem from="1601391041486" duration="630000" />
+      <workItem from="1601391711877" duration="1408000" />
+      <workItem from="1601393479690" duration="2118000" />
+      <workItem from="1601402365705" duration="651000" />
+      <workItem from="1601403180725" duration="1914000" />
+      <workItem from="1601492997140" duration="283000" />
+      <workItem from="1601569192910" duration="3669000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601493083584">
+      <screen x="62" y="0" width="1218" height="720" />
+    </state>
+    <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601493083584" />
+    <state width="972" height="190" key="GridCell.Tab.0.bottom" timestamp="1601571136647">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601571136647" />
+    <state width="972" height="190" key="GridCell.Tab.0.center" timestamp="1601571136646">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1601571136646" />
+    <state width="972" height="190" key="GridCell.Tab.0.left" timestamp="1601571136646">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1601571136646" />
+    <state width="972" height="190" key="GridCell.Tab.0.right" timestamp="1601571136647">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1601571136647" />
+    <state width="972" height="190" key="GridCell.Tab.1.bottom" timestamp="1601571136448">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
+    <state width="972" height="190" key="GridCell.Tab.1.center" timestamp="1601571136448">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
+    <state width="972" height="190" key="GridCell.Tab.1.left" timestamp="1601571136448">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
+    <state width="972" height="190" key="GridCell.Tab.1.right" timestamp="1601571136448">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="190" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
+>>>>>>> 11001b98724bb9ff0bc41b55adb89b6b411a2cbc
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
