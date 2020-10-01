@@ -8,14 +8,18 @@ import lombok.Setter;
 
 @Data
 @Builder(toBuilder = true)
-public class Question implements IEntity {
+public class Question implements IEntity<Question, QuestionId> {
 
-    @Setter(AccessLevel.NONE)
-    private QuestionId id = new QuestionId();
+    private QuestionId id;
 
     private String author;
 
     private String text;
+
+    @Override
+    public Question deepClone() {
+        return null;
+    }
 
     public static class QuestionBuilder {
         public Question build() {
