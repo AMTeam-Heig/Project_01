@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <div class="topnav">
-        <a class="active" href="/Project_01/home">Home</a>
+        <a class="active" href="/Project_01">Home</a>
         <a href="#">Profile</a>
         <a href="/Project_01/ask">Ask</a>
         <a href="/Project_01/login">Login</a>
