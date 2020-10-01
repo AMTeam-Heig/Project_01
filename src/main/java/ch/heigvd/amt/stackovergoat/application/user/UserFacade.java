@@ -22,7 +22,7 @@ public class UserFacade {
     }
 
     public UsersDTO getUsers(UsersQuery query) {
-        Collection<User> allUsers = userRepository.findByUsername(query);
+        Collection<User> allUsers = userRepository.find(query);
 
         List<UsersDTO.UserDTO> allUsersDTO = allUsers.stream().map(user -> UsersDTO.UserDTO.builder()
                 .username(user.getUsername())

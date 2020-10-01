@@ -18,8 +18,7 @@ public class User implements IEntity<User, UserId> {
     @EqualsAndHashCode.Exclude
     private String encryptedPassword;
 
-    public boolean authenticate(String clearTextPassword)
-    {
+    public boolean authenticate(String clearTextPassword) {
         return clearTextPassword.toUpperCase().equals(encryptedPassword);
     }
 
@@ -40,37 +39,37 @@ public class User implements IEntity<User, UserId> {
     }
 
     public static class UserBuilder {
-
         public UserBuilder clearTextPassword(String clearTextPassword) {
             if (clearTextPassword == null || clearTextPassword.isEmpty()) {
                 throw new java.lang.IllegalArgumentException("Password is mandatory.");
             }
-            build().encryptedPassword = clearTextPassword.toUpperCase();
+            // TODO : chiffrage
+            encryptedPassword = clearTextPassword.toUpperCase();
             return this;
         }
 
         public User build() {
             if(id == null) {
-                id = new User(id);
+                id = new UserId();
             }
 
-            if(build().username == null || build().username.isEmpty()) {
+            if(username == null || username.isEmpty()) {
                 throw new java.lang.IllegalArgumentException("Username is mandatory.");
             }
-            if(build().encryptedPassword == null || build().encryptedPassword.isEmpty()) {
+            if(encryptedPassword == null || encryptedPassword.isEmpty()) {
                 throw new java.lang.IllegalArgumentException("Password is mandatory.");
             }
-            if(build().firstname == null || build().firstname.isEmpty()) {
+            if(firstname == null || firstname.isEmpty()) {
                 throw new java.lang.IllegalArgumentException("Firstname is mandatory.");
             }
-            if(build().lastname == null || build().lastname.isEmpty()) {
+            if(lastname == null || lastname.isEmpty()) {
                 throw new java.lang.IllegalArgumentException("Lastname is mandatory.");
             }
-            if(build().email == null || build().email.isEmpty()) {
-                throw new java.lang.IllegalArgumentException("email is mandatory.");
+            if(email == null || email.isEmpty()) {
+                throw new java.lang.IllegalArgumentException("Email is mandatory.");
             }
 
-            User newUser = new User(build().id, build().username, build().email, build().firstname, build().lastname, build().encryptedPassword);
+            User newUser = new User(id, username, email, firstname, lastname, encryptedPassword);
             return newUser;
         }
     }

@@ -10,14 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9b5c20f-6a6b-4794-91db-088559d67d0a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/authenticate/AuthenticateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/authenticate/AuthenticationFailedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/authenticate/CurrentUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/login/RegisterCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/login/RegistrationFailedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginPageEndpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LogoutCommandServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/ResgisterCommandEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UserFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/answer/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/answer/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/question/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/question/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/UserId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/UserId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/presentation/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/presentation/RegisterServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,14 +41,13 @@
     <option name="done" value="true" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,6 +72,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1iBmXRlYbso215Y1w848cQbfnVu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -206,10 +221,11 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601493083584" />
-    <state x="200" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1601496637190">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state x="241" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1601567569882">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="200" y="67" key="#com.intellij.ide.util.MemberChooser/62.0.1218.720@62.0.1218.720" timestamp="1601496637190" />
+    <state x="241" y="80" key="#com.intellij.ide.util.MemberChooser/75.0.1461.864@75.0.1461.864" timestamp="1601567569882" />
     <state x="438" y="255" width="468" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1601495209758">
       <screen x="62" y="0" width="1218" height="720" />
     </state>

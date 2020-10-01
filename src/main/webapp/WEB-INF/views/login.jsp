@@ -51,5 +51,11 @@
     <span>Vous souhaitez vous enregistrer?</span>
     <a href="./register">Cliquez ici</a>
 </div>
+
+<div class="messages">
+    <c:forEach var="error" items="${errors}">
+        <div class="error">${error}</div>
+    </c:forEach>
+</div>
 </body>
 </html>

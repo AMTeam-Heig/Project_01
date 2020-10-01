@@ -23,6 +23,11 @@ public class InMemoryUserRepository extends InMemoryRepository<User, UserId> imp
     }
 
     @Override
+    public Collection<User> find(UsersQuery query) {
+        return null;
+    }
+
+    @Override
     public Optional<User> findByUsername(String username) {
         List<User> matchingEntities = findAll().stream()
                 .filter(u -> u.getUsername().equals(username))
