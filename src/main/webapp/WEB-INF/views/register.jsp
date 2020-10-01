@@ -18,9 +18,33 @@
 <body>
 <div class="login-block">
     <div class="app-name">
-        <span>Enregistrez-vous!</span>
+        <span>S'enregistrer</span>
     </div>
     <form action="./register" method="POST">
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="firstname" class="col-form-label">Prénom</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="text" id="firstname" class="form-control" placeholder="Olivier">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="nom" class="col-form-label">Nom</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="text" id="nom" class="form-control" placeholder="Liechti">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="email" class="col-form-label">E-mail</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="text" id="email" class="form-control" placeholder="prenom.nom@exemple.com">
+            </div>
+        </div>
         <div class="form-group row">
             <div class="col-md-5">
                 <label for="login" class="col-form-label">Identifiant</label>
