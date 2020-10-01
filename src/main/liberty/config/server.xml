@@ -6,6 +6,6 @@
     <variable name="default.http.port" defaultValue="9080"/>
     <variable name="default.https.port" defaultValue="9443"/>
 
-    <webApplication location="Project_01.war" contextRoot="/" />
+    <webApplication location="Project_01.war" contextRoot="/Project_01" />
 
 </server>
