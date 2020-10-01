@@ -43,9 +43,13 @@
         </div>
     </form>
     <c:if test="${error != null}">
-        <hr>
+        <hr> Il y a eu un problème de connexion
         ${error}
     </c:if>
+    <c:if test="${user != null}">
+        <hr> Bienvenue ${user.userName} !
+    </c:if>
+
 </div>
 <div class="login-block">
     <a href="./register">Créer un compte</a>

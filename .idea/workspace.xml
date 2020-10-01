@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="Project_01:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9b5c20f-6a6b-4794-91db-088559d67d0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/RegisterPageEndpoint.java" afterDir="false" />
+    <list default="true" id="e707aa40-41eb-446d-b1bc-971d26e4aa73" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/pipeline.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/ServiceRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/ServiceRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/ResgisterCommandEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/RegisterCommandEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/payara/test.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
   <component name="ComposerSettings">
     <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Tag Library Descriptor" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,40 +54,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.1\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="1iBmXRlYbso215Y1w848cQbfnVu" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-=======
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1iHfVV5ESLjETabC7p7ECWIs7u2" />
->>>>>>> 1a1f79fceb6d2c120fd11e705d8e1098bfa69345
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Semestre 4/RES/Laboratoires" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-<<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -244,6 +218,4 @@
     </state>
     <state width="972" height="190" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
   </component>
-=======
->>>>>>> 1a1f79fceb6d2c120fd11e705d8e1098bfa69345
 </project>
