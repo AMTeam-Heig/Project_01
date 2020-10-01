@@ -1,54 +1,41 @@
 package ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory;
 
 import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
+import ch.heigvd.amt.stackovergoat.domain.Id;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 import ch.heigvd.amt.stackovergoat.domain.user.UserId;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-public class InMemoryUserRepository implements IUserRepository {
-
-    private Map<UserId, User> store = new ConcurrentHashMap<>();
-
+public class InMemoryUserRepository extends InMemoryRepository<User, UserId> implements IUserRepository {
     @Override
-    public void save(User user) {
-        store.put(user.getId(), user);
+    public void save(User entity) {
+        synchronized (entity.getUsername()) {
+            if (!findByUsername(entity.getUsername()).isEmpty()) {
+                //throw new IntegrityConstraintViolationException("Cannot save/update person...");
+            }
+            super.save(entity);
+        }
     }
 
     @Override
-    public void remove(UserId userId) {
-        store.remove(userId);
-    }
-
-    @Override
-    public Optional<User> findById(UserId userId) {
-        User existingUser = store.get(userId);
-        if (existingUser == null) {
+    public Optional<User> findByUsername(String username) {
+        List<User> matchingEntities = findAll().stream()
+                .filter(u -> u.getUsername().equals(username))
+                .collect(Collectors.toList());
+        if(matchingEntities.size() < 1) {
             return Optional.empty();
         }
-        User clonedUser = existingUser.toBuilder().build();
-        return Optional.of(clonedUser);
-    }
 
-    @Override
-    public Collection<User> findAll() {
-        return store.values().stream()
-                .map(user -> user.toBuilder().build())
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public Collection<User> find(UsersQuery query) {
-        if(query != null && query.isUser()) {
-            return findAll().stream()
-                    .filter(user -> user.getUsername() != null)
-                    .collect(Collectors.toList());
+        if(matchingEntities.size() > 1) {
+            //throw new DataCorruptionException("Your data store is corrupted...");
         }
-        return findAll();
+
+        return Optional.of(matchingEntities.get(0).deepClone());
     }
+
 }

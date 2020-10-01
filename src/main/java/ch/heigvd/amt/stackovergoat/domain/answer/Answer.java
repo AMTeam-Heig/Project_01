@@ -1,7 +1,6 @@
 package ch.heigvd.amt.stackovergoat.domain.answer;
 
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
-import ch.heigvd.amt.stackovergoat.domain.question.Question;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -13,12 +12,9 @@ import lombok.Setter;
 public class Answer implements IEntity {
 
     @Setter(AccessLevel.NONE)
-    private AnswerId id = new AnswerId();
-
-    private AnswerId questionId;
-
+    private AnswerId id;
+    private QuestionId questionId;
     private String author;
-
     private String text;
 
     public static class AnswerBuilder {
