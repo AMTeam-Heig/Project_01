@@ -30,11 +30,11 @@ public class RegisterCommandEndpoint extends HttpServlet {
                 .build();
         try {
             identityManagementFacade.register(registerCommand);
-            request.getRequestDispatcher("/login.do").forward(request, response);
+            request.getRequestDispatcher("./login.do").forward(request, response);
             return;
         } catch (RegistrationFailedException e) {
             request.getSession().setAttribute("errors", List.of(e.getMessage()));
-            response.sendRedirect("/login");
+            response.sendRedirect("./login");
             return;
         }
 

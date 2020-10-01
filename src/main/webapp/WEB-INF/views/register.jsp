@@ -20,7 +20,7 @@
     <div class="app-name">
         <span>S'enregistrer</span>
     </div>
-    <form action="./register" method="POST">
+    <form action="./register.do" method="POST">
         <div class="form-group row">
             <div class="col-md-5">
                 <label for="firstname" class="col-form-label">Prénom</label>
