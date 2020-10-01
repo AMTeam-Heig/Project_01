@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="Project_01:war exploded" />
@@ -66,6 +67,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iHfVV5ESLjETabC7p7ECWIs7u2" />
+>>>>>>> 1a1f79fceb6d2c120fd11e705d8e1098bfa69345
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -75,6 +82,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+<<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -236,4 +244,6 @@
     </state>
     <state width="972" height="190" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601571136448" />
   </component>
+=======
+>>>>>>> 1a1f79fceb6d2c120fd11e705d8e1098bfa69345
 </project>
