@@ -18,7 +18,8 @@ public class RegisterCommandEndpoint extends HttpServlet {
     private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
     private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         request.getSession().removeAttribute("errors");
 
         RegisterCommand registerCommand = RegisterCommand.builder()
@@ -30,6 +31,8 @@ public class RegisterCommandEndpoint extends HttpServlet {
                 .build();
         try {
             identityManagementFacade.register(registerCommand);
+            request.setAttribute("username", registerCommand.getUsername());
+            request.setAttribute("password", registerCommand.getClearTextPassword());
             request.getRequestDispatcher("./login.do").forward(request, response);
             return;
         } catch (RegistrationFailedException e) {

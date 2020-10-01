@@ -27,7 +27,7 @@ public class LoginCommandEndpoint extends HttpServlet {
 
         AuthenticateCommand authenticateCommand = AuthenticateCommand.builder()
                 .username(req.getParameter("username"))
-                .clearTextPassword(req.getParameter("password"))
+                .clearTextPassword(req.getParameter("clearTextPassword"))
                 .build();
 
         try {
