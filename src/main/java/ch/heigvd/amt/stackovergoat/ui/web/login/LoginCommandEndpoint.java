@@ -27,7 +27,7 @@ public class LoginCommandEndpoint extends HttpServlet {
 
         AuthenticateCommand authenticateCommand = AuthenticateCommand.builder()
                 .username(req.getParameter("username"))
-                .clearTextPassword(req.getParameter("password"))
+                .clearTextPassword(req.getParameter("clearTextPassword"))
                 .build();
 
         try {
@@ -39,7 +39,7 @@ public class LoginCommandEndpoint extends HttpServlet {
             return;
         } catch (AuthenticationFailedException e) {
             req.getSession().setAttribute("errors", List.of(e.getMessage()));
-            resp.sendRedirect("/login");
+            resp.sendRedirect("./login");
             return;
         }
     }

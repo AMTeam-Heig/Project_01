@@ -20,21 +20,21 @@
     <div class="app-name">
         <span>S'enregistrer</span>
     </div>
-    <form action="./register" method="POST">
+    <form action="./register.do" method="POST">
         <div class="form-group row">
             <div class="col-md-5">
                 <label for="firstname" class="col-form-label">Prénom</label>
             </div>
             <div class="col-md-6">
-                <input type="text" name="text" id="firstname" class="form-control" placeholder="Olivier">
+                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Olivier">
             </div>
         </div>
         <div class="form-group row">
             <div class="col-md-5">
-                <label for="nom" class="col-form-label">Nom</label>
+                <%--@declare id="lastname"--%><label for="lastname" class="col-form-label">Nom</label>
             </div>
             <div class="col-md-6">
-                <input type="text" name="text" id="nom" class="form-control" placeholder="Liechti">
+                <input type="text" name="lastname" id="nom" class="form-control" placeholder="Liechti">
             </div>
         </div>
         <div class="form-group row">
@@ -42,12 +42,12 @@
                 <label for="email" class="col-form-label">E-mail</label>
             </div>
             <div class="col-md-6">
-                <input type="text" name="text" id="email" class="form-control" placeholder="prenom.nom@exemple.com">
+                <input type="text" name="email" id="email" class="form-control" placeholder="prenom.nom@exemple.com">
             </div>
         </div>
         <div class="form-group row">
             <div class="col-md-5">
-                <label for="login" class="col-form-label">Identifiant</label>
+                <%--@declare id="username"--%><label for="username" class="col-form-label">Identifiant</label>
             </div>
             <div class="col-md-6">
                 <input type="text" name="username" id="login" class="form-control" placeholder="Identifiant">
@@ -55,10 +55,10 @@
         </div>
         <div class="form-group row">
             <div class="col-md-5">
-                <label for="password" class="col-form-label">Mot de passe</label>
+                <%--@declare id="cleartextpassword"--%><label for="clearTextPassword" class="col-form-label">Mot de passe</label>
             </div>
             <div class="col-md-6">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
+                <input type="password" name="clearTextPassword" id="password" class="form-control" placeholder="Mot de passe">
             </div>
         </div>
         <div class="form-group row">
