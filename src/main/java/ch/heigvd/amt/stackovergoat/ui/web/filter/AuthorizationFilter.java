@@ -49,10 +49,14 @@ public class AuthorizationFilter implements Filter {
         if(URI.startsWith("/register")) {
             return true;
         }
+        if(URI.startsWith("/questions")) {
+            return true;
+        }
         if(URI.startsWith("/")) {
             return true;
         }
-        return false;
+        // TODO : set to false
+        return true;
     }
 
 }

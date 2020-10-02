@@ -25,9 +25,23 @@ public class QuestionFacade {
     public QuestionsDTO getQuestions(QuestionsQuery query) {
         Collection<Question> allQuestions = questionRepository.find(query);
 
-        List<QuestionsDTO.QuestionDTO> allQuestionsDTO = allQuestions.stream().map(question -> QuestionsDTO.QuestionDTO.builder()
+        List<QuestionsDTO.QuestionDTO> allQuestionsDTO = allQuestions.stream()
+                .map(question -> QuestionsDTO.QuestionDTO.builder()
                 .text(question.getText())
                 .build()).collect(Collectors.toList());
+
+        return QuestionsDTO.builder()
+                .questions(allQuestionsDTO)
+                .build();
+    }
+
+    public QuestionsDTO getAllQuestions() {
+        Collection<Question> allQuestions = questionRepository.findAll();
+
+        List<QuestionsDTO.QuestionDTO> allQuestionsDTO = allQuestions.stream()
+                .map(question -> QuestionsDTO.QuestionDTO.builder()
+                        .text(question.getText())
+                        .build()).collect(Collectors.toList());
 
         return QuestionsDTO.builder()
                 .questions(allQuestionsDTO)

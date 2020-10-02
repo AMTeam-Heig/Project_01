@@ -28,13 +28,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9b5c20f-6a6b-4794-91db-088559d67d0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/ServiceRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/ServiceRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UserFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/RegisterCommandEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/RegisterCommandEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/question/QuestionFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/question/QuestionFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/question/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/question/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/filter/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/filter/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/question/ProposeQuestionCommandEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/question/ProposeQuestionCommandEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/question/QuestionsQueryEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/question/QuestionsQueryEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/ask.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/ask.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +62,8 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -84,6 +86,19 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager" selected="GlassFish Server.GlassFish 5.2020.4">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GlassFish 5.2020.4" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.2020.4" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -271,11 +286,11 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="591" y="324" key="#JBoss_Server/75.0.1461.864@75.0.1461.864" timestamp="1601575589328" />
-    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601575696176">
+    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601629808484">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601574126497" />
-    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1601575696176" />
+    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1601629808484" />
     <state x="611" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1601577660040">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
@@ -292,62 +307,66 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="587" y="187" key="FileChooserDialogImpl/75.0.1461.864@75.0.1461.864" timestamp="1601575643248" />
-    <state width="972" height="192" key="GridCell.Tab.0.bottom" timestamp="1601621411648">
+    <state width="972" height="134" key="GridCell.Tab.0.bottom" timestamp="1601629816912">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601574233586" />
-    <state width="972" height="192" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601621411648" />
-    <state width="972" height="192" key="GridCell.Tab.0.center" timestamp="1601621411648">
+    <state width="972" height="134" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601629816912" />
+    <state width="972" height="134" key="GridCell.Tab.0.center" timestamp="1601629816912">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1601574233585" />
-    <state width="972" height="192" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1601621411648" />
-    <state width="972" height="192" key="GridCell.Tab.0.left" timestamp="1601621411648">
+    <state width="972" height="134" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1601629816912" />
+    <state width="972" height="134" key="GridCell.Tab.0.left" timestamp="1601629816912">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1601574233585" />
-    <state width="972" height="192" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1601621411648" />
-    <state width="972" height="192" key="GridCell.Tab.0.right" timestamp="1601621411648">
+    <state width="972" height="134" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1601629816912" />
+    <state width="972" height="134" key="GridCell.Tab.0.right" timestamp="1601629816912">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1601574233585" />
-    <state width="972" height="192" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1601621411648" />
-    <state width="972" height="192" key="GridCell.Tab.1.bottom" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1601629816912" />
+    <state width="972" height="134" key="GridCell.Tab.1.bottom" timestamp="1601629816759">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601574233586" />
-    <state width="972" height="192" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.1.center" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601629816759" />
+    <state width="972" height="134" key="GridCell.Tab.1.center" timestamp="1601629816758">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1601574233586" />
-    <state width="972" height="192" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.1.left" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601629816758" />
+    <state width="972" height="134" key="GridCell.Tab.1.left" timestamp="1601629816758">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1601574233586" />
-    <state width="972" height="192" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.1.right" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601629816758" />
+    <state width="972" height="134" key="GridCell.Tab.1.right" timestamp="1601629816758">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="258" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1601574233586" />
-    <state width="972" height="192" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.2.bottom" timestamp="1601621411456">
+    <state width="972" height="134" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601629816758" />
+    <state width="972" height="134" key="GridCell.Tab.2.bottom" timestamp="1601625131168">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="972" height="192" key="GridCell.Tab.2.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601621411456" />
-    <state width="972" height="192" key="GridCell.Tab.2.center" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.2.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601625131168" />
+    <state width="972" height="134" key="GridCell.Tab.2.center" timestamp="1601625131168">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="972" height="192" key="GridCell.Tab.2.center/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.2.left" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.2.center/75.0.1461.864@75.0.1461.864" timestamp="1601625131168" />
+    <state width="972" height="134" key="GridCell.Tab.2.left" timestamp="1601625131168">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="972" height="192" key="GridCell.Tab.2.left/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
-    <state width="972" height="192" key="GridCell.Tab.2.right" timestamp="1601621411455">
+    <state width="972" height="134" key="GridCell.Tab.2.left/75.0.1461.864@75.0.1461.864" timestamp="1601625131168" />
+    <state width="972" height="134" key="GridCell.Tab.2.right" timestamp="1601625131168">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="972" height="192" key="GridCell.Tab.2.right/75.0.1461.864@75.0.1461.864" timestamp="1601621411455" />
+    <state width="972" height="134" key="GridCell.Tab.2.right/75.0.1461.864@75.0.1461.864" timestamp="1601625131168" />
+    <state x="168" y="93" width="1275" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601625563352">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state x="168" y="93" width="1275" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/75.0.1461.864@75.0.1461.864" timestamp="1601625563352" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -366,16 +385,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java</url>
           <line>31</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/ServiceRegistry.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/RegisterCommandEndpoint.java</url>

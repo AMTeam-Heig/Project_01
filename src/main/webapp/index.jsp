@@ -29,10 +29,10 @@
     <div class="card">
         <center><h2>Ask something !</h2></center>
         <p>
-        <form>
+        <form action="./submitQuestion.do" method="POST">
             <div class="form-group">
                 <label for="ask">Your question</label>
-                <input type="text" class="form-control" id="ask" placeholder="ask question">
+                <input name="text" type="text" class="form-control" id="ask" placeholder="ask question">
                 <small id="askHelp" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -42,9 +42,7 @@
 
     <div class="card">
         <center><h2>Questions</h2></center>
-        <p>
-            Blablabla
-        </p>
+        <jsp:include flush="true" page="WEB-INF/views/fragments/ask.jsp"/>
     </div>
 </div>
 

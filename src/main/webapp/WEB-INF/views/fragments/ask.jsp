@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<h2> All questions </h2>
-1 - ${requestScope.questions.get(0).title}<br/>
-2 - ${requestScope.questions.get(1).title}<br/>
-</body>
+<c:if test="${questions != null}">
+    <c:forEach var="question" items="${questions}">
+        <p >${question}</p>
+    </c:forEach>
+</c:if>
