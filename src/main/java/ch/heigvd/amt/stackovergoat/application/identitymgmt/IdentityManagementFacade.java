@@ -30,6 +30,7 @@ public class IdentityManagementFacade {
                     .lastname(command.getLastname())
                     .email(command.getEmail())
                     .clearTextPassword(command.getClearTextPassword())
+                    .encryptedPassword(command.getClearTextPassword())
                     .build();
             userRepository.save(newUser);
         } catch (Exception e) {
