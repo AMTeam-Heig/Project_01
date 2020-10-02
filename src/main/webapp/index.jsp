@@ -4,18 +4,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/stylesheet.css">
     <title>Welcome to StackOverGoat</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./style/app.css" rel="stylesheet">
+    <link href="./style/login.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
+
 </head>
 <html>
-    <jsp:include  flush="true" page="WEB-INF/views/fragments/header.jsp"/>
-    <body>
-    <br /><br />
-    <center><h1>- StackOverGoat -</h1></center>
+<jsp:include flush="true" page="WEB-INF/views/fragments/header.jsp"/>
 
-    <h2>Let the chickens era begins !</h2>
-    <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+<body>
+<div style="text-align: center;">
+    <h1>- StackOverGoat -</h1>
+</div>
+<c:if test="${username != null}">
+    <hr>
+    Welcome ${username} !
+</c:if>
+<div class="card-group">
+    <div class="card">
+        <center><h2>Ask something !</h2></center>
+        <p>
+        <form>
+            <div class="form-group">
+                <label for="ask">Your question</label>
+                <input type="text" class="form-control" id="ask" placeholder="ask question">
+                <small id="askHelp" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </p>
+    </div>
 
-    <c:if test="${username != null}">
-        <hr> Welcome ${username} !
-    </c:if>
-    </body>
+    <div class="card">
+        <center><h2>Questions</h2></center>
+        <p>
+            Blablabla
+        </p>
+    </div>
+</div>
+
+</body>
 </html>
