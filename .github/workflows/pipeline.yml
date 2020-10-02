@@ -51,13 +51,9 @@ jobs:
 
       - name: Building the Docker image
         run: |
-<<<<<<< HEAD
-
           echo ${{ secrets.STACKOVERGOAT_APT }} | winpty docker login  ghcr.io -u Dev-technique-u --password-stdin
           docker build -t sog/stackovergoat .
-=======
           echo ${{ secrets.STACKOVERGOAT_APT }} | docker login ghcr.io -u Dev-technique-u --password-stdin
           docker build -t sog/stackovergoat
->>>>>>> b2bd3b8ae2316fd4d6cdc8e90e199497b10400cf
           docker tag sog/stackovergoat ghcr.io/sog/stackovergoat
           docker push ghcr.io/sog/stackovergoat
