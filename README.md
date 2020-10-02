@@ -1,4 +1,1 @@
-pour lancer le liberty server :
-1 : mvn clean package
-une fois que le .jar est généré  :lancer la commande
-java -jar taget/Project_01.jar  
+![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg)
