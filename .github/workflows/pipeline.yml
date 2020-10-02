@@ -41,7 +41,7 @@ jobs:
 
       - name: Building the Docker image
         run: |
-           echo ${{ secrets.STACKOVERGOAT_APT }} | docker login ghcr.io -u ChickenLivesMatter --password-stdi
+           echo ${{ secrets.STACKOVERGOAT_APT }} | docker login ghcr.io -u ChickenLivesMatter --password-stdin
            docker build -t sog/stackovergoat docker/images/openLiberty
            docker tag sog/stackovergoat ghcr.io/sog/stackovergoat
            docker push ghcr.io/sog/stackovergoat
