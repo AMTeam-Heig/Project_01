@@ -14,8 +14,11 @@ public class InMemoryRepository<ENTITY extends IEntity<ENTITY, ID>, ID extends I
     private Map<ID, ENTITY> store = new ConcurrentHashMap<>();
 
     public void save(ENTITY entity) {
-        entity.getId();
-        store.put(entity.getId(), entity);
+        if(entity.getId() == null) {
+            System.out.println("Error : Id should not be null");
+        } else {
+          store.put(entity.getId(), entity);
+        }
     }
 
     public void remove(ID id) {

@@ -42,7 +42,6 @@
 
     <div class="card">
         <center><h2>Questions</h2></center>
-        <jsp:include flush="true" page="./fragments/ask.jsp"/>
         <c:forEach var="question" items="${questions.questions}">
             <p >${question.text}</p>
         </c:forEach>

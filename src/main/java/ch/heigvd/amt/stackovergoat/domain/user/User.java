@@ -29,11 +29,6 @@ public class User implements IEntity<User, UserId> {
                 .build();
     }
 
-    @Override
-    public UserId getId() {
-        return null;
-    }
-
     public String getUsername() {
         return username;
     }
