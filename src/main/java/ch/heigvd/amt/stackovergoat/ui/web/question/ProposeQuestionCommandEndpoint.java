@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.ui.web.question;
 
 import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 
@@ -18,12 +19,22 @@ public class ProposeQuestionCommandEndpoint extends HttpServlet {
     private QuestionFacade questionFacade = serviceRegistry.getQuestionFacade();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        /*
+        CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
+        ProposeQuestionCommand command = null;
+        if (user != null) {
+            command = ProposeQuestionCommand.builder()
+                    .text(req.getParameter("text"))
+                    .author(user.getUsername())
+                    .build();
+        } else {*/
         ProposeQuestionCommand command = ProposeQuestionCommand.builder()
-                .author("anonymous")
-                .text(req.getParameter("text"))
-                .build();
+                    .text(req.getParameter("text"))
+                    .author("anonymous")
+                    .build();
+        //}
 
         questionFacade.proposeQuestion(command);
-        resp.sendRedirect("/questions");
+        resp.sendRedirect("./home");
     }
 }

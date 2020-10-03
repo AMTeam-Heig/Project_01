@@ -15,7 +15,7 @@
 
 </head>
 <html>
-<jsp:include flush="true" page="WEB-INF/views/fragments/header.jsp"/>
+<jsp:include flush="true" page="./fragments/header.jsp"/>
 
 <body>
 <div style="text-align: center;">
@@ -42,7 +42,10 @@
 
     <div class="card">
         <center><h2>Questions</h2></center>
-        <jsp:include flush="true" page="WEB-INF/views/fragments/ask.jsp"/>
+        <jsp:include flush="true" page="./fragments/ask.jsp"/>
+        <c:forEach var="question" items="${questions.questions}">
+            <p >${question.text}</p>
+        </c:forEach>
     </div>
 </div>
 

@@ -32,7 +32,7 @@ public class RegisterCommandEndpoint extends HttpServlet {
         try {
             identityManagementFacade.register(registerCommand);
             request.setAttribute("username", registerCommand.getUsername());
-            request.setAttribute("password", registerCommand.getClearTextPassword());
+            request.setAttribute("clearTextPassword", registerCommand.getClearTextPassword());
             request.getRequestDispatcher("./login.do").forward(request, response);
             return;
         } catch (RegistrationFailedException e) {

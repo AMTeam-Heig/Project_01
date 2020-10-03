@@ -17,6 +17,10 @@ public class UserFacade {
     public void proposeUser(ProposeUserCommand command) {
         User submittedUser = User.builder()
                 .username(command.getUsername())
+                .email(command.getEmail())
+                .firstname(command.getFirstname())
+                .lastname(command.getLastname())
+                .clearTextPassword(command.getClearTextPassword())
                 .build();
         userRepository.save(submittedUser);
     }
