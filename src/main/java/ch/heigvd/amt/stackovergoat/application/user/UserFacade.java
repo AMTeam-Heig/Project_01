@@ -28,9 +28,11 @@ public class UserFacade {
     public UsersDTO getUsers(UsersQuery query) {
         Collection<User> allUsers = userRepository.find(query);
 
-        List<UsersDTO.UserDTO> allUsersDTO = allUsers.stream().map(user -> UsersDTO.UserDTO.builder()
+        List<UsersDTO.UserDTO> allUsersDTO = allUsers.stream()
+            .map(user -> UsersDTO.UserDTO.builder()
                 .username(user.getUsername())
-                .build()).collect(Collectors.toList());
+                .build())
+            .collect(Collectors.toList());
 
         return UsersDTO.builder()
                 .users(allUsersDTO)

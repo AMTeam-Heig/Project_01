@@ -34,7 +34,7 @@ public class LoginCommandEndpoint extends HttpServlet {
             currentUserDTO = identityManagementFacade.authenticate(authenticateCommand);
             req.getSession().setAttribute("currentUser", currentUserDTO);
             String targetUrl = (String)req.getSession().getAttribute("targetUrl");
-            targetUrl = (targetUrl != null) ? targetUrl : "/";
+            targetUrl = (targetUrl != null) ? targetUrl : "./home";
             resp.sendRedirect(targetUrl);
             return;
         } catch (AuthenticationFailedException e) {

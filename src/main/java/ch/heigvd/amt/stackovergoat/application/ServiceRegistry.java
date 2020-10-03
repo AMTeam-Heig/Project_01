@@ -56,7 +56,7 @@ public class ServiceRegistry {
         initValues();
     }
 
-    private void initValues() {/*
+    private void initValues() {
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("qwer")
                 .email("qwer@qwe.com")
@@ -64,7 +64,7 @@ public class ServiceRegistry {
                 .lastname("Nymous")
                 .clearTextPassword("1234")
                 .build());
-
+/*
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("wasa")
                 .email("wa@sa.lol")
