@@ -43,7 +43,7 @@
     <div class="card">
         <center><h2>Questions</h2></center>
         <c:forEach var="question" items="${questions.questions}">
-            <p >${question.text}</p>
+            <p><b>${question.author}</b> asks ${question.text}</p>
         </c:forEach>
     </div>
 </div>

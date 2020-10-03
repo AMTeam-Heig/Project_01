@@ -64,7 +64,7 @@ public class ServiceRegistry {
                 .lastname("Nymous")
                 .clearTextPassword("1234")
                 .build());
-/*
+
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("wasa")
                 .email("wa@sa.lol")
@@ -89,7 +89,7 @@ public class ServiceRegistry {
         questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
                 .text("What ?")
                 .author("Elodie")
-                .build());*/
+                .build());
 
         questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
                 .text("What is GOAT?")
