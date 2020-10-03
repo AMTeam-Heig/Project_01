@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "QuestionsPageHandler", urlPatterns = "/question")
+@WebServlet(name = "QuestionsPageHandler", urlPatterns = "/home")
 public class QuestionsQueryEndpoint extends HttpServlet {
 
     private ServiceRegistry serviceRegistry;
@@ -29,6 +29,6 @@ public class QuestionsQueryEndpoint extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         QuestionsDTO questionsDTO = questionFacade.getAllQuestions();
         req.setAttribute("questions", questionsDTO);
-        req.getRequestDispatcher("/WEB-INF/views/fragments/ask.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
     }
 }

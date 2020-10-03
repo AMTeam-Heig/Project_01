@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<c:if test="${questions != null}">
-    <c:forEach var="question" items="${questions}">
-        <p >${question}</p>
-    </c:forEach>
-</c:if>
+<c:forEach var="question" items="${questions.questions}">
+    <p >${question.text}</p>
+</c:forEach>

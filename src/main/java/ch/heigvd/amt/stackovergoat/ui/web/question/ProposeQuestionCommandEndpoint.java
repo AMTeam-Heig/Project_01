@@ -35,6 +35,6 @@ public class ProposeQuestionCommandEndpoint extends HttpServlet {
         //}
 
         questionFacade.proposeQuestion(command);
-        resp.sendRedirect("./");
+        resp.sendRedirect("./home");
     }
 }
