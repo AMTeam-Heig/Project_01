@@ -17,6 +17,7 @@ public class UsersDTO {
     @EqualsAndHashCode
     public static class UserDTO {
         private String username;
+        // TODO : add first and last names
     }
 
     @Singular

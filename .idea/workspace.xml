@@ -27,18 +27,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9b5c20f-6a6b-4794-91db-088559d67d0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/img/goat-title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/img/goat.png" afterDir="false" />
+    <list default="true" id="08bfb237-f468-4995-adba-279843649df9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/All_in_Project_01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stackovergoat/application/identitymgmt/IdentityManagementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stackovergoat/application/user/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/authenticate/AuthenticationFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/authenticate/AuthentificationFailedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/user/UsersDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/ui/web/login/LoginCommandEndpoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,7 @@
         <option value="Tag Library Descriptor" />
         <option value="cdi.beans_2_0" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -92,16 +92,30 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Elodie\Desktop\SCHOOL\SEMESTRE 5\AMT\PROJET\Project_01\src\main\webapp\style\img" />
-      <recent name="C:\Users\Elodie\Desktop\SCHOOL\SEMESTRE 5\AMT\PROJET\Project_01\src\main\webapp\WEB-INF\views\fragments" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Elodie\Desktop\SCHOOL\SEMESTRE 5\AMT\PROJET\Project_01\src\main\webapp\style\img" />
       <recent name="C:\Users\clari\Documents\HEIG\BA5\AMT\Project_01\src\main\webapp\WEB-INF\views" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="stackovergoat.application.user" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Elodie\Desktop\SCHOOL\SEMESTRE 5\AMT\PROJET\Project_01\src\main\webapp\style\img" />
+      <recent name="C:\Users\Elodie\Desktop\SCHOOL\SEMESTRE 5\AMT\PROJET\Project_01\src\main\webapp\WEB-INF\views\fragments" />
+    </key>
   </component>
-  <component name="RunManager" selected="GlassFish Server.GlassFish 5.2020.4">
+  <component name="RunManager" selected="JUnit.All in Project_01">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Jboss" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 21.0.0.Beta1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -175,10 +189,100 @@
         </option>
       </method>
     </configuration>
+    <configuration name="IdentityManagementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_01" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stackovergoat.application.identitymgmt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ch.heigvd.amt.stackovergoat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="stackovergoat.application.identitymgmt" />
+      <option name="MAIN_CLASS_NAME" value="stackovergoat.application.identitymgmt.IdentityManagementTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest$Facade.getUsersShouldReturnANonEmptyCollection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stackovergoat.application.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="stackovergoat.application.user" />
+      <option name="MAIN_CLASS_NAME" value="stackovergoat.application.user.UserTest$Facade" />
+      <option name="METHOD_NAME" value="getUsersShouldReturnANonEmptyCollection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest$Facade.oups" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stackovergoat.application.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="stackovergoat.application.user" />
+      <option name="MAIN_CLASS_NAME" value="stackovergoat.application.user.UserTest$Facade" />
+      <option name="METHOD_NAME" value="oups" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_01" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stackovergoat.application.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ch.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="stackovergoat.application.user" />
+      <option name="MAIN_CLASS_NAME" value="stackovergoat.application.user.UserTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="GlassFish Server.GlassFish 5.2020.4" />
       <item itemvalue="JBoss Server.Jboss" />
+      <item itemvalue="JUnit.All in Project_01" />
+      <item itemvalue="JUnit.IdentityManagementTest" />
+      <item itemvalue="JUnit.UserTest" />
+      <item itemvalue="JUnit.UserTest$Facade.getUsersShouldReturnANonEmptyCollection" />
+      <item itemvalue="JUnit.UserTest$Facade.oups" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in Project_01" />
+        <item itemvalue="JUnit.UserTest$Facade.oups" />
+        <item itemvalue="JUnit.UserTest$Facade.getUsersShouldReturnANonEmptyCollection" />
+        <item itemvalue="JUnit.UserTest" />
+        <item itemvalue="JUnit.IdentityManagementTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -218,19 +322,23 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="591" y="324" key="#JBoss_Server/75.0.1461.864@75.0.1461.864" timestamp="1601575589328" />
-    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601736959856">
+    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601821470807">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="127" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1218.720@62.0.1218.720" timestamp="1601574126497" />
-    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1601736959856" />
+    <state x="153" y="0" width="1307" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1601821470807" />
     <state x="611" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1601577660040">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="611" y="139" key="#com.intellij.ide.util.MemberChooser/75.0.1461.864@75.0.1461.864" timestamp="1601577660040" />
-    <state x="537" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1601575650215">
+    <state x="536" y="208" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1601821442633">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state x="537" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog/75.0.1461.864@75.0.1461.864" timestamp="1601575650215" />
+    <state x="536" y="208" key="#com.intellij.ide.util.PackageChooserDialog/75.0.1461.864@75.0.1461.864" timestamp="1601821442633" />
+    <state x="537" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1601821435114">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state x="537" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog/75.0.1461.864@75.0.1461.864" timestamp="1601821435114" />
     <state x="327" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601621687493">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
@@ -239,46 +347,46 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="587" y="187" key="FileChooserDialogImpl/75.0.1461.864@75.0.1461.864" timestamp="1601575643248" />
-    <state width="801" height="176" key="GridCell.Tab.0.bottom" timestamp="1601764304866">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="201" key="GridCell.Tab.0.bottom" timestamp="1601821592838">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601764304866" />
-    <state width="1062" height="203" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601743602905" />
-    <state width="801" height="176" key="GridCell.Tab.0.center" timestamp="1601764304866">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="201" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601821592838" />
+    <state width="1418" height="201" key="GridCell.Tab.0.center" timestamp="1601821592838">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1601764304866" />
-    <state width="1062" height="203" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1601743602904" />
-    <state width="801" height="176" key="GridCell.Tab.0.left" timestamp="1601764304866">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="201" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1601821592838" />
+    <state width="1418" height="201" key="GridCell.Tab.0.left" timestamp="1601821592837">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1601764304866" />
-    <state width="1062" height="203" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1601743602904" />
-    <state width="801" height="176" key="GridCell.Tab.0.right" timestamp="1601764304866">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="201" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1601821592837" />
+    <state width="1418" height="201" key="GridCell.Tab.0.right" timestamp="1601821592838">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1601764304866" />
-    <state width="1062" height="203" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1601743602904" />
-    <state width="801" height="176" key="GridCell.Tab.1.bottom" timestamp="1601764304549">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="201" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1601821592838" />
+    <state width="1418" height="360" key="GridCell.Tab.1.bottom" timestamp="1601820751939">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1601764304549" />
-    <state width="1062" height="203" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601743602905" />
-    <state width="801" height="176" key="GridCell.Tab.1.center" timestamp="1601764304548">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="360" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601820751939" />
+    <state width="1418" height="360" key="GridCell.Tab.1.center" timestamp="1601820751938">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1601764304548" />
-    <state width="1062" height="203" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601743602905" />
-    <state width="801" height="176" key="GridCell.Tab.1.left" timestamp="1601764304548">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="360" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601820751938" />
+    <state width="1418" height="360" key="GridCell.Tab.1.left" timestamp="1601820751938">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1601764304548" />
-    <state width="1062" height="203" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601743602905" />
-    <state width="801" height="176" key="GridCell.Tab.1.right" timestamp="1601764304549">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="360" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601820751938" />
+    <state width="1418" height="360" key="GridCell.Tab.1.right" timestamp="1601820751938">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="801" height="176" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1601764304549" />
-    <state width="1062" height="203" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601743602905" />
+    <state width="1418" height="360" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601820751938" />
     <state width="1062" height="279" key="GridCell.Tab.2.bottom" timestamp="1601743223578">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
@@ -295,6 +403,14 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state width="1062" height="279" key="GridCell.Tab.2.right/75.0.1461.864@75.0.1461.864" timestamp="1601743223578" />
+    <state x="215" y="69" key="MergeDialog" timestamp="1601815089174">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state x="215" y="69" key="MergeDialog/75.0.1461.864@75.0.1461.864" timestamp="1601815089174" />
+    <state x="445" y="194" key="MultipleFileMergeDialog" timestamp="1601815089188">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state x="445" y="194" key="MultipleFileMergeDialog/75.0.1461.864@75.0.1461.864" timestamp="1601815089188" />
     <state x="168" y="93" width="1275" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601625563352">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
@@ -305,24 +421,23 @@
     <state x="328" y="161" key="run.anything.popup/62.0.1218.720@62.0.1218.720" timestamp="1601763508172" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/identitymgmt/IdentityManagementFacade.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryRepository.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/User.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((IdentityManagementFacade)this).userRepository" custom="ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601821473584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project_01$UserTest.ic" NAME="UserTest Coverage Results" MODIFIED="1601820500513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>stackovergoat.application.user.*</FILTER>
+      <FILTER>ch.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project_01$IdentityManagementFacadeTest.ic" NAME="IdentityManagementTest Coverage Results" MODIFIED="1601819377759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>stackovergoat.application.identitymgmt.*</FILTER>
+      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
+    </SUITE>
   </component>
 </project>
