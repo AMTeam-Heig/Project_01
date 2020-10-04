@@ -23,7 +23,6 @@
     </c:if>
 </div>
 <div class="card-group">
-
     <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
         <div style="text-align: center;">
             <h2>Ask something !</h2>

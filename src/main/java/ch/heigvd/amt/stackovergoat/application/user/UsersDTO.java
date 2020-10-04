@@ -1,5 +1,6 @@
 package ch.heigvd.amt.stackovergoat.application.user;
 
+import ch.heigvd.amt.stackovergoat.domain.user.UserId;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,8 +17,10 @@ public class UsersDTO {
     @Getter
     @EqualsAndHashCode
     public static class UserDTO {
+        private UserId id;
+        private String firstname;
+        private String lastname;
         private String username;
-        // TODO : add first and last names
     }
 
     @Singular

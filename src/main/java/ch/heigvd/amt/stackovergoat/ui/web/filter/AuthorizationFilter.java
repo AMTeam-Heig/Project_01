@@ -40,6 +40,9 @@ public class AuthorizationFilter implements Filter {
         if(URI.startsWith("/assets")) {
             return true;
         }
+        if(URI.startsWith("/profile")) {
+            return true;
+        }
         if(URI.startsWith("/login")) {
             return true;
         }
