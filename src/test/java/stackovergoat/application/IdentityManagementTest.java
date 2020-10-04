@@ -1,4 +1,4 @@
-package stackovergoat.application.identitymgmt;
+package stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticateCommand;

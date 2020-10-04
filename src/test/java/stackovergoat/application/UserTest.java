@@ -1,4 +1,4 @@
-package stackovergoat.application.user;
+package stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
@@ -7,7 +7,6 @@ import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -62,7 +61,7 @@ public class UserTest {
     }
 
     @Test
-    public void getStuff() {
+    public void userFacadeShouldStoreCorrectUser() {
         assertDoesNotThrow(() -> userFacade.proposeUser(proposeUserCommand));
         UsersQuery usersQuery = UsersQuery.builder()
                 .isUser(true)
