@@ -4,4 +4,4 @@
 # mvn  -f ../../../pom.xml clean package
 #build the image by the Dockerfile
 cp ../../../target/Project_01.war ./Project_1.war
-docker build -t sog/stackovergoat .
+docker build -t stackover-goat/stackovergoat .
