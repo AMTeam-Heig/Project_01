@@ -1,5 +1,6 @@
 package ch.heigvd.amt.stackovergoat.application.user;
 
+import ch.heigvd.amt.stackovergoat.domain.user.UserId;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,7 +17,32 @@ public class UsersDTO {
     @Getter
     @EqualsAndHashCode
     public static class UserDTO {
+        private UserId id;
+        private String firstname;
+        private String lastname;
         private String username;
+        private String email;
+
+        public UserId getId() {
+            return id;
+        }
+
+        public String getFirstname() {
+            return firstname;
+        }
+
+        public String getLastname() {
+            return lastname;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
     }
 
     @Singular
