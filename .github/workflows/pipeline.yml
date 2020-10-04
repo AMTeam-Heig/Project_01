@@ -50,7 +50,8 @@ jobs:
 
         run: |
            cd  docker/images/openLiberty
-           sudo ./build-image.sh
+           chmod 777 build-image.sh
+          ./build-image.sh
            docker tag sog/stackovergoat ghcr.io/sog/stackovergoat
            docker push ghcr.io/sog/stackovergoat
      
