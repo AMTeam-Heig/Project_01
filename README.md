@@ -11,11 +11,11 @@ First you need to pull the image from the GitHub Container Registry
 In the example below the image pulled by its name and the latest version tag:
 
 ```bash
-docker pull ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:lates
+docker pull ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
 ```
  Once the image was pulled you can run it using the following command :
  
  ```bash
- docker run -p 9090:9080 ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:lates
+ docker run -p 9090:9080 ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat
  ```
 
