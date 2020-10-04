@@ -40,7 +40,7 @@ jobs:
         run: mvn clean package
          
       - name: Building the Docker image
-        # docker build -t sog/stackovergoat docker/images/openLiberty
+        
 
         run: |
            echo ${{ secrets.KEYAPT }} | docker login ghcr.io -u ChickenLivesMatter --password-stdin
