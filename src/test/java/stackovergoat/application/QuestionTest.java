@@ -44,7 +44,7 @@ public class QuestionTest {
     }
 
     @Test
-    public void userFacadeShouldStoreCorrectUser() {
+    public void userFacadeShouldStoreCorrectQuestion() {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertEquals(AUTHOR, questionFacade.getAllQuestions().getQuestions().get(0).getAuthor());
         assertEquals(TEXT, questionFacade.getAllQuestions().getQuestions().get(0).getText());
