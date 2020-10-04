@@ -10,20 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-<<<<<<< HEAD
-=======
-  login:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Login to GitHub Packages Docker Registry
-        uses: docker/login-action@v1
-        with:
-         registry: docker.pkg.github.com
-         username: ${{ github.ChickenLivesMatter }}
-         password: ${{ secrets.STACKOVERGOAT_APT }}
-   
->>>>>>> c51c598bbaf0bff6cfac678ff2749bf8e2f2d9bd
+ 
   build:
     # run the commands on ubuntu
     runs-on: ubuntu-latest
@@ -48,21 +35,21 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
+      - uses: docker/login-action@v1
+        if: "startsWith(github.ref, 'refs/tags/v')"
+        with:
+          registry: ghcr.io
+          username: ${{ github.ChickenLivesMatter }}
+          password: ${{ secrets.KEYAPT }} 
+          
       - name: Build with maven
         run: mvn clean package
- #      echo ${{ secrets.STACKOVERGOAT_APT }} | docker login ghcr.io -u Dev-technique-u --password-stdin
+         
       - name: Building the Docker image
-        run: |
+        # docker build -t sog/stackovergoat docker/images/openLiberty
 
-<<<<<<< HEAD
-          echo ${{ secrets.STACKOVERGOAT_APT }} | docker login ghcr.io -u ChickenLivesMatter --password-stdin
-          docker build -t sog/stackovergoat
-          docker tag sog/stackovergoat ghcr.io/sog/stackovergoat
-          docker push ghcr.io/sog/stackovergoat
-=======
-   
-           docker build -t sog/stackovergoat
+        run: |
+           ./../../docker\images\openLiberty\build-image.sh
            docker tag sog/stackovergoat ghcr.io/sog/stackovergoat
            docker push ghcr.io/sog/stackovergoat
->>>>>>> c51c598bbaf0bff6cfac678ff2749bf8e2f2d9bd
+     
