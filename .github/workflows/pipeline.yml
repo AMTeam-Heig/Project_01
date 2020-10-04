@@ -47,6 +47,6 @@ jobs:
            cd  docker/images/openLiberty
            chmod 777 build-image.sh
            ./build-image.sh
-           docker tag stackover-goat/stackovergoat ghcr.io/stackover-goat/stackovergoat
-           docker push ghcr.io/stackover-goat/stackovergoat
+           docker tag stackover-goat/stackovergoat ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
+           docker push ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
      
