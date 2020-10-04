@@ -18,7 +18,9 @@ public class Question implements IEntity<Question, QuestionId> {
 
     @Override
     public Question deepClone() {
-        return null;
+        return this.toBuilder()
+                .id(new QuestionId(id.asString()))
+                .build();
     }
 
     public static class QuestionBuilder {

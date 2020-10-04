@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface IUserRepository extends IRepository<User, UserId> {
     public Collection<User> find(UsersQuery query);
     public Optional<User> findByUsername(String username);
-
+    public void save(User user);
 }

@@ -42,6 +42,7 @@ public class ServiceRegistry {
 
     private ServiceRegistry() {
         singleton = this;
+
         questionRepository = new InMemoryQuestionRepository();
         questionFacade = new QuestionFacade(questionRepository);
 
@@ -50,12 +51,12 @@ public class ServiceRegistry {
 
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
+
         identityManagementFacade = new IdentityManagementFacade(userRepository);
         initValues();
     }
 
     private void initValues() {
-/*
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("qwer")
                 .email("qwer@qwe.com")
@@ -63,6 +64,7 @@ public class ServiceRegistry {
                 .lastname("Nymous")
                 .clearTextPassword("1234")
                 .build());
+
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("wasa")
                 .email("wa@sa.lol")
@@ -92,7 +94,7 @@ public class ServiceRegistry {
         questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
                 .text("What is GOAT?")
                 .author("Walid")
-                .build());*/
+                .build());
     }
 
     public QuestionFacade getQuestionFacade() {
