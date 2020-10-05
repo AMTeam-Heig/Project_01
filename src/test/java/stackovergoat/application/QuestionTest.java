@@ -48,6 +48,10 @@ public class QuestionTest {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertEquals(AUTHOR, questionFacade.getAllQuestions().getQuestions().get(0).getAuthor());
         assertEquals(TEXT, questionFacade.getAllQuestions().getQuestions().get(0).getText());
+    }
 
+    @Test
+    public void findAllAndFindWithNullQueryShouldBeTheSame() {
+        assertEquals(questionFacade.getQuestions(null), questionFacade.getAllQuestions());
     }
 }
