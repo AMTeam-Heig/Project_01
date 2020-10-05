@@ -24,7 +24,11 @@ public class InMemoryUserRepository extends InMemoryRepository<User, UserId> imp
 
     @Override
     public Collection<User> find(UsersQuery query) {
-        return null;
+        Collection<User> matchingEntities = findAll().stream()
+                .filter(u -> u.getUsername().equals(u.getUsername())) // TODO : use the query to filter the list
+                .collect(Collectors.toList());
+
+        return matchingEntities;
     }
 
     @Override

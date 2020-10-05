@@ -3,7 +3,7 @@ package ch.heigvd.amt.stackovergoat.ui.web.login;
 import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticateCommand;
-import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticationFailedException;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthentificationFailedException;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 
 import javax.servlet.ServletException;
@@ -37,7 +37,7 @@ public class LoginCommandEndpoint extends HttpServlet {
             targetUrl = (targetUrl != null) ? targetUrl : "./home";
             resp.sendRedirect(targetUrl);
             return;
-        } catch (AuthenticationFailedException e) {
+        } catch (AuthentificationFailedException e) {
             req.getSession().setAttribute("errors", List.of(e.getMessage()));
             resp.sendRedirect("./login");
             return;
