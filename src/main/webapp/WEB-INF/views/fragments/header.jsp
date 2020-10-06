@@ -6,11 +6,13 @@
         <a class="active" href="/Project_01/home">Home</a>
         <a href="/Project_01/profile">Profile</a>
         <a href="/Project_01/ask">Ask</a>
-        <c:if test="${username != null}">
+        <c:if test="${currentUser == null}">
             <a href="/Project_01/login">Login</a>
         </c:if>
-        <c:if test="${username == null}">
-            <a href="#">Logout</a>
+        <c:if test="${currentUser != null}">
+            <form id="logoutForm" method="POST" action="logout.do">
+                <button type="submit">Logout</button>
+            </form>
         </c:if>
 
         <div class="search-container">
