@@ -87,6 +87,7 @@ public class AnswerTest {
         for (int i = 0; i < TEST_NBR; ++i) {
             assertFalse(ids.contains(new AnswerId()));
         }
+        System.out.println("id : " + new AnswerId().asString().length());
     }
 
     @Test
