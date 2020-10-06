@@ -1,7 +1,7 @@
 package ch.heigvd.amt.stackovergoat.application.identitymgmt;
 
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticateCommand;
-import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticationFailedException;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthentificationFailedException;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
@@ -37,13 +37,13 @@ public class IdentityManagementFacade {
         }
     }
 
-    public CurrentUserDTO authenticate(AuthenticateCommand command) throws AuthenticationFailedException {
+    public CurrentUserDTO authenticate(AuthenticateCommand command) throws AuthentificationFailedException {
         User user = userRepository.findByUsername(command.getUsername())
-                .orElseThrow(() -> new AuthenticationFailedException("User not found"));
+                .orElseThrow(() -> new AuthentificationFailedException("User not found"));
 
         boolean success = user.authenticate(command.getClearTextPassword());
         if(!success) {
-            throw new AuthenticationFailedException("Verification of credentials failed");
+            throw new AuthentificationFailedException("Verification of credentials failed");
         }
 
         CurrentUserDTO currentUser = CurrentUserDTO.builder()

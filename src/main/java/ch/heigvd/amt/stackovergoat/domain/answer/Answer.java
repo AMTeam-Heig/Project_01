@@ -19,7 +19,9 @@ public class Answer implements IEntity<Answer, AnswerId> {
 
     @Override
     public Answer deepClone() {
-        return null;
+        return this.toBuilder()
+                .id(new AnswerId(id.asString()))
+                .build();
     }
 
     public static class AnswerBuilder {

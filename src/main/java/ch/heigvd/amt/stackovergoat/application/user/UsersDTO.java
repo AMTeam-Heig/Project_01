@@ -21,28 +21,6 @@ public class UsersDTO {
         private String firstname;
         private String lastname;
         private String username;
-        private String email;
-
-        public UserId getId() {
-            return id;
-        }
-
-        public String getFirstname() {
-            return firstname;
-        }
-
-        public String getLastname() {
-            return lastname;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
     }
 
     @Singular

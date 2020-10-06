@@ -25,7 +25,23 @@ public class AnswerFacade {
     public AnswersDTO getAnswers(AnswersQuery query) {
         Collection<Answer> allAnswers = answerRepository.find(query);
 
+        List<AnswersDTO.AnswerDTO> allAnswersDTO = allAnswers.stream()
+            .map(answer -> AnswersDTO.AnswerDTO.builder()
+                .text(answer.getText())
+                .author(answer.getAuthor())
+                .build())
+            .collect(Collectors.toList());
+
+        return AnswersDTO.builder()
+                .answers(allAnswersDTO)
+                .build();
+    }
+
+    public AnswersDTO getAllAnswers() {
+        Collection<Answer> allAnswers = answerRepository.findAll();
+
         List<AnswersDTO.AnswerDTO> allAnswersDTO = allAnswers.stream().map(answer -> AnswersDTO.AnswerDTO.builder()
+                .author(answer.getAuthor())
                 .text(answer.getText())
                 .build()).collect(Collectors.toList());
 

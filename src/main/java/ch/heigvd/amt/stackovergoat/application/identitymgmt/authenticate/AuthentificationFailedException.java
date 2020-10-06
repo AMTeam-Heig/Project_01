@@ -2,8 +2,8 @@ package ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate;
 
 import ch.heigvd.amt.stackovergoat.application.BusinessException;
 
-public class AuthenticationFailedException extends BusinessException {
-    public AuthenticationFailedException(String message) {
+public class AuthentificationFailedException extends BusinessException {
+    public AuthentificationFailedException(String message) {
         super(message);
     }
 }
