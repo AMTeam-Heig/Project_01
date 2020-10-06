@@ -1,0 +1,24 @@
+version: '3'
+services:
+  openliberty:
+    image: stackovergoat/liberty-server
+    ports:
+      - "9080:9080"
+      - "9443:9443"
+  mysql:
+    build: ../../images/mysql
+    image: stackovergoat/mysql-server
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+  phpmyadmin:
+    build: ../../images/phpmyadmin
+    image: stackovergoat/php-server
+    restart: always
+    ports:
+      - "6060:8080"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    links:
+      - mysql:db

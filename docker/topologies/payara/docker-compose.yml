@@ -1,7 +1,7 @@
 version: '3'
 services:
   payara:
-    build: ../images/payara
+    build: ../../images/payara
     environment:
       - ADMIN_PASSWORD=adminadmin
     ports:
