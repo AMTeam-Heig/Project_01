@@ -21,7 +21,7 @@ public class ProposeQuestionCommandEndpoint extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
         ProposeQuestionCommand command = null;
-        if (user != null && req.getParameter("text") != null) {
+        if (user != null && req.getParameter("text") != null && !req.getParameter("text").equals("")) {
             command = ProposeQuestionCommand.builder()
                     .text(req.getParameter("text"))
                     .author(user.getUsername())
