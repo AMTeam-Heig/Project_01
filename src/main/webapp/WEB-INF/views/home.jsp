@@ -13,19 +13,31 @@
     <title>Welcome to StackOverGoat</title>
 </head>
 <html>
-<jsp:include flush="true" page="./fragments/header.jsp"/>
+<header>
+    <jsp:include flush="true" page="./fragments/header.jsp"/>
+</header>
+
 
 <body>
-<div style="text-align: center;">
-    <c:if test="${username != null}">
-        <hr>
-        Welcome ${username} !
-    </c:if>
-</div>
 <div class="card-group">
     <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
+        <div style="text-align: right;">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit" class="btn btn-primary">
+                    Search
+                </button>
+            </form>
+        </div>
         <div style="text-align: center;">
-            <h2>Ask something !</h2>
+            <h2>
+                <c:if test="${currentUser.username != null}">
+                    Welcome ${currentUser.username} !
+                </c:if>
+                <c:if test="${currentUser.username == null}">
+                    Welcome stranger !
+                </c:if>
+            </h2>
         </div>
         <p>
         <form action="./submitQuestion.do" method="POST">
@@ -43,7 +55,7 @@
         <div style="text-align: center;"><h2>Questions</h2></div>
         <c:forEach var="question" items="${questions.questions}">
             <div>
-                <div style="background: #b1dfbb; padding: 5px 5px 5px 5px;"><b>${question.author}</b> asked :</div>
+                <div style="background: #c9f1df; padding: 5px 5px 5px 5px;"><b>${question.author}</b> asked :</div>
                 <div style="background: #f9f9f9; padding: 5px 5px 5px 5px;">
                     <p> ${question.text}</p>
                 </div>
