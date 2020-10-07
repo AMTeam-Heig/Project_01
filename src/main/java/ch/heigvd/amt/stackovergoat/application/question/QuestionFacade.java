@@ -15,11 +15,13 @@ public class QuestionFacade {
     }
 
     public void proposeQuestion(ProposeQuestionCommand command) {
-        Question submittedQuestion = Question.builder()
-                .author(command.getAuthor())
-                .text(command.getText())
-                .build();
-        questionRepository.save(submittedQuestion);
+        if(command != null) {
+            Question submittedQuestion = Question.builder()
+                    .author(command.getAuthor())
+                    .text(command.getText())
+                    .build();
+            questionRepository.save(submittedQuestion);
+        }
     }
 
     public QuestionsDTO getQuestions(QuestionsQuery query) {
