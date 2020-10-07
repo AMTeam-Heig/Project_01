@@ -29,6 +29,8 @@
                 </button>
             </form>
         </div>
+
+        <c:if test="${currentUser != null}">
         <div style="text-align: center;">
             <h2>
                 <c:if test="${currentUser.username != null}">
@@ -51,6 +53,7 @@
 
         </form>
         </p>
+        </c:if>
 
         <div style="text-align: center;"><h2>Questions</h2></div>
         <c:forEach var="question" items="${questions.questions}">

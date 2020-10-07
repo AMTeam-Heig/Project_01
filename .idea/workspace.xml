@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee825822-b7d0-4f36-a2f5-bd0ec990ddc9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/GlassFish_5_2020_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/GlassFish_5_2020_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/stylesheet.css" afterDir="false" />
-    </list>
+    <list default="true" id="ee825822-b7d0-4f36-a2f5-bd0ec990ddc9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="$CLASS$" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,20 +53,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="GlassFish Server.GlassFish 5.2020.4">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,65 +118,53 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="398" y="91" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1602003787102" />
-    <state width="858" height="176" key="GridCell.Tab.0.bottom" timestamp="1602090409491">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="148" key="GridCell.Tab.0.bottom" timestamp="1602084593109">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1602090409491" />
-    <state width="972" height="224" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
-    <state width="858" height="176" key="GridCell.Tab.0.center" timestamp="1602090409491">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="148" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602084593109" />
+    <state width="1418" height="148" key="GridCell.Tab.0.center" timestamp="1602084593109">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1602090409491" />
-    <state width="972" height="224" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
-    <state width="858" height="176" key="GridCell.Tab.0.left" timestamp="1602090409491">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="148" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602084593109" />
+    <state width="1418" height="148" key="GridCell.Tab.0.left" timestamp="1602084593108">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1602090409491" />
-    <state width="972" height="224" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
-    <state width="858" height="176" key="GridCell.Tab.0.right" timestamp="1602090409491">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="148" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602084593108" />
+    <state width="1418" height="148" key="GridCell.Tab.0.right" timestamp="1602084593109">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1602090409491" />
-    <state width="972" height="224" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
-    <state width="858" height="176" key="GridCell.Tab.1.bottom" timestamp="1602090409492">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1418" height="148" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602084593109" />
+    <state width="972" height="224" key="GridCell.Tab.1.bottom" timestamp="1602003821934">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1602090409492" />
     <state width="972" height="224" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
-    <state width="858" height="176" key="GridCell.Tab.1.center" timestamp="1602090409492">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="972" height="224" key="GridCell.Tab.1.center" timestamp="1602003821934">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1602090409492" />
     <state width="972" height="224" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
-    <state width="858" height="176" key="GridCell.Tab.1.left" timestamp="1602090409491">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="972" height="224" key="GridCell.Tab.1.left" timestamp="1602003821934">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1602090409491" />
     <state width="972" height="224" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
-    <state width="858" height="176" key="GridCell.Tab.1.right" timestamp="1602090409492">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="972" height="224" key="GridCell.Tab.1.right" timestamp="1602003821934">
+      <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="858" height="176" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1602090409492" />
     <state width="972" height="224" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
     <state x="445" y="194" key="MultipleFileMergeDialog" timestamp="1601924930929">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="445" y="194" key="MultipleFileMergeDialog/75.0.1461.864@75.0.1461.864" timestamp="1601924930929" />
-    <state x="328" y="161" key="run.anything.popup" timestamp="1602088014163">
-      <screen x="62" y="0" width="1218" height="720" />
-    </state>
-    <state x="328" y="161" key="run.anything.popup/62.0.1218.720@62.0.1218.720" timestamp="1602088014163" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$UserTest.ic" NAME="UserTest Coverage Results" MODIFIED="1601820500513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.user.*</FILTER>
       <FILTER>ch.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$IdentityManagementFacadeTest.ic" NAME="IdentityManagementTest Coverage Results" MODIFIED="1601819377759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.identitymgmt.*</FILTER>
-      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
     </SUITE>
   </component>
