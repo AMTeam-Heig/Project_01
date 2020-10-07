@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 
 public class InMemoryUserRepository extends InMemoryRepository<User, UserId> implements IUserRepository {
     @Override
-    public void save(User entity) {
+    public void save(User entity) throws IntegrityConstraintViolationException {
         synchronized (entity.getUsername()) {
             if (!findByUsername(entity.getUsername()).isEmpty()) {
-                //throw new IntegrityConstraintViolationException("Cannot save/update person...");
+                throw new IntegrityConstraintViolationException("Cannot save/update person...");
             }
             super.save(entity);
         }

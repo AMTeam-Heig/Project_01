@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a33960db-60e1-4623-a9d0-0e1f19c05c3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/IntegrityConstraintViolationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/GlassFish_5_2020_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/GlassFish_5_2020_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stackovergoat/application/AnswerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stackovergoat/application/AnswerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/IRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/domain/user/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/memory/InMemoryUserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +62,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.AnswerTest.answerIdShouldBeUnique">
+  <component name="RunManager" selected="GlassFish Server.GlassFish 5.2020.4">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -97,7 +109,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602001192342</updated>
-      <workItem from="1602001194830" duration="1129000" />
+      <workItem from="1602001194830" duration="1867000" />
+      <workItem from="1602056775218" duration="152000" />
     </task>
     <servers />
   </component>
@@ -108,38 +121,42 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1418" height="299" key="GridCell.Tab.0.bottom" timestamp="1602002323075">
+    <state x="398" y="91" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602003787102">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1418" height="299" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.center" timestamp="1602002323075">
+    <state x="398" y="91" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/75.0.1461.864@75.0.1461.864" timestamp="1602003787102" />
+    <state width="972" height="224" key="GridCell.Tab.0.bottom" timestamp="1602003821934">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1418" height="299" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.left" timestamp="1602002323075">
+    <state width="972" height="224" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
+    <state width="972" height="224" key="GridCell.Tab.0.center" timestamp="1602003821933">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1418" height="299" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.right" timestamp="1602002323075">
+    <state width="972" height="224" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
+    <state width="972" height="224" key="GridCell.Tab.0.left" timestamp="1602003821933">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1418" height="299" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1062" height="223" key="GridCell.Tab.1.bottom" timestamp="1601925795756">
+    <state width="972" height="224" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
+    <state width="972" height="224" key="GridCell.Tab.0.right" timestamp="1602003821933">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1062" height="223" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1601925795756" />
-    <state width="1062" height="223" key="GridCell.Tab.1.center" timestamp="1601925795755">
+    <state width="972" height="224" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602003821933" />
+    <state width="972" height="224" key="GridCell.Tab.1.bottom" timestamp="1602003821934">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1062" height="223" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1601925795755" />
-    <state width="1062" height="223" key="GridCell.Tab.1.left" timestamp="1601925795755">
+    <state width="972" height="224" key="GridCell.Tab.1.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
+    <state width="972" height="224" key="GridCell.Tab.1.center" timestamp="1602003821934">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1062" height="223" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1601925795755" />
-    <state width="1062" height="223" key="GridCell.Tab.1.right" timestamp="1601925795756">
+    <state width="972" height="224" key="GridCell.Tab.1.center/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
+    <state width="972" height="224" key="GridCell.Tab.1.left" timestamp="1602003821934">
       <screen x="75" y="0" width="1461" height="864" />
     </state>
-    <state width="1062" height="223" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1601925795756" />
+    <state width="972" height="224" key="GridCell.Tab.1.left/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
+    <state width="972" height="224" key="GridCell.Tab.1.right" timestamp="1602003821934">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state width="972" height="224" key="GridCell.Tab.1.right/75.0.1461.864@75.0.1461.864" timestamp="1602003821934" />
     <state x="445" y="194" key="MultipleFileMergeDialog" timestamp="1601924930929">
       <screen x="75" y="0" width="1461" height="864" />
     </state>

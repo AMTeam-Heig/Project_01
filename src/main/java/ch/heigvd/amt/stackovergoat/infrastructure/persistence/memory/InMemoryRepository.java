@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 public class InMemoryRepository<ENTITY extends IEntity<ENTITY, ID>, ID extends Id> implements IRepository<ENTITY, ID> {
     private Map<ID, ENTITY> store = new ConcurrentHashMap<>();
 
-    public void save(ENTITY entity) {
+    public void save(ENTITY entity) throws IntegrityConstraintViolationException {
         if(entity.getId() == null) {
-            System.out.println("Error : Id should not be null");
+            throw new IntegrityConstraintViolationException("Error : Id should not be null");
         } else {
           store.put(entity.getId(), entity);
         }
