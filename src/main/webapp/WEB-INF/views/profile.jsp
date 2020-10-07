@@ -20,17 +20,11 @@
 <div class="card-group">
 
     <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
-        <h1 align="center">DISPLAY USERNAME HERE</h1>
-        blarghTest <br/>
-        <c:forEach items="${users.users}" var="user">
-            ${user.username}
-        </c:forEach>
-        <br/>
-        blourghTest
+        <h1 align="center">${currentUser.username}</h1>
         <br/><br/>
-        <b>Firstname : </b> ${user.firstname}<br/>
-        <b>Lastname : </b> ${user.lastname}<br/>
-        <b>E-mail : </b> ${user.email}<br/>
+        <b>Firstname : </b> ${currentUser.firstname}<br/>
+        <b>Lastname : </b> ${currentUser.lastname}<br/>
+        <b>E-mail : </b> ${currentUser.email}<br/>
     </div>
 </div>
 
