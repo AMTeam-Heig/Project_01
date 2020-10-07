@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.question;
 
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.Question;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +21,11 @@ public class QuestionFacade {
                     .author(command.getAuthor())
                     .text(command.getText())
                     .build();
-            questionRepository.save(submittedQuestion);
+            try {
+                questionRepository.save(submittedQuestion);
+            } catch (IntegrityConstraintViolationException e) {
+                e.printStackTrace();
+            }
         }
     }
 
