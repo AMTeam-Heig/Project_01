@@ -19,7 +19,7 @@
 <div style="text-align: center;">
     <c:if test="${currentUser != null}">
         <hr>
-        Welcome ${currentUser} !
+        Welcome ${currentUser.username} !
     </c:if>
 </div>
 <div class="card-group">
