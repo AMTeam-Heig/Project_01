@@ -3,11 +3,11 @@
 <header>
     <div class="topnav">
         <a class="navbar-brand"><img src="./style/img/goat-title.png" height="45px"/></a>
-        <a class="active" href="/Project_01/home">Home</a>
-        <a href="/Project_01/profile">Profile</a>
-        <a href="/Project_01/ask">Ask</a>
+        <a class="active" href="./home">Home</a>
+        <a href="./profile">Profile</a>
+        <a href="./ask">Ask</a>
         <c:if test="${currentUser == null}">
-            <a href="/Project_01/login">Login</a>
+            <a href="./login">Login</a>
         </c:if>
         <c:if test="${currentUser != null}">
             <form id="logoutForm" method="POST" action="logout.do">

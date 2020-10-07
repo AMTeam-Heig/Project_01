@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.answer;
 
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +20,11 @@ public class AnswerFacade {
                 .author(command.getAuthor())
                 .text(command.getText())
                 .build();
-        answerRepository.save(submittedAnswer);
+        try {
+            answerRepository.save(submittedAnswer);
+        } catch (IntegrityConstraintViolationException e) {
+            e.printStackTrace();
+        }
     }
 
     public AnswersDTO getAnswers(AnswersQuery query) {
