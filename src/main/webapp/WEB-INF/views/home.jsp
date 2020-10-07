@@ -17,13 +17,16 @@
 
 <body>
 <div style="text-align: center;">
-    <c:if test="${username != null}">
+    <c:if test="${currentUser != null}">
         <hr>
-        Welcome ${username} !
+        Welcome ${currentUser.username} !
     </c:if>
 </div>
 <div class="card-group">
+
     <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
+
+        <c:if test="${currentUser != null}">
         <div style="text-align: center;">
             <h2>Ask something !</h2>
         </div>
@@ -39,6 +42,7 @@
 
         </form>
         </p>
+        </c:if>
 
         <div style="text-align: center;"><h2>Questions</h2></div>
         <c:forEach var="question" items="${questions.questions}">
