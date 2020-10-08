@@ -28,7 +28,7 @@ public class QuestionQueryEndpoint extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         QuestionsQuery questionsQuery = QuestionsQuery.builder()
-                .id(new QuestionId(req.getSession().getAttribute("questionId").toString()))
+                .idQuestion((req.getSession().getAttribute("questionId").toString()))
                 .build();
         QuestionsDTO questionsDTO = questionFacade.getQuestions(questionsQuery);
         req.setAttribute("questions", questionsDTO);
