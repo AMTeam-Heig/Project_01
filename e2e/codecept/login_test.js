@@ -7,6 +7,6 @@ Scenario('test login scenario success', (I) => {
     I.fill('Password', 'lolilol');
     I.click('Login');
     I.amOnPage('/home');
-    I.see("Welcome");
-    I.saveScreenshot("login_success_screenshot.png");
+    I.see('Welcome');
+    I.saveScreenshot('login_success_screenshot.png');
 });

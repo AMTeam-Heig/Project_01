@@ -7,7 +7,11 @@ Scenario("test login scenario success", (I) => {
     I.fill("Password", "lolilol");
     I.click("Login");
     I.amOnPage("/home");
-    I.see("logout");
-    I.click("logout");
-    I.saveScreenshot("logout_success_screenshot.png");
+
+    I.see("ask");
+    I.click("ask");
+    I.fill("Is Fanta better than sprite ?");
+    I.click("submit");
+    I.see("Is Fanta better than sprite ?");
+    I.saveScreenshot("add_question_screenshot.png");
 });
