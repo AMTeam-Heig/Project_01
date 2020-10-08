@@ -37,29 +37,20 @@ public class AuthorizationFilter implements Filter {
     }
 
     boolean isPublicResource(String URI) {
-        if(URI.startsWith("/assets")) {
-            return false;
-        }
-        if(URI.startsWith("/profile")) {
-            return false;
-        }
         if(URI.startsWith("/login")) {
             return true;
-        }
-        if(URI.startsWith("/logout")) {
-            return false;
         }
         if(URI.startsWith("/register")) {
             return true;
         }
         if(URI.startsWith("/questions")) {
-            return false;
+            return true;
         }
         if(URI.startsWith("/home")) {
-            return false;
+            return true;
         }
         // TODO : set to false
-        return true;
+        return false;
     }
 
 }

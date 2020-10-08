@@ -6,31 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <link href="./assets/css/bootstrap.css" rel="stylesheet">
-    <link href="./style/app.css" rel="stylesheet">
-    <link href="./style/login.css" rel="stylesheet">
+    <link href="./assets/css/bootstraps/bootstrap.css" rel="stylesheet">
+
 
     <title>User profile</title>
 </head>
-
-<jsp:include flush="true" page="./fragments/header.jsp"/>
-
+<nav class="navbar-header">
+    <jsp:include flush="true" page="./fragments/header.jsp"/>
+</nav>
 <body>
 <div class="card-group">
 
-    <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
-        <h1 align="center">DISPLAY USERNAME HERE</h1>
-        blarghTest <br/>
-        <c:forEach items="${users.users}" var="user">
-            ${user.username}
-        </c:forEach>
-        <br/>
-        blourghTest
+    <div class="card" style="padding: 15px; margin: 10px; border-radius: 15px;">
+        <h1 align="center">${currentUser.username}</h1>
         <br/><br/>
-        <b>Firstname : </b> ${user.firstname}<br/>
-        <b>Lastname : </b> ${user.lastname}<br/>
-        <b>E-mail : </b> ${user.email}<br/>
+        <h2>Firstname : </h2>${currentUser.firstname}<br/>
+        <h2>Lastname : </h2>${currentUser.lastname}<br/>
+        <h2>E-mail : </h2> ${currentUser.email}<br/>
     </div>
 </div>
 
