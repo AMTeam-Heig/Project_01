@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.user;
 
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,7 +23,11 @@ public class UserFacade {
                 .lastname(command.getLastname())
                 .clearTextPassword(command.getClearTextPassword())
                 .build();
-        userRepository.save(submittedUser);
+        try {
+            userRepository.save(submittedUser);
+        } catch (IntegrityConstraintViolationException e) {
+            e.printStackTrace();
+        }
     }
 
     public UsersDTO getUsers(UsersQuery query) {
