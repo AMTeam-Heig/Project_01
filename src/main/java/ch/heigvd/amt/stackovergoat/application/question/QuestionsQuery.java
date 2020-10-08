@@ -12,4 +12,13 @@ public class QuestionsQuery {
 
     @Builder.Default
     private boolean isQuestion = true;
+
+    @Builder.Default
+    private String idQuestion = "";
+
+    @Builder.Default
+    private String author = "";
+
+    @Builder.Default
+    private String text = "";
 }

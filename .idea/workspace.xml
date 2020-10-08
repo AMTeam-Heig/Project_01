@@ -8,20 +8,29 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a33960db-60e1-4623-a9d0-0e1f19c05c3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/mysql-connector-java-5.1.39-bin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Project_1.war" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Project_1.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/build-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/build-image.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/run-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/run-image.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/question/QuestionsQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/application/question/QuestionsQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcQQuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcQuestionRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +76,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.AnswerTest.answerIdShouldBeUnique">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +134,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -170,17 +190,21 @@
       <screen x="75" y="0" width="1461" height="864" />
     </state>
     <state x="445" y="194" key="MultipleFileMergeDialog/75.0.1461.864@75.0.1461.864" timestamp="1601924930929" />
+    <state x="506" y="180" key="refactoring.ChangeSignatureDialog" timestamp="1602171179262">
+      <screen x="75" y="0" width="1461" height="864" />
+    </state>
+    <state x="506" y="180" key="refactoring.ChangeSignatureDialog/75.0.1461.864@75.0.1461.864" timestamp="1602171179262" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$UserTest.ic" NAME="UserTest Coverage Results" MODIFIED="1601820500513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.user.*</FILTER>
       <FILTER>ch.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$IdentityManagementFacadeTest.ic" NAME="IdentityManagementTest Coverage Results" MODIFIED="1601819377759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.identitymgmt.*</FILTER>
-      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
     </SUITE>
   </component>
