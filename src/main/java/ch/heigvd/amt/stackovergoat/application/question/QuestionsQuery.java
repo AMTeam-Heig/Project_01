@@ -1,6 +1,5 @@
 package ch.heigvd.amt.stackovergoat.application.question;
 
-import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,5 +14,11 @@ public class QuestionsQuery {
     private boolean isQuestion = true;
 
     @Builder.Default
-    private QuestionId id = null;
+    private String idQuestion = "";
+
+    @Builder.Default
+    private String author = "";
+
+    @Builder.Default
+    private String text = "";
 }
