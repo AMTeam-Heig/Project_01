@@ -10,8 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a33960db-60e1-4623-a9d0-0e1f19c05c3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/mysql-connector-java-5.1.39-bin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stackovergoat/application/AnswerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stackovergoat/application/AnswerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Project_1.war" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Project_1.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/build-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/build-image.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/run-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/run-image.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +59,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/images/openLiberty/liberty/config" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\batac\Documents\heig\semestre_5\AMT\Project_01\docker\images\openLiberty\liberty\config" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.AnswerTest.answerIdShouldBeUnique">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -98,6 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1602001192342</updated>
       <workItem from="1602001194830" duration="1129000" />
+      <workItem from="1602093919602" duration="5278000" />
+      <workItem from="1602147732536" duration="4959000" />
     </task>
     <servers />
   </component>
@@ -108,21 +126,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1418" height="299" key="GridCell.Tab.0.bottom" timestamp="1602002323075">
-      <screen x="75" y="0" width="1461" height="864" />
+    <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602082242535">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1602082242535" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1602163744075">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
     <state width="1418" height="299" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.center" timestamp="1602002323075">
-      <screen x="75" y="0" width="1461" height="864" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1602163744075">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
     <state width="1418" height="299" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.left" timestamp="1602002323075">
-      <screen x="75" y="0" width="1461" height="864" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1602163744075">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
     <state width="1418" height="299" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1418" height="299" key="GridCell.Tab.0.right" timestamp="1602002323075">
-      <screen x="75" y="0" width="1461" height="864" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1602163744075">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
     <state width="1418" height="299" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
     <state width="1062" height="223" key="GridCell.Tab.1.bottom" timestamp="1601925795756">
       <screen x="75" y="0" width="1461" height="864" />
@@ -146,15 +172,15 @@
     <state x="445" y="194" key="MultipleFileMergeDialog/75.0.1461.864@75.0.1461.864" timestamp="1601924930929" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$UserTest.ic" NAME="UserTest Coverage Results" MODIFIED="1601820500513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.user.*</FILTER>
       <FILTER>ch.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Project_01$IdentityManagementFacadeTest.ic" NAME="IdentityManagementTest Coverage Results" MODIFIED="1601819377759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>stackovergoat.application.identitymgmt.*</FILTER>
+      <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project_01$All_in_Project_01.ic" NAME="All in Project_01 Coverage Results" MODIFIED="1601924588021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ch.heigvd.amt.stackovergoat.*</FILTER>
     </SUITE>
   </component>
