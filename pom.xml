@@ -61,22 +61,22 @@
         <version>3.2</version>
         <!-- uncomment this to generate an executable jar - but packaging a .war in a Docker image is faster -->
         <executions>
-            <execution>
-                <id>package-server</id>
-                <phase>package</phase>
-                <goals>
-                    <goal>create</goal>
-                    <goal>install-feature</goal>
-                    <goal>deploy</goal>
-                    <goal>package</goal>
-                </goals>
-                <configuration>
-                    <outputDirectory>target/wlp-package</outputDirectory>
-                </configuration>
-            </execution>
+          <execution>
+            <id>package-server</id>
+            <phase>package</phase>
+            <goals>
+              <goal>create</goal>
+              <goal>install-feature</goal>
+              <goal>deploy</goal>
+              <goal>package</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>target/wlp-package</outputDirectory>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
-            <include>runnable</include>
+          <include>runnable</include>
         </configuration>
 
       </plugin>

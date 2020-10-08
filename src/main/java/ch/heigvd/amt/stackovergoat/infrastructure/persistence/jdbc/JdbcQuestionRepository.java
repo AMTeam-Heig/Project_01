@@ -37,8 +37,13 @@ public class JdbcQuestionRepository implements IQuestionRepository {
     public Collection<Question> find(QuestionsQuery query) {
         List<Question> questions = findAll().stream()
                 .filter(question -> (question.getAuthor().equals(query.getAuthor()) ||
+<<<<<<< HEAD
+                        question.getId().toString().equals(query.getIdQuestion()) ||
+                        question.getText().equals(query.getText())))
+=======
                                     question.getId().toString().equals(query.getIdQuestion()) ||
                                     question.getText().equals(query.getText())))
+>>>>>>> b8d32940b912f253e6eafaff5d95db55944b0eab
                 .collect(Collectors.toList());
         return questions;
     }
