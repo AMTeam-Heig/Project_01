@@ -3241,7 +3241,7 @@ tbody.collapse.show {
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -3282,8 +3282,8 @@ tbody.collapse.show {
 .navbar-nav {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  -ms-flex-direction:row;
+      flex-direction: row;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
