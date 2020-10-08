@@ -1,10 +1,10 @@
 
 <server description="first Liberty server">
-<featureManager>
-    <feature>webProfile-8.0</feature>
-</featureManager>
-<variable name="default.http.port" defaultValue="9080"/>
-  <variable name="default.https.port" defaultValue="9443"/>
+    <featureManager>
+        <feature>webProfile-8.0</feature>
+    </featureManager>
+    <variable name="default.http.port" defaultValue="9080"/>
+    <variable name="default.https.port" defaultValue="9443"/>
     <webApplication location="Project_01.war" contextRoot="/"/>
 
     <library id="MySqlLib">

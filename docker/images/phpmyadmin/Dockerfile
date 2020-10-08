@@ -1,2 +1,3 @@
 FROM phpmyadmin/phpmyadmin:latest
-EXPOSE 6060
+
+MAINTAINER Baptiste Hardrick <baptiste.hardrick@heig-vd.ch>
