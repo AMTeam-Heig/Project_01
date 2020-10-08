@@ -6,6 +6,10 @@ body {
     z-index: 1;
 }
 
+header {
+    z-index: 2;
+}
+
 h1 {
     color: #2f8c68;
     font-family: Roboto;
@@ -27,6 +31,8 @@ p {
 
 /* barre de nav */
 /* ------------------------------------------------------------------------------------- */
+
+
 .topnav {
     overflow: hidden;
     background-color: #e9e9e9;
@@ -40,7 +46,6 @@ p {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
@@ -61,7 +66,6 @@ p {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
