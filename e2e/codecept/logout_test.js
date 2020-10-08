@@ -3,8 +3,8 @@ Feature("Login");
 Scenario("test login scenario success", (I) => {
     I.amOnPage("/login");
     I.see("Sign in");
-    I.fill("Username", "cosmicdarine");
-    I.fill("Password", "lolilol");
+    I.fillField("Username", "cosmicdarine");
+    I.fillField("Password", "lolilol");
     I.click("Login");
     I.amOnPage("/home");
     I.see("logout");
