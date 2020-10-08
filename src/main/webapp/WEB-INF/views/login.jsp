@@ -36,7 +36,7 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-form-title">
-                <img src="assets/img/goat.png" width="150px" padding="10px">
+                <img src="assets/img/goat.png" width="150px">
 					<span class="login100-form-title-1">
 						Sign In
 					</span>
@@ -62,7 +62,6 @@
                             Remember me
                         </label>
                     </div>
-
                     <div>
                         <a href="#" class="txt1">
                             Forgot Password?
@@ -70,19 +69,12 @@
                     </div>
                 </div>
 
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" align="center">
+                <div class="container-login100-form-btn" align="center">
+                    <button class="login100-form-btn">
                         Login
                     </button>
                 </div>
             </form>
-            <c:if test="${error != null}">
-                Il y a eu un problème de connexion
-                ${error}
-            </c:if>
-            <c:if test="${user != null}">
-                Bienvenue ${user.userName} !
-            </c:if>
             <div align="center">
                 <c:forEach var="error" items="${errors}">
                     <div class="error">${error}</div>

@@ -60,7 +60,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #80dfb5;
 }
 
 /*---------------------------------------------*/
@@ -176,7 +176,8 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+
+  padding: 15px 15px 15px 15px;
   background: #ebeeef;
 }
 
@@ -185,6 +186,7 @@ iframe {
   width: 670px;
   background: #fff;
   border-radius: 10px;
+  padding: 15px 15px 15px 15px;
   overflow: hidden;
   position: relative;
 }
@@ -212,7 +214,7 @@ iframe {
 .login100-form-title-1 {
   font-family: Poppins-Bold;
   font-size: 30px;
-  color: #5d9822;
+  color: #36d39a;
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
@@ -396,7 +398,7 @@ input.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #bccd6a;
+  background-color: #80dfb5;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
@@ -429,8 +431,11 @@ input.input100 {
     padding: 43px 15px 57px 15px;
   }
 
+  .login100-form  button {
+    text-align: center;
+  }
+
   .label-input100 {
-    text-align: left;
     position: unset;
     top: unset;
     left: unset;
