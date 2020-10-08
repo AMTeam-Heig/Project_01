@@ -12,6 +12,8 @@ import javax.inject.Named;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -147,6 +149,33 @@ public class JdbcUserRepository implements IUserRepository {
 
     @Override
     public Collection<User> findAll() {
-        return null;
+        List<User> matchingEntities = new LinkedList<User>();
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User");
+            ResultSet res = sql.executeQuery();
+            while (res.next()){
+                UserId id = new UserId(res.getString("idUser"));
+                String username = res.getString("username");
+                String firstname = res.getString("firstname");
+                String lastname = res.getString("lastname");
+                String email = res.getString("email");
+                String passwd = res.getString("pasword");
+
+                User submittedUser =
+                        User.builder()
+                                .id(id)
+                                .username(username)
+                                .email(email)
+                                .firstname(firstname)
+                                .lastname(lastname)
+                                .clearTextPassword(passwd)
+                                .build();
+                matchingEntities.add(submittedUser);
+            }
+        }catch (SQLException e){
+            throw new IllegalArgumentException(e);
+        }
+        return matchingEntities;
     }
 }
