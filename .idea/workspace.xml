@@ -10,18 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a33960db-60e1-4623-a9d0-0e1f19c05c3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/mysql-connector-java-5.1.39-bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/mysql/database/a_database_stackovergoat.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/Project_1.war" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/Project_1.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/build-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/build-image.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/liberty/config/server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/openLiberty/run-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/run-image.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/phpmyadmin/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/topologies/openliberty_Mysql_phpmyadmin/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openliberty/Project_1.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/images/openliberty/build-image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/images/openliberty/build-image.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/heigvd/amt/stackovergoat/infrastructure/persistence/jdbc/JdbcUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/liberty/config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/liberty/config/server.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +36,13 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -130,25 +130,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1602082242535" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1602163744075">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1602168276003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602168276003" />
     <state width="1418" height="299" key="GridCell.Tab.0.bottom/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1602163744075">
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1602168276003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602168276003" />
     <state width="1418" height="299" key="GridCell.Tab.0.center/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1602163744075">
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1602168276003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602168276003" />
     <state width="1418" height="299" key="GridCell.Tab.0.left/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1602163744075">
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1602168276003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602163744075" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602168276003" />
     <state width="1418" height="299" key="GridCell.Tab.0.right/75.0.1461.864@75.0.1461.864" timestamp="1602002323075" />
     <state width="1062" height="223" key="GridCell.Tab.1.bottom" timestamp="1601925795756">
       <screen x="75" y="0" width="1461" height="864" />

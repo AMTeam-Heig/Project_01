@@ -47,7 +47,7 @@ public class JdbcUserRepository implements IUserRepository {
 
             while(res.next())
             {
-                UserId id = (UserId) res.getObject("idUser");
+                UserId id = new UserId(res.getString("idUser"));
                 String firstname = res.getString("firstname");
                 String lastname = res.getString("lastname");
                 String email = res.getString("email");
@@ -78,7 +78,7 @@ public class JdbcUserRepository implements IUserRepository {
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("INSERT INTO User (idUser, username, firstname, lastname, email, password) VALUES (?,?,?,?,?,?)");
-            sql.setObject(1, user.getId());
+            sql.setString(1, user.getId().toString());
             sql.setString(2, user.getUsername());
             sql.setString(3, user.getFirstname());
             sql.setString(4, user.getLastname());
@@ -99,11 +99,49 @@ public class JdbcUserRepository implements IUserRepository {
 
     @Override
     public void remove(UserId id) {
-
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("DELETE FROM User WHERE idUser = ?");
+            sql.setString(1, id.toString());
+            int nbRow = sql.executeUpdate();
+            connection.close();
+        }catch(SQLException e){
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
     public Optional<User> findById(UserId id) {
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
+            ResultSet res = sql.executeQuery();
+
+            while(res.next())
+            {
+                String username =  res.getString("username");
+                String firstname = res.getString("firstname");
+                String lastname = res.getString("lastname");
+                String email = res.getString("email");
+                String passwd = res.getString("pasword");
+
+                User submittedUser =
+
+                        User.builder()
+                                .id(id)
+                                .username(username)
+                                .email(email)
+                                .firstname(firstname)
+                                .lastname(lastname)
+                                .clearTextPassword(passwd)
+                                .build();
+                return Optional.of(submittedUser);
+            }
+
+        } catch (SQLException e) {
+            //traitement de l'exception
+            throw new IllegalArgumentException(e);
+        }
         return Optional.empty();
     }
 
