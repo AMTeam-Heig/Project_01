@@ -9,6 +9,20 @@
     <library id="MySqlLib">
         <fileset dir="s{server.config.dir}" includes="*/.jar"/>
     </library>
+<<<<<<< HEAD
+=======
+
+    <dataSource jndiName="jdbc/StackOverflowDS">
+        <jdbcDriver libraryRef="MySqlLib"/>
+        <properties databaseName="amt_project_01"
+                    serverName="192.168.99.100" portNumber="3306"
+                    user="root" password="root"/>
+    </dataSource>
+
+
+
+</server>
+>>>>>>> b8d32940b912f253e6eafaff5d95db55944b0eab
 
     <dataSource jndiName="jdbc/StackOverflowDS">
         <jdbcDriver libraryRef="MySqlLib"/>
