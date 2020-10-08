@@ -22,7 +22,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-@Named("JdbcUserRepository")
+@Named("JdbcQuestionRepository")
 public class JdbcQuestionRepository implements IQuestionRepository {
     @Resource(lookup = "jdbc/StackOverflowDS")
     DataSource dataSource;
