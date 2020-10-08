@@ -21,3 +21,4 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     links:
       - mysql:db
+
