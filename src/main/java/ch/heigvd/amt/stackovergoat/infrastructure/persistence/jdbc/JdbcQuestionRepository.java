@@ -63,19 +63,53 @@ public class JdbcQuestionRepository implements IQuestionRepository {
 
     @Override
     public void save(Question entity) {
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO Question (idQuestion, text, idUser) VALUES (?,?,?)");
+            sql.setString(1, entity.getId().toString());
+            sql.setString(2, entity.getText());
 
+            PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
+            userSql.setString(1, entity.getAuthor());
+            String authorId = "";
+            ResultSet resultSetUser = userSql.executeQuery();
+            if(resultSetUser.getFetchSize() == 1) {
+                authorId = resultSetUser.getString("idQuestion");
+            }
+
+            sql.setString(3, authorId);
+
+            int nbRow = sql.executeUpdate();
+            connection.close();
+
+            if(nbRow > 1){
+                throw new IllegalArgumentException("Task went wrong");
+            }
+
+        } catch (SQLException e){
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
     public void remove(QuestionId id) {
-
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("DELETE FROM Question WHERE idQuestion = ?");
+            sql.setString(1, id.toString());
+            int nbRow = sql.executeUpdate();
+            connection.close();
+        }catch(SQLException e){
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
     public Optional<Question> findById(QuestionId question) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Question WHERE idQuestion = " + question.asString());
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Question WHERE idQuestion = ?");
+            sql.setString(1, question.asString());
             ResultSet res = sql.executeQuery();
 
             while(res.next()) {
@@ -95,7 +129,8 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         String text = resultSet.getString("text");
         String author = "";
 
-        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE userId = " + userId);
+        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE userId = ?");
+        userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
         if(resultSetUser.getFetchSize() == 1) {
             author = resultSetUser.getString("username");
