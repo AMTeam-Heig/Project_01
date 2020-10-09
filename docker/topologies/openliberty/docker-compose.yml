@@ -11,5 +11,12 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-
+  phpmyadmin:
+     build: ../../images/phpmyadmin
+     ports:
+       - "6060:80"
+     environment:
+       - MYSQL_ROOT_PASSWORD=root
+     links:
+       - mysql:db
 

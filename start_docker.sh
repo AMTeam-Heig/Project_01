@@ -1,7 +1,7 @@
-mvn clean install
-
 mvn clean package
 
-cd docker/topologies/openliberty_Mysql_phpmyadmin/
+cp  ./target/*.war ./docker/images/openliberty/
+
+cd docker/topologies/openliberty/
 
 docker-compose up --build

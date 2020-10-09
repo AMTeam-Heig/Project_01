@@ -74,6 +74,14 @@ public class ServiceRegistry {
                 .build());
 
         userFacade.proposeUser(ProposeUserCommand.builder()
+                .username("Clarisse")
+                .email("clacla@fleu.lol")
+                .firstname("Clarisse")
+                .lastname("Fleurimont")
+                .clearTextPassword("1234")
+                .build());
+
+        userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("q")
                 .email("q")
                 .firstname("q")
