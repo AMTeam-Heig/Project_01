@@ -1,0 +1,15 @@
+version: '3'
+services:
+  openliberty:
+    build: ../../images/openliberty
+    ports:
+      - "9080:9080"
+      - "9443:9443"
+  mysql:
+    build: ../../images/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+
