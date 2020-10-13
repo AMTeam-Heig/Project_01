@@ -11,10 +11,16 @@ import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.jdbc.JdbcUserRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@ApplicationScoped
 public class ServiceRegistry {
     private static ServiceRegistry singleton;
 
@@ -27,7 +33,9 @@ public class ServiceRegistry {
     private static AnswerFacade answerFacade;
 
     // User
-    private static IUserRepository userRepository;
+    @Inject @Named("JdbcUserRepository")
+    private IUserRepository userRepository;
+
     private static UserFacade userFacade;
 
     // Identity management
@@ -49,7 +57,8 @@ public class ServiceRegistry {
         answerRepository = new InMemoryAnswerRepository();
         answerFacade = new AnswerFacade(answerRepository);
 
-        userRepository = new InMemoryUserRepository();
+
+        //userRepository = new JdbcUserRepository();
         userFacade = new UserFacade(userRepository);
 
         identityManagementFacade = new IdentityManagementFacade(userRepository);

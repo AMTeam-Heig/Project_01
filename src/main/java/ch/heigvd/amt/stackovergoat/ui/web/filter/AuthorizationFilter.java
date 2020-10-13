@@ -49,6 +49,9 @@ public class AuthorizationFilter implements Filter {
         if(URI.startsWith("/home")) {
             return true;
         }
+        if(URI.startsWith("/assets")) {
+            return true;
+        }
         // TODO : set to false
         return false;
     }
