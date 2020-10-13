@@ -6,6 +6,7 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,13 +16,15 @@ import java.io.IOException;
 
 @WebServlet(name = "QuestionPageHandler", urlPatterns = "/question")
 public class QuestionQueryEndpoint extends HttpServlet {
+
+    @Inject
     private ServiceRegistry serviceRegistry;
     private QuestionFacade questionFacade;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        serviceRegistry = ServiceRegistry.getServiceRegistry();
+        //serviceRegistry = ServiceRegistry.getServiceRegistry();
         questionFacade = serviceRegistry.getQuestionFacade();
     }
 

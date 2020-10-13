@@ -22,7 +22,7 @@ import javax.inject.Named;
 
 @ApplicationScoped
 public class ServiceRegistry {
-    private static ServiceRegistry singleton;
+    //private static ServiceRegistry singleton;
 
     // Question
     private static IQuestionRepository questionRepository;
@@ -41,14 +41,14 @@ public class ServiceRegistry {
     // Identity management
     private static IdentityManagementFacade identityManagementFacade;
 
-    public static ServiceRegistry getServiceRegistry() {
+    /*public static ServiceRegistry getServiceRegistry() {
         if (singleton == null) {
             singleton = new ServiceRegistry();
         }
         return singleton;
-    }
+    }*/
 
-    private ServiceRegistry() {
+    /*private ServiceRegistry() {
         singleton = this;
 
         questionRepository = new InMemoryQuestionRepository();
@@ -63,7 +63,7 @@ public class ServiceRegistry {
 
         identityManagementFacade = new IdentityManagementFacade(userRepository);
         initValues();
-    }
+    }*/
 
     private void initValues() {
         userFacade.proposeUser(ProposeUserCommand.builder()
@@ -107,14 +107,18 @@ public class ServiceRegistry {
     }
 
     public QuestionFacade getQuestionFacade() {
+        questionRepository = new InMemoryQuestionRepository();
+        questionFacade = new QuestionFacade(questionRepository);
         return questionFacade;
     }
 
     public UserFacade getUserFacade() {
+        userFacade = new UserFacade(userRepository);
         return userFacade;
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {
+        identityManagementFacade = new IdentityManagementFacade(userRepository);
         return identityManagementFacade;
     }
 }

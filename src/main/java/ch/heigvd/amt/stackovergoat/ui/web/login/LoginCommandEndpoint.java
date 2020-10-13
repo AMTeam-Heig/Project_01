@@ -6,6 +6,7 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.Authent
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthentificationFailedException;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,9 @@ import java.util.List;
 
 @WebServlet(name = "LoginCommandEndpoint", urlPatterns = "/login.do")
 public class LoginCommandEndpoint extends HttpServlet {
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
+
+    @Inject
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
     private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
 
     @Override

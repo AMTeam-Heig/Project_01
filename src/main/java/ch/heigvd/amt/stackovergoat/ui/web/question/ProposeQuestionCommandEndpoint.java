@@ -5,6 +5,7 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.Current
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,8 @@ import java.io.IOException;
 @WebServlet(name = "SubmitQuestionCommandHandler", urlPatterns = "/submitQuestion.do")
 public class ProposeQuestionCommandEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
+    @Inject
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
     private QuestionFacade questionFacade = serviceRegistry.getQuestionFacade();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
