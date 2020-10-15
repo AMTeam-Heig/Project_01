@@ -10,7 +10,7 @@
         httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
 
     <library id="MySqlLib">
-        <fileset dir="${server.config.dir}" includes="*/.jar"/>
+        <fileset dir="${server.config.dir}" includes="*.jar"/>
     </library>
 
     <dataSource jndiName="jdbc/StackOverflowDS">

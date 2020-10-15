@@ -7,6 +7,7 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.Authent
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,7 @@ import java.util.List;
 public class LoginCommandEndpoint extends HttpServlet {
 
     @Inject
+    @Named("ServiceRegistry")
     private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
     private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
 

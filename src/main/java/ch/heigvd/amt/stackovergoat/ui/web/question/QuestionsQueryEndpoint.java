@@ -5,6 +5,7 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class QuestionsQueryEndpoint extends HttpServlet {
 
     @Inject
+    @Named("ServiceRegistry")
     private ServiceRegistry serviceRegistry;
     private QuestionFacade questionFacade;
 

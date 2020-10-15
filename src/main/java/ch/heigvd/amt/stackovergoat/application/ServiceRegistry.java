@@ -16,11 +16,13 @@ import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAns
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 @ApplicationScoped
+@Named("ServiceRegistry")
 public class ServiceRegistry {
     //private static ServiceRegistry singleton;
 
@@ -106,6 +108,11 @@ public class ServiceRegistry {
                 .build());
     }
 
+    @PostConstruct
+    public void initFacade(){
+        userFacade = new UserFacade(userRepository);
+    }
+
     public QuestionFacade getQuestionFacade() {
         questionRepository = new InMemoryQuestionRepository();
         questionFacade = new QuestionFacade(questionRepository);
@@ -113,7 +120,7 @@ public class ServiceRegistry {
     }
 
     public UserFacade getUserFacade() {
-        userFacade = new UserFacade(userRepository);
+        //userFacade = new UserFacade(userRepository);
         return userFacade;
     }
 
