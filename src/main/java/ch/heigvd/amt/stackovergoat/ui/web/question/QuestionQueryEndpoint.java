@@ -4,7 +4,6 @@ import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
-import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

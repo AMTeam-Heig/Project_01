@@ -16,6 +16,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="./profile">Profile</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./question">Profile</a>
+            </li>
             <c:if test="${currentUser == null}">
                 <a class="nav-link" href="./login">Login</a>
             </c:if>

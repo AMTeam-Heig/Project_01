@@ -109,6 +109,10 @@ public class ServiceRegistry {
         return questionFacade;
     }
 
+    public AnswerFacade getAnswerFacade() {
+        return answerFacade;
+    }
+
     public UserFacade getUserFacade() {
         return userFacade;
     }
