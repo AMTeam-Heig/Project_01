@@ -22,7 +22,14 @@ public class LoginCommandEndpoint extends HttpServlet {
     @Inject
     @Named("ServiceRegistry")
     private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
-    private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
+    private IdentityManagementFacade identityManagementFacade;// = serviceRegistry.getIdentityManagementFacade();
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
+    }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
