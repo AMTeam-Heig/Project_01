@@ -31,8 +31,8 @@ jobs:
           npm i -g yarn
           yarn install
 
-      - name: Load Translations
-        run: yarn run load-resources
+     # - name: Load Translations
+      #  run: yarn run load-resources
 
       - name: Test and Generate Coverage
         run: yarn run test:coverage
