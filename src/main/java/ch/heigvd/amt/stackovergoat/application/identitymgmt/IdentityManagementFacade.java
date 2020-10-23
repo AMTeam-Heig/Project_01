@@ -41,8 +41,6 @@ public class IdentityManagementFacade {
         User user = userRepository.findByUsername(command.getUsername())
                 .orElseThrow(() -> new AuthentificationFailedException("User not found"));
 
-        System.out.println("Cleartext password = " + command.getClearTextPassword());
-        System.out.println("User password = " + user.getEncryptedPassword());
         boolean success = user.authenticate(command.getClearTextPassword());
         if(!success) {
             throw new AuthentificationFailedException("Verification of credentials failed");
