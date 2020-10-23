@@ -33,10 +33,21 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
     @Override
     public Collection<Answer> find(AnswersQuery query) {
+        if (query == null) {
+            return findAll();
+        }
+        boolean fromAuthor  = (!query.getAuthor().equals(""));
+        boolean fromId      = (!query.getIdQuestion().equals(""));
+        boolean fromText    = (!query.getText().equals(""));
+
+        if (!(fromAuthor || fromId || fromText)) {
+            return findAll();
+        }
         List<Answer> answers = findAll().stream()
-                .filter(answer -> (answer.getAuthor().equals(query.getAuthor()) ||
-                        answer.getId().toString().equals(query.getIdAnswer()) ||
-                        answer.getText().equals(query.getText())))
+                .filter(answer -> (
+                        (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
+                                (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
+                                (fromText   && answer.getText().equals(query.getText()))))
                 .collect(Collectors.toList());
         return answers;
     }

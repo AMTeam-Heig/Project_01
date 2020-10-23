@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.answer;
 
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
 
 import java.util.Collection;
@@ -18,6 +19,7 @@ public class AnswerFacade {
     public void proposeAnswer(ProposeAnswerCommand command) {
         if(command != null) {
             Answer submittedAnswer = Answer.builder()
+                    .questionId(new QuestionId(command.getQuestionId()))
                     .author(command.getAuthor())
                     .text(command.getText())
                     .build();

@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
+import ch.heigvd.amt.stackovergoat.application.answer.ProposeAnswerCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
@@ -105,6 +106,12 @@ public class ServiceRegistry {
         questionFacade.proposeQuestion(ProposeQuestionCommand.builder()
                 .text("What is GOAT?")
                 .author("Walid")
+                .build());
+
+        answerFacade.proposeAnswer(ProposeAnswerCommand.builder()
+                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .text("GOAT is love <3")
+                .author("Elodie")
                 .build());
     }
 

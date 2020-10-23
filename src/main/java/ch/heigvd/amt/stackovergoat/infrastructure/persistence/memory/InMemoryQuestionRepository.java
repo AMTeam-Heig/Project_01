@@ -1,13 +1,12 @@
-
 package ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory;
-        import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
-        import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
-        import ch.heigvd.amt.stackovergoat.domain.question.Question;
-        import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
+import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
+import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
+import ch.heigvd.amt.stackovergoat.domain.question.Question;
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 
-        import java.util.Collection;
-        import java.util.List;
-        import java.util.stream.Collectors;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class InMemoryQuestionRepository extends InMemoryRepository<Question, QuestionId> implements IQuestionRepository {
     @Override
@@ -26,15 +25,16 @@ public class InMemoryQuestionRepository extends InMemoryRepository<Question, Que
         List<Question> questions = findAll().stream()
                 .filter(question -> (
                         (fromAuthor && question.getAuthor().equals(query.getAuthor()))              ||
-                                (fromId     && question.getId().toString().equals(query.getIdQuestion()))   ||
-                                (fromText   && question.getText().equals(query.getText()))                  ||
-                                (fromWords  && question.containsWords(query.getWords()))))
+                        (fromId     && question.getId().asString().equals(query.getIdQuestion()))   ||
+                        (fromText   && question.getText().equals(query.getText()))                  ||
+                        (fromWords  && question.containsWords(query.getWords()))))
                 .collect(Collectors.toList());
         return questions;
     }
+    
     @Override
     public int getSize() {
         return 0;
     }
-}
 
+}

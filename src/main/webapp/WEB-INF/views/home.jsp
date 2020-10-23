@@ -44,7 +44,7 @@
         <div style="text-align: center;"><h2>Questions</h2></div>
         <c:forEach var="question" items="${questions.questions}">
             <div>
-                <a href="#" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
+                <a href="/question?id=${question.id}" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
                     <b>${question.author}</b> asked :
                 </div></a>
                 <div style="background: #f9f9f9; padding: 5px 5px 5px 5px;">
