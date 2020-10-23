@@ -1,10 +1,10 @@
 package ch.heigvd.amt.stackovergoat.domain.question;
 
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Setter;
+
+import java.util.List;
 
 @Data
 @Builder(toBuilder = true)
@@ -21,6 +21,10 @@ public class Question implements IEntity<Question, QuestionId> {
         return this.toBuilder()
                 .id(new QuestionId(id.asString()))
                 .build();
+    }
+
+    public boolean containsWords(String searchText) {
+        return text.toLowerCase().contains(searchText.toLowerCase());
     }
 
     public static class QuestionBuilder {
