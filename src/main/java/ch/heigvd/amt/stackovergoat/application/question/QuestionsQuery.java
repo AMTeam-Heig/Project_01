@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 @Builder
@@ -25,6 +26,6 @@ public class QuestionsQuery {
     private String text = "";
 
     @Builder.Default
-    private LinkedList<String> words = new LinkedList<>();
+    private List<String> words = new LinkedList<>();
 
 }
