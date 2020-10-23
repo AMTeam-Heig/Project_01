@@ -13,4 +13,7 @@ public class ProposeAnswerCommand {
 
     @Builder.Default
     private String text = "No content";
+
+    @Builder.Default
+    private String questionId = "No content";
 }

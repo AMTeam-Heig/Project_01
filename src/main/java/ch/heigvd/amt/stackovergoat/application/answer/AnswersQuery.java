@@ -17,6 +17,9 @@ public class AnswersQuery {
     private String idAnswer = "";
 
     @Builder.Default
+    private String idQuestion = "";
+
+    @Builder.Default
     private String author = "";
 
     @Builder.Default

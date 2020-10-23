@@ -18,7 +18,13 @@
 <div class="card-group">
     <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
         <div style="text-align: center;"><h2> ${question.text}</h2></div>
-        <c:forEach var="answer" items="${questions.answers}">
+        <div>
+            <h3> Author : ${question.author}</h3>
+        </div>
+        <div>
+            <h3> Answers </h3>
+        </div>
+        <c:forEach var="answer" items="${answers.answers}">
             <div>
                 <a href="#" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
                     <b>${answer.author}</b> asked :

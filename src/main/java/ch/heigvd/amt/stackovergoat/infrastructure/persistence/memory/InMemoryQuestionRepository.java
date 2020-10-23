@@ -25,7 +25,7 @@ public class InMemoryQuestionRepository extends InMemoryRepository<Question, Que
         List<Question> questions = findAll().stream()
                 .filter(question -> (
                         (fromAuthor && question.getAuthor().equals(query.getAuthor()))              ||
-                        (fromId     && question.getId().toString().equals(query.getIdQuestion()))   ||
+                        (fromId     && question.getId().asString().equals(query.getIdQuestion()))   ||
                         (fromText   && question.getText().equals(query.getText()))                  ||
                         (fromWords  && question.containsWords(query.getWords()))))
                 .collect(Collectors.toList());
