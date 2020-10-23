@@ -23,6 +23,10 @@ public class Question implements IEntity<Question, QuestionId> {
                 .build();
     }
 
+    public boolean containsWord(String word) {
+        return text.contains(word) || author.equals(word);
+    }
+
     public static class QuestionBuilder {
         public Question build() {
             if(id == null) {
