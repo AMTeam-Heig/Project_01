@@ -29,15 +29,17 @@ public class QuestionsQueryEndpoint extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        QuestionsDTO questionsDTO = questionFacade.getAllQuestions();
+        QuestionsDTO questionsDTO;
 
-        if (!req.getParameter("words").isEmpty()) {
+        if (req.getParameter("search") != null && !req.getParameter("search").isEmpty()) {
             QuestionsQuery questionsQuery = QuestionsQuery.builder()
-                    .words(Arrays.asList(req.getParameter("words").split(" ")))
+                    .words(req.getParameter("search"))
                     .build();
             questionsDTO = questionFacade.getQuestions(questionsQuery);
+        } else {
+            questionsDTO = questionFacade.getAllQuestions();
         }
-        
+
         req.setAttribute("questions", questionsDTO);
         req.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
     }

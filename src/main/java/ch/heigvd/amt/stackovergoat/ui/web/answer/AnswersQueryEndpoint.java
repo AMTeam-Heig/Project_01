@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AnswersPageHandler", urlPatterns = "/home")
+@WebServlet(name = "AnswersPageHandler", urlPatterns = "/answers")
 public class AnswersQueryEndpoint extends HttpServlet {
 
     private ServiceRegistry serviceRegistry;

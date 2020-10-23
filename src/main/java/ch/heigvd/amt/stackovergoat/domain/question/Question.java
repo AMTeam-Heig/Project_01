@@ -1,12 +1,10 @@
 package ch.heigvd.amt.stackovergoat.domain.question;
 
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Setter;
 
-import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Builder(toBuilder = true)
@@ -25,13 +23,8 @@ public class Question implements IEntity<Question, QuestionId> {
                 .build();
     }
 
-    public boolean containsWords(LinkedList<String> words) {
-        for (String word : words) {
-            if (text.contains(word) || author.equals(word)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean containsWords(String searchText) {
+        return text.toLowerCase().contains(searchText.toLowerCase());
     }
 
     public static class QuestionBuilder {
