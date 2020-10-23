@@ -39,7 +39,7 @@ public class JdbcQuestionRepository implements IQuestionRepository {
                 .filter(question -> (question.getAuthor().equals(query.getAuthor()) ||
                         question.getId().toString().equals(query.getIdQuestion()) ||
                         question.getText().equals(query.getText()) ||
-                        question.containsWord(query.getWord())))
+                        question.containsWords(query.getWords())))
                 .collect(Collectors.toList());
         return questions;
     }

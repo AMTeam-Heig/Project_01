@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Setter;
 
+import java.util.LinkedList;
+
 @Data
 @Builder(toBuilder = true)
 public class Question implements IEntity<Question, QuestionId> {
@@ -23,8 +25,13 @@ public class Question implements IEntity<Question, QuestionId> {
                 .build();
     }
 
-    public boolean containsWord(String word) {
-        return text.contains(word) || author.equals(word);
+    public boolean containsWords(LinkedList<String> words) {
+        for (String word : words) {
+            if (text.contains(word) || author.equals(word)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static class QuestionBuilder {
