@@ -25,6 +25,11 @@ public class InMemoryRepository<ENTITY extends IEntity<ENTITY, ID>, ID extends I
         store.remove(id);
     }
 
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
     public Optional<ENTITY> findById(ID id) {
         ENTITY existingEntity = store.get(id);
         if(existingEntity == null) {

@@ -102,6 +102,11 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         }
     }
 
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
 
     @Override
     public Optional<Answer> findById(AnswerId answer) {

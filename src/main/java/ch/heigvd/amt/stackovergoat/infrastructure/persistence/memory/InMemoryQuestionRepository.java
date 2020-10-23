@@ -17,4 +17,8 @@ public class InMemoryQuestionRepository extends InMemoryRepository<Question, Que
         return findAll();
     }
 
+    @Override
+    public int getSize() {
+        return 0;
+    }
 }

@@ -113,6 +113,11 @@ public class JdbcUserRepository implements IUserRepository {
     }
 
     @Override
+    public int getSize() {
+        return 0;
+    }
+
+    @Override
     public Optional<User> findById(UserId id) {
         try {
             Connection connection = dataSource.getConnection();
