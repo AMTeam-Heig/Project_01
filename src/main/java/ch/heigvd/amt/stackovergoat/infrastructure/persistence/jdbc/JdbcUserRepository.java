@@ -57,14 +57,13 @@ public class JdbcUserRepository implements IUserRepository {
                 String passwd = res.getString("password");
 
                 User submittedUser =
-
                         User.builder()
                                 .id(id)
                                 .username(username)
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 return Optional.of(submittedUser);
             }
@@ -78,7 +77,6 @@ public class JdbcUserRepository implements IUserRepository {
 
     @Override
     public void save(User user) {
-        System.out.println("Gonna insert " + user.getId().asString());
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("INSERT INTO User (idUser, username, firstname, lastname, email, password) VALUES (?,?,?,?,?,?)");
@@ -90,10 +88,7 @@ public class JdbcUserRepository implements IUserRepository {
             sql.setString(6, user.getEncryptedPassword());
 
             int nbRow = sql.executeUpdate();
-            System.out.println("inserted " + user.getUsername());
             connection.close();
-
-
 
             if(nbRow > 1){
                 throw new IllegalArgumentException("Task went wrong");
@@ -141,7 +136,7 @@ public class JdbcUserRepository implements IUserRepository {
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 return Optional.of(submittedUser);
             }
@@ -175,7 +170,7 @@ public class JdbcUserRepository implements IUserRepository {
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 matchingEntities.add(submittedUser);
             }

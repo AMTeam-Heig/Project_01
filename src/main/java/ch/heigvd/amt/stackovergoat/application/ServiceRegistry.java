@@ -35,7 +35,8 @@ public class ServiceRegistry {
     private static AnswerFacade answerFacade;
 
     // User
-    @Inject @Named("JdbcUserRepository")
+    @Inject
+    @Named("JdbcUserRepository")
     private IUserRepository userRepository;
 
     private static UserFacade userFacade;

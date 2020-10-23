@@ -20,6 +20,8 @@ public class User implements IEntity<User, UserId> {
     private String encryptedPassword;
 
     public boolean authenticate(String clearTextPassword) {
+        System.out.println("Clear auth: " + clearTextPassword);
+        System.out.println("Encr auth: " + encryptedPassword);
         return BCrypt.checkpw(clearTextPassword, encryptedPassword);
     }
 
@@ -41,6 +43,8 @@ public class User implements IEntity<User, UserId> {
             }
             // TODO : chiffrage
             encryptedPassword = BCrypt.hashpw(clearTextPassword, BCrypt.gensalt());
+            System.out.println("Clear build: " + clearTextPassword);
+            System.out.println("Hash build: " + encryptedPassword);
             return this;
         }
 
