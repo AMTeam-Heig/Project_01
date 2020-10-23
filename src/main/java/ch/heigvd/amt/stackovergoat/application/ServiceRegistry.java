@@ -113,6 +113,18 @@ public class ServiceRegistry {
                 .text("GOAT is love <3")
                 .author("Elodie")
                 .build());
+
+        answerFacade.proposeAnswer(ProposeAnswerCommand.builder()
+                .questionId(questionFacade.getAllQuestions().getQuestions().get(1).getId())
+                .text("Nope")
+                .author("Clarusso")
+                .build());
+
+        answerFacade.proposeAnswer(ProposeAnswerCommand.builder()
+                .questionId(questionFacade.getAllQuestions().getQuestions().get(2).getId())
+                .text("Aw heellllll nooooo!")
+                .author("Walidou")
+                .build());
     }
 
     public QuestionFacade getQuestionFacade() {
