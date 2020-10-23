@@ -13,8 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+<<<<<<< HEAD:src/main/java/ch/heigvd/amt/stackovergoat/ui/web/statistics/statisticsPageEndPoint.java
 @WebServlet(name = "statisticsPageEndPoint" ,urlPatterns =  "/statistics")
 public class statisticsPageEndPoint extends HttpServlet {
+=======
+@WebServlet(name = "AnswersPageHandler", urlPatterns = "/answers")
+public class AnswersQueryEndpoint extends HttpServlet {
+>>>>>>> e85033728e44af9f30523f96841e81badde69921:src/main/java/ch/heigvd/amt/stackovergoat/ui/web/answer/AnswersQueryEndpoint.java
 
     private ServiceRegistry serviceRegistry;
     private StatsFacade statsFacade;
