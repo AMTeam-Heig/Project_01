@@ -7,6 +7,7 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterComman
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
+import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
@@ -30,7 +31,8 @@ public class ServiceRegistry {
     // User
     private static IUserRepository userRepository;
     private static UserFacade userFacade;
-
+    //stats
+    private static StatsFacade statsFacade;
     // Identity management
     private static IdentityManagementFacade identityManagementFacade;
 
@@ -52,6 +54,7 @@ public class ServiceRegistry {
 
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
+        statsFacade=new StatsFacade(questionRepository,userRepository);
 
         identityManagementFacade = new IdentityManagementFacade(userRepository);
         initValues();
@@ -115,7 +118,9 @@ public class ServiceRegistry {
     public QuestionFacade getQuestionFacade() {
         return questionFacade;
     }
-
+    public StatsFacade getStatsFacade() {
+        return statsFacade;
+    }
     public AnswerFacade getAnswerFacade() {
         return answerFacade;
     }

@@ -31,5 +31,10 @@ public class InMemoryQuestionRepository extends InMemoryRepository<Question, Que
                 .collect(Collectors.toList());
         return questions;
     }
+    
+    @Override
+    public int getSize() {
+        return 0;
+    }
 
 }

@@ -117,6 +117,11 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         }
     }
 
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
 
     @Override
     public Optional<Question> findById(QuestionId question) {
