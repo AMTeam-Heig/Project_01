@@ -62,13 +62,35 @@ public class AnswerTest {
 
     @Test
     public void proposingAnAnswerShouldAddItToFacade() {
-        // assertDoesNotThrow(() -> answerFacade.proposeAnswer(proposeAnswerCommand));
+        questionFacade.proposeQuestion(proposeQuestionCommand);
+        assertDoesNotThrow(() -> answerFacade.proposeAnswer(ProposeAnswerCommand.builder()
+                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .text("Aw heellllll nooooo!")
+                .author("Walidou")
+                .build()));
         AnswersQuery answersQuery = AnswersQuery.builder()
                 .isAnswer(true)
                 .build();
         AnswersDTO answersDTO = answerFacade.getAnswers(answersQuery);
-        // assertFalse(answerFacade.getAllAnswers().getAnswers().isEmpty());
-        // assertFalse(answersDTO.getAnswers().isEmpty());
+        assertFalse(answerFacade.getAllAnswers().getAnswers().isEmpty());
+        assertFalse(answersDTO.getAnswers().isEmpty());
+    }
+
+    @Test
+    public void gettingAnswerFromQuestionIdShouldWork() {
+        questionFacade.proposeQuestion(proposeQuestionCommand);
+        assertDoesNotThrow(() -> answerFacade.proposeAnswer(ProposeAnswerCommand.builder()
+                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .text("Aw heellllll nooooo!")
+                .author("Walidou")
+                .build()));
+        AnswersQuery answersQuery = AnswersQuery.builder()
+                .idQuestion(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .build();
+        AnswersDTO answersDTO = answerFacade.getAnswers(answersQuery);
+
+        assertFalse(answerFacade.getAllAnswers().getAnswers().isEmpty());
+        assertFalse(answersDTO.getAnswers().isEmpty());
     }
 
     @Test

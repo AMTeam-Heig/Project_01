@@ -16,6 +16,7 @@ public class AnswersDTO {
     @Getter
     @EqualsAndHashCode
     public static class AnswerDTO {
+        private String idQuestion;
         private String text;
         private String author;
     }

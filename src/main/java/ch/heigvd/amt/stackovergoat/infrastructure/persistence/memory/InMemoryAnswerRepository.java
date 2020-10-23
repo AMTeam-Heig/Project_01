@@ -29,7 +29,7 @@ public class InMemoryAnswerRepository extends InMemoryRepository<Answer, AnswerI
         List<Answer> answers = findAll().stream()
                 .filter(answer -> (
                         (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
-                        (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
+                        (fromId     && answer.getQuestionId().asString().equals(query.getIdQuestion()))   ||
                         (fromText   && answer.getText().equals(query.getText()))))
                 .collect(Collectors.toList());
         return answers;

@@ -36,6 +36,7 @@ public class AnswerFacade {
 
         List<AnswersDTO.AnswerDTO> allAnswersDTO = allAnswers.stream()
                 .map(answer -> AnswersDTO.AnswerDTO.builder()
+                        .idQuestion(answer.getQuestionId().asString())
                         .text(answer.getText())
                         .build()).collect(Collectors.toList());
 
