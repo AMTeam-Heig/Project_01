@@ -45,7 +45,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         }
         List<Answer> answers = findAll().stream()
                 .filter(answer -> (
-                        (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
+                                (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
                                 (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
                                 (fromText   && answer.getText().equals(query.getText()))))
                 .collect(Collectors.toList());

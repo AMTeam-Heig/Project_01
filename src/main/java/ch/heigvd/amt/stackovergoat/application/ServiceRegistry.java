@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
 import ch.heigvd.amt.stackovergoat.application.answer.ProposeAnswerCommand;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
@@ -11,9 +12,11 @@ import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
 
@@ -27,6 +30,10 @@ public class ServiceRegistry {
     // Answer
     private static IAnswerRepository answerRepository;
     private static AnswerFacade answerFacade;
+
+    // Comment
+    private static ICommentRepository commentRepository;
+    private static CommentFacade commentFacade;
 
     // User
     private static IUserRepository userRepository;
@@ -51,6 +58,9 @@ public class ServiceRegistry {
 
         answerRepository = new InMemoryAnswerRepository();
         answerFacade = new AnswerFacade(answerRepository);
+
+        commentRepository = new InMemoryCommentRepository();
+        commentFacade = new CommentFacade(commentRepository);
 
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
