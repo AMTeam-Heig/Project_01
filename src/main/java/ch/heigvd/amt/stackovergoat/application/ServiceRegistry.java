@@ -1,14 +1,18 @@
 package ch.heigvd.amt.stackovergoat.application;
 
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
+import ch.heigvd.amt.stackovergoat.application.answer.ProposeAnswerCommand;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
+import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
@@ -48,12 +52,12 @@ public class ServiceRegistry {
     // Identity management
     private static IdentityManagementFacade identityManagementFacade;
 
-    /*public static ServiceRegistry getServiceRegistry() {
+    public static ServiceRegistry getServiceRegistry() {
         if (singleton == null) {
             singleton = new ServiceRegistry();
         }
         return singleton;
-    }*/
+    }
 
     /*private ServiceRegistry() {
         singleton = this;
