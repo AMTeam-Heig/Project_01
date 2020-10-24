@@ -45,7 +45,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         }
         List<Answer> answers = findAll().stream()
                 .filter(answer -> (
-                        (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
+                                (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
                                 (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
                                 (fromText   && answer.getText().equals(query.getText()))))
                 .collect(Collectors.toList());
@@ -139,7 +139,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
     }
 
     private Answer getAnswer(ResultSet resultSet, Connection connection) throws SQLException {
-        AnswerId answerId = new AnswerId(resultSet.getString("idQuestion"));
+        AnswerId answerId = new AnswerId(resultSet.getString("idAnswer"));
         String userId = resultSet.getString("idUser");
         String text = resultSet.getString("text");
         String author = "";
