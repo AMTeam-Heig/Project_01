@@ -19,7 +19,7 @@ public class CommentFacade {
     public void proposeComment(ProposeCommentCommand command) {
         if(command != null) {
             Comment submittedComment = Comment.builder()
-                    .subjectId(new QuestionId(command.getQuestionId()))
+                    .subjectId(new QuestionId(command.getQuestionId()).asString())
                     .author(command.getAuthor())
                     .comment(command.getComment())
                     .build();
@@ -36,7 +36,7 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
-                        .idQuestion(comment.getSubjectId().asString())
+                        .idQuestion(comment.getSubjectId())
                         .comment(comment.getComment())
                         .build()).collect(Collectors.toList());
 

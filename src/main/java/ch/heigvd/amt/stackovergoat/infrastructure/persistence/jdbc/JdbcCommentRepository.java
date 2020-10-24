@@ -72,6 +72,22 @@ public class JdbcCommentRepository implements ICommentRepository {
     }
 
     @Override
+    public Collection<Comment> getByAnswer(String answerId) {
+        List<Comment> comments = findAll().stream()
+                .filter(comment -> (comment.isForAnswer() && comment.getSubjectId().equals(answerId)))
+                .collect(Collectors.toList());
+        return comments;
+    }
+
+    @Override
+    public Collection<Comment> getByQuestion(String questionId) {
+        List<Comment> comments = findAll().stream()
+                .filter(comment -> (!comment.isForAnswer() && comment.getSubjectId().equals(questionId)))
+                .collect(Collectors.toList());
+        return comments;
+    }
+
+    @Override
     public void save(Comment entity) {
         try {
             Connection connection = dataSource.getConnection();
