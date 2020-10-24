@@ -1,9 +1,9 @@
 package ch.heigvd.amt.stackovergoat.infrastructure.persistence.jdbc;
 
-import ch.heigvd.amt.stackovergoat.application.answer.AnswersQuery;
-import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
-import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
-import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
+import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
+import ch.heigvd.amt.stackovergoat.domain.comment.CommentId;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
@@ -20,70 +20,71 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-@Named("JdbcAnswerRepository")
-public class JdbcAnswerRepository implements IAnswerRepository {
+@Named("JdbcCommentRepository")
+public class JdbcCommentRepository implements ICommentRepository {
+    // TODO : change comment in ddb to user comments answer or question /!\ not the same tables !
     @Resource(lookup = "jdbc/StackOverflowDS")
     DataSource dataSource;
 
-    public JdbcAnswerRepository(){}
+    public JdbcCommentRepository(){}
 
-    public JdbcAnswerRepository(DataSource dataSource){
+    public JdbcCommentRepository(DataSource dataSource){
         this.dataSource = dataSource;
     }
 
     @Override
-    public Collection<Answer> find(AnswersQuery query) {
+    public Collection<Comment> find(CommentsQuery query) {
         if (query == null) {
             return findAll();
         }
         boolean fromAuthor  = (!query.getAuthor().equals(""));
         boolean fromId      = (!query.getIdQuestion().equals(""));
-        boolean fromText    = (!query.getText().equals(""));
+        boolean fromText    = (!query.getComment().equals(""));
 
         if (!(fromAuthor || fromId || fromText)) {
             return findAll();
         }
-        List<Answer> answers = findAll().stream()
-                .filter(answer -> (
-                                (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
-                                (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
-                                (fromText   && answer.getText().equals(query.getText()))))
+        List<Comment> comments = findAll().stream()
+                .filter(comment -> (
+                        (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
+                                (fromId     && comment.getId().asString().equals(query.getIdQuestion()))   ||
+                                (fromText   && comment.getComment().equals(query.getComment()))))
                 .collect(Collectors.toList());
-        return answers;
+        return comments;
     }
 
     @Override
-    public Collection<Answer> findAll() {
-        List<Answer> answers = new LinkedList<>();
+    public Collection<Comment> findAll() {
+        List<Comment> comments = new LinkedList<>();
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Answer");
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Comment");
             ResultSet resultSet = sql.executeQuery();
 
             while (resultSet.next()) {
-                answers.add(getAnswer(resultSet, connection));
+                comments.add(getComment(resultSet, connection));
             }
 
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        return answers;
+        return comments;
     }
 
     @Override
-    public void save(Answer entity) {
+    public void save(Comment entity) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO Answer (idAnswer, text, idUser) VALUES (?,?,?)");
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO Comment (idComment, text, idUser) VALUES (?,?,?)");
             sql.setString(1, entity.getId().toString());
-            sql.setString(2, entity.getText());
+            sql.setString(2, entity.getComment());
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
             String authorId = "";
             ResultSet resultSetUser = userSql.executeQuery();
             if(resultSetUser.getFetchSize() == 1) {
-                authorId = resultSetUser.getString("idAnswer");
+                authorId = resultSetUser.getString("idComment");
             }
 
             sql.setString(3, authorId);
@@ -101,10 +102,10 @@ public class JdbcAnswerRepository implements IAnswerRepository {
     }
 
     @Override
-    public void remove(AnswerId id) {
+    public void remove(CommentId id) {
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("DELETE FROM Answer WHERE idAnswer = ?");
+            PreparedStatement sql = connection.prepareStatement("DELETE FROM Comment WHERE idComment = ?");
             sql.setString(1, id.toString());
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -120,15 +121,15 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
 
     @Override
-    public Optional<Answer> findById(AnswerId answer) {
+    public Optional<Comment> findById(CommentId comment) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Answer WHERE idAnswer = ?");
-            sql.setString(1, answer.asString());
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM Comment WHERE idComment = ?");
+            sql.setString(1, comment.asString());
             ResultSet res = sql.executeQuery();
 
             while(res.next()) {
-                return Optional.of(getAnswer(res, connection));
+                return Optional.of(getComment(res, connection));
             }
 
         } catch (SQLException e) {
@@ -138,10 +139,10 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         return Optional.empty();
     }
 
-    private Answer getAnswer(ResultSet resultSet, Connection connection) throws SQLException {
-        AnswerId answerId = new AnswerId(resultSet.getString("idAnswer"));
+    private Comment getComment(ResultSet resultSet, Connection connection) throws SQLException {
+        CommentId commentId = new CommentId(resultSet.getString("idComment"));
         String userId = resultSet.getString("idUser");
-        String text = resultSet.getString("text");
+        String comment = resultSet.getString("comment");
         String author = "";
 
         PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE userId = ?");
@@ -151,11 +152,11 @@ public class JdbcAnswerRepository implements IAnswerRepository {
             author = resultSetUser.getString("username");
         }
 
-        Answer submittedAnswer = Answer.builder()
-                .id(answerId)
+        Comment submittedComment = Comment.builder()
+                .id(commentId)
                 .author(author)
-                .text(text)
+                .comment(comment)
                 .build();
-        return submittedAnswer;
+        return submittedComment;
     }
 }
