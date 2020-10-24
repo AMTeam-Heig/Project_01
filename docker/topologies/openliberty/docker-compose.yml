@@ -27,10 +27,3 @@ services:
       - mysql:db
     depends_on:
       - mysql
-     build: ../../images/phpmyadmin
-     ports:
-       - "6060:80"
-     environment:
-       - MYSQL_ROOT_PASSWORD=root
-     links:
-       - mysql:db

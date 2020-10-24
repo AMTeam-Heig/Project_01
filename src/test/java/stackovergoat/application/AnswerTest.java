@@ -4,6 +4,7 @@ import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
 import ch.heigvd.amt.stackovergoat.application.answer.AnswersDTO;
 import ch.heigvd.amt.stackovergoat.application.answer.AnswersQuery;
 import ch.heigvd.amt.stackovergoat.application.answer.ProposeAnswerCommand;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
@@ -14,9 +15,11 @@ import ch.heigvd.amt.stackovergoat.application.user.UsersDTO;
 import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
 import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,6 +44,9 @@ public class AnswerTest {
     private static IAnswerRepository answerRepository;
     private static AnswerFacade answerFacade;
 
+    private static ICommentRepository commentRepository;
+    private static CommentFacade commentFacade;
+
     private final ProposeQuestionCommand proposeQuestionCommand = ProposeQuestionCommand.builder()
             .author(QUESTION_AUTHOR)
             .text(QUESTION_TEXT)
@@ -56,8 +62,11 @@ public class AnswerTest {
         questionRepository = new InMemoryQuestionRepository();
         questionFacade = new QuestionFacade(questionRepository);
 
+        commentRepository = new InMemoryCommentRepository();
+        commentFacade = new CommentFacade(commentRepository);
+
         answerRepository = new InMemoryAnswerRepository();
-        answerFacade = new AnswerFacade(answerRepository);
+        answerFacade = new AnswerFacade(answerRepository, commentRepository);
     }
 
     @Test

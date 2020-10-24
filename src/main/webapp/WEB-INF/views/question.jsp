@@ -29,9 +29,17 @@
                 <a href="#" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
                     <b>${answer.author}</b> asked :
                 </div></a>
+                <a href="/commentAnswer?id=${answer.id}" class="a">Comment the answer</a>
                 <div style="background: #f9f9f9; padding: 5px 5px 5px 5px;">
                     <p> ${answer.text}</p>
                 </div>
+                <c:forEach var="comment" items="${answer.comments}">
+                    <div>
+                        ${comment.comment}
+                        <br>
+                        ${comment.author}
+                    </div>
+                </c:forEach>
             </div>
         </c:forEach>
     </div>

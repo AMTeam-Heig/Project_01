@@ -10,4 +10,7 @@ public interface ICommentRepository extends IRepository<Comment, CommentId> {
     public Collection<Comment> find(CommentsQuery query);
     public Optional<Comment> findById(CommentId comment);
     public Collection<Comment> findAll();
+
+    Collection<Comment> getByAnswer(String answerId);
+    Collection<Comment> getByQuestion(String questionId);
 }

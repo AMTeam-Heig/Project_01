@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.answer;
 
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
 
@@ -11,9 +12,11 @@ import java.util.stream.Collectors;
 
 public class AnswerFacade {
     private IAnswerRepository answerRepository;
+    private ICommentRepository commentRepository;
 
-    public AnswerFacade(IAnswerRepository answerRepository) {
+    public AnswerFacade(IAnswerRepository answerRepository, ICommentRepository commentRepository) {
         this.answerRepository = answerRepository;
+        this.commentRepository = commentRepository;
     }
 
     public void proposeAnswer(ProposeAnswerCommand command) {
@@ -38,7 +41,9 @@ public class AnswerFacade {
                 .map(answer -> AnswersDTO.AnswerDTO.builder()
                         .idQuestion(answer.getQuestionId().asString())
                         .text(answer.getText())
-                        .build()).collect(Collectors.toList());
+                        .comments(commentRepository.getByAnswer(answer.getId().asString()))
+                        .build())
+                .collect(Collectors.toList());
 
         return AnswersDTO.builder()
                 .answers(allAnswersDTO)
