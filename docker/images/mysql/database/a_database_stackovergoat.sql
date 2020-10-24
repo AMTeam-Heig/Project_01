@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `amt_project_01`.`User` ;
 
 CREATE TABLE IF NOT EXISTS `amt_project_01`.`User` (
   `idUser` VARCHAR(255) NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
+  `lastname` VARCHAR(45) NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
