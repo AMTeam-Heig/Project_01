@@ -35,10 +35,23 @@ public class JdbcQuestionRepository implements IQuestionRepository {
 
     @Override
     public Collection<Question> find(QuestionsQuery query) {
+        if (query == null) {
+            return findAll();
+        }
+        boolean fromAuthor  = (!query.getAuthor().equals(""));
+        boolean fromId      = (!query.getIdQuestion().equals(""));
+        boolean fromText    = (!query.getText().equals(""));
+        boolean fromWords   = (!query.getWords().equals(""));
+
+        if (!(fromAuthor || fromId || fromText || fromWords)) {
+            return findAll();
+        }
         List<Question> questions = findAll().stream()
-                .filter(question -> (question.getAuthor().equals(query.getAuthor()) ||
-                        question.getId().toString().equals(query.getIdQuestion()) ||
-                        question.getText().equals(query.getText())))
+                .filter(question -> (
+                        (fromAuthor && question.getAuthor().equals(query.getAuthor()))              ||
+                        (fromId     && question.getId().asString().equals(query.getIdQuestion()))   ||
+                        (fromText   && question.getText().equals(query.getText()))                  ||
+                        (fromWords  && question.containsWords(query.getWords()))))
                 .collect(Collectors.toList());
         return questions;
     }
@@ -102,6 +115,11 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         }catch(SQLException e){
             throw new IllegalArgumentException(e);
         }
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
     }
 
 

@@ -34,7 +34,9 @@ public class QuestionFacade {
 
         List<QuestionsDTO.QuestionDTO> allQuestionsDTO = allQuestions.stream()
                 .map(question -> QuestionsDTO.QuestionDTO.builder()
-                    .text(question.getText())
+                        .id(question.getId().asString())
+                        .author(question.getAuthor())
+                        .text(question.getText())
                 .build()).collect(Collectors.toList());
 
         return QuestionsDTO.builder()
@@ -47,6 +49,7 @@ public class QuestionFacade {
 
         List<QuestionsDTO.QuestionDTO> allQuestionsDTO = allQuestions.stream()
                 .map(question -> QuestionsDTO.QuestionDTO.builder()
+                        .id(question.getId().asString())
                         .text(question.getText())
                         .author(question.getAuthor())
                         .build())

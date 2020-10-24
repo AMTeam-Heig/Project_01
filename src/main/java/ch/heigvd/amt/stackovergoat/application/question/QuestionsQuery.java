@@ -21,4 +21,8 @@ public class QuestionsQuery {
 
     @Builder.Default
     private String text = "";
+
+    @Builder.Default
+    private String words = "";
+
 }

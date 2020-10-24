@@ -46,7 +46,13 @@ public class AuthorizationFilter implements Filter {
         if(URI.startsWith("/questions")) {
             return true;
         }
+        if(URI.startsWith("/question")) {
+            return true;
+        }
         if(URI.startsWith("/home")) {
+            return true;
+        }
+        if(URI.startsWith("/statistics")) {
             return true;
         }
         if(URI.startsWith("/assets")) {

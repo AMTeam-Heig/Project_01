@@ -1,5 +1,4 @@
-![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg)
-
+![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg) ![tests](https://github.com/AMTeam-Heig/Project_01/workflows/tests/badge.svg)
 ## StackOverGoat 
 ### Objectif
 The main goal of this project is to implement a simple version of https://stackoverflow.com/ website :
