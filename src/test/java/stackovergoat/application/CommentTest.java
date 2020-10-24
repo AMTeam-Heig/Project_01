@@ -48,7 +48,7 @@ public class CommentTest {
     @BeforeEach
     public void initialization() {
         questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
 
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);
@@ -58,7 +58,7 @@ public class CommentTest {
     public void proposingACommentShouldAddItToFacade() {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertDoesNotThrow(() -> commentFacade.proposeComment(ProposeCommentCommand.builder()
-                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .comment("Aw heellllll nooooo!")
                 .author("Walidou")
                 .build()));
@@ -74,7 +74,7 @@ public class CommentTest {
     public void gettingCommentFromQuestionIdShouldWork() {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertDoesNotThrow(() -> commentFacade.proposeComment(ProposeCommentCommand.builder()
-                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .comment("Aw heellllll nooooo!")
                 .author("Walidou")
                 .build()));

@@ -20,8 +20,6 @@ import java.io.IOException;
 @WebServlet(name = "QuestionPageHandler", urlPatterns = "/question")
 public class QuestionQueryEndpoint extends HttpServlet {
 
-    @Inject
-    @Named("ServiceRegistry")
     private ServiceRegistry serviceRegistry;
     private QuestionFacade questionFacade;
     private AnswerFacade answerFacade;
@@ -29,7 +27,7 @@ public class QuestionQueryEndpoint extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        //serviceRegistry = ServiceRegistry.getServiceRegistry();
+        serviceRegistry = ServiceRegistry.getServiceRegistry();
         questionFacade = serviceRegistry.getQuestionFacade();
         answerFacade = serviceRegistry.getAnswerFacade();
     }

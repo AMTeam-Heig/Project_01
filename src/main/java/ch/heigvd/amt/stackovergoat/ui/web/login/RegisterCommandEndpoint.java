@@ -18,9 +18,7 @@ import java.util.List;
 @WebServlet(name = "RegisterCommandEndpoint", urlPatterns = "/register.do")
 public class RegisterCommandEndpoint extends HttpServlet {
 
-    @Inject
-    @Named("ServiceRegistry")
-    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
 
     private IdentityManagementFacade identityManagementFacade;
 

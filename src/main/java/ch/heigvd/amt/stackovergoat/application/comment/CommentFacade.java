@@ -19,9 +19,10 @@ public class CommentFacade {
     public void proposeComment(ProposeCommentCommand command) {
         if(command != null) {
             Comment submittedComment = Comment.builder()
-                    .subjectId(new QuestionId(command.getQuestionId()).asString())
+                    .subjectId(command.getSubjectId())
                     .author(command.getAuthor())
                     .comment(command.getComment())
+                    .isForAnswer(command.isForAnswer())
                     .build();
             try {
                 commentRepository.save(submittedComment);

@@ -19,15 +19,13 @@ import java.util.Arrays;
 @WebServlet(name = "QuestionsPageHandler", urlPatterns = "/home")
 public class QuestionsQueryEndpoint extends HttpServlet {
 
-    @Inject
-    @Named("ServiceRegistry")
     private ServiceRegistry serviceRegistry;
     private QuestionFacade questionFacade;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        //serviceRegistry = ServiceRegistry.getServiceRegistry();
+        serviceRegistry = ServiceRegistry.getServiceRegistry();
         questionFacade = serviceRegistry.getQuestionFacade();
     }
 

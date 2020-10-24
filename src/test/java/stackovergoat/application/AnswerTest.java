@@ -59,11 +59,11 @@ public class AnswerTest {
 
     @BeforeEach
     public void initialization() {
-        questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository);
-
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);
+
+        questionRepository = new InMemoryQuestionRepository();
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
 
         answerRepository = new InMemoryAnswerRepository();
         answerFacade = new AnswerFacade(answerRepository, commentRepository);

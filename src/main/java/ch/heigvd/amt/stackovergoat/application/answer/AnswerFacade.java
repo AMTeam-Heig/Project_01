@@ -39,6 +39,8 @@ public class AnswerFacade {
 
         List<AnswersDTO.AnswerDTO> allAnswersDTO = allAnswers.stream()
                 .map(answer -> AnswersDTO.AnswerDTO.builder()
+                        .id(answer.getId().asString())
+                        .author(answer.getAuthor())
                         .idQuestion(answer.getQuestionId().asString())
                         .text(answer.getText())
                         .comments(commentRepository.getByAnswer(answer.getId().asString()))
