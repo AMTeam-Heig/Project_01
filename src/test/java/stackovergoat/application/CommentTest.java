@@ -27,7 +27,7 @@ public class CommentTest {
     private final String QUESTION_AUTHOR = "Question author";
 
     private final String COMMENT_TEXT = "This is a comment.";
-    private final String COMMENT_AUTHOR = "Comment author";
+    private final String COMMENT_AUTHOR = "Vote author";
 
     private static IQuestionRepository questionRepository;
     private static QuestionFacade questionFacade;

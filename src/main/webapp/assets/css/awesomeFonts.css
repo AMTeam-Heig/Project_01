@@ -73,3 +73,11 @@ h-comment-of-answer {
     border-radius: 10px;
     text-align: center;
 }
+
+.h-answer {
+    width : 100%;
+    background: #ffffff;
+    margin : 0px 10px 0px 10px;
+    padding: 20px 15px 20px 15px;
+    border-radius: 10px;
+}

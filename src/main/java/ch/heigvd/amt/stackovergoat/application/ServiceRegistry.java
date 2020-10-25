@@ -11,15 +11,14 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
+import ch.heigvd.amt.stackovergoat.application.vote.VoteFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
+import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.*;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -42,6 +41,10 @@ public class ServiceRegistry {
     // Comment
     private static ICommentRepository commentRepository;
     private static CommentFacade commentFacade;
+
+    // Vote
+    private static IVoteRepository voteRepository;
+    private static VoteFacade voteFacade;
 
     // User
     private static IUserRepository userRepository;
@@ -73,6 +76,9 @@ public class ServiceRegistry {
 
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
+
+        voteRepository = new InMemoryVoteRepository();
+        voteFacade = new VoteFacade(voteRepository);
 
         identityManagementFacade = new IdentityManagementFacade(userRepository);
         initValues();
@@ -149,6 +155,7 @@ public class ServiceRegistry {
     public void initFacade(){
         userFacade = new UserFacade(userRepository);
         commentFacade = new CommentFacade(commentRepository);
+        voteFacade = new VoteFacade(voteRepository);
         answerFacade = new AnswerFacade(answerRepository, commentRepository);
         questionFacade = new QuestionFacade(questionRepository, commentRepository);
     }
@@ -174,7 +181,11 @@ public class ServiceRegistry {
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {
-        identityManagementFacade = new IdentityManagementFacade(userRepository);
+        //identityManagementFacade = new IdentityManagementFacade(userRepository);
         return identityManagementFacade;
+    }
+
+    public VoteFacade getVoteFacade() {
+        return voteFacade;
     }
 }

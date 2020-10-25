@@ -26,17 +26,17 @@ public class Comment implements IEntity<Comment, CommentId> {
     }
 
     public static class CommentBuilder {
-        public Comment build() {
-            if(subjectId == null) {
-                // TODO throw exception
-            }
+                    public Comment build() {
+                        if(subjectId == null) {
+                            // TODO throw exception
+                        }
 
-            if(id == null) {
-                id = new CommentId();
-            }
+                        if(id == null) {
+                            id = new CommentId();
+                        }
 
-            if(comment == null) {
-                comment = "";
+                        if(comment == null) {
+                            comment = "";
             }
 
             return new Comment(id, isForAnswer, subjectId, author, comment);

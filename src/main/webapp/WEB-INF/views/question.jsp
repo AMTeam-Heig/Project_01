@@ -67,9 +67,10 @@
             <div class="answer-group">
                 <p>
                     <h-comment-and-answer>Answered by ${answer.author}</h-comment-and-answer>
+                    <button class="btn">+</button> <button class="btn-danger">-</button>
                     <br/>
                 <p>
-                    ${answer.text}
+                <div class="h-answer">${answer.text}</div>
                 </p>
 
                 <c:forEach var="comment" items="${answer.comments}">
