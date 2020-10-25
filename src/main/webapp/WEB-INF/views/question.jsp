@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="./assets/css/bootstraps/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/awesomeFonts.css" rel="stylesheet">
 
     <title>Welcome to StackOverGoat</title>
 </head>
@@ -16,82 +17,83 @@
 <jsp:include flush="true" page="./fragments/header.jsp"/>
 
 <div class="card-group">
-    <div class="card" style="padding: 5px; margin: 10px; border-radius: 15px;">
-        <div style="text-align: center;"><h2> ${question.text}</h2></div>
-        <div>
-            <h3> Author : ${question.author}</h3>
-        </div>
+    <div class="card">
+        <!-- QUESTION TITLE -->
+        <h1>
+            <b>${question.author}</b> asked <i>${question.text}</i>
+        </h1>
+        <!-- COMMENTAIRES SUR LA QUESTION -->
+        <h2>Comments</h2>
+
         <c:if test="${currentUser != null}">
             <form action="./submitQuestionComment.do" method="POST">
                 <div class="form-group">
-                    <input name="comment" type="text" class="form-control" id="commentQ" placeholder="comment the question !">
-                    <small id="askHelpQ" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small>
+                    <input name="comment"
+                           type="text"
+                           class="form-control"
+                           id="commentQ"
+                           placeholder="comment the question !" align="center">
+                    <button type="submit" class="btn btn-secondary" style="margin: 15px 15px 15px 15px;">Comment
+                    </button>
+                    <!--<small id="askHelpQ" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small> -->
                 </div>
                 <input id="questionIdQ" name="questionId" type="hidden" value="${question.id}">
-                <div style="text-align: center;">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
             </form>
         </c:if>
+        <c:forEach var="comment" items="${question.comments}">
+            <p>
+                <h-comment-and-answer>Commented by ${comment.author}</h-comment-and-answer>
+                <br/>
+            <p>
+                    ${comment.comment}
+            </p>
 
+
+            </p>
+        </c:forEach>
+        <h2>Answers</h2>
         <c:if test="${currentUser != null}">
             <form action="./submitAnswer.do" method="POST">
                 <div class="form-group">
-                    <input name="answer" type="text" class="form-control" id="answerQ" placeholder="answer the question !">
-                    <small id="askHelpA" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small>
+                    <input name="answer" type="text" class="form-control" id="answerQ"
+                           placeholder="answer the question !">
                 </div>
                 <input id="questionIdA" name="questionId" type="hidden" value="${question.id}">
                 <div style="text-align: center;">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+                    <button type="submit" class="btn btn-secondary" style="margin: 15px 15px 15px 15px;">Submit</button>
+                </div></form>
         </c:if>
-        <div>
-            <h3> Comments </h3>
-        </div>
-        <c:forEach var="comment" items="${question.comments}">
-            <div>
-                    ${comment.comment}
-                <br>
-                <i>Commented by ${comment.author}</i>
-            </div>
-        </c:forEach>
-        <div>
-            <h3> Answers </h3>
-        </div>
         <c:forEach var="answer" items="${answers.answers}">
-            <div>
-                <a href="#" class="a">
-                    <div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
-                    <b>${answer.author}</b> says :
-                    </div>
-                </a>
-                <div style="background: #f9f9f9; padding: 5px 5px 5px 5px;">
-                    <p> ${answer.text}</p>
-                </div>
-
-                <c:if test="${currentUser != null}">
-                <form action="./submitAnswerComment.do" method="POST">
-                    <div class="form-group">
-                        <input name="comment" type="text" class="form-control" id="commentA" placeholder="comment the answer !">
-                        <small id="askHelp" class="form-text text-muted">Be respectful, otherwise we'll kill u.</small>
-                    </div>
-                    <input id="answerId" name="answerId" type="hidden" value="${answer.id}">
-                    <input id="questionId" name="questionId" type="hidden" value="${question.id}">
-                    <div style="text-align: center;">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                </c:if>
+            <div class="answer-group">
+                <p>
+                    <h-comment-and-answer>Answered by ${answer.author}</h-comment-and-answer>
+                    <br/>
+                <p>
+                    ${answer.text}
+                </p>
 
                 <c:forEach var="comment" items="${answer.comments}">
-                    <div>
-                        ${comment.comment}
-                        <br>
-                            <i>Commented by ${comment.author}</i>
-                    </div>
+                    <p>
+                            ${comment.comment}<br/>
+                        <h-comment-of-answer>Commented by ${comment.author}</h-comment-of-answer>
+                    </p>
                 </c:forEach>
+
+                <c:if test="${currentUser != null}">
+                    <form action="./submitAnswerComment.do" method="POST">
+                        <div class="form-group">
+                            <input name="comment" type="text" class="form-control" id="commentA"
+                                   placeholder="comment the answer !">
+                        </div>
+                        <input id="answerId" name="answerId" type="hidden" value="${answer.id}">
+                        <input id="questionId" name="questionId" type="hidden" value="${question.id}">
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-secondary">Submit</button>
+                        </div>
+                    </form>
+                </c:if>
             </div>
+
         </c:forEach>
     </div>
 </div>
