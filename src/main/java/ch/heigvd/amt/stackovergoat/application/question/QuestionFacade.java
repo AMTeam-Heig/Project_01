@@ -1,8 +1,9 @@
 package ch.heigvd.amt.stackovergoat.application.question;
 
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.Question;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.stream.Collectors;
 
 public class QuestionFacade {
     private IQuestionRepository questionRepository;
+    private ICommentRepository commentRepository;
 
-    public QuestionFacade(IQuestionRepository questionRepository) {
+    public QuestionFacade(IQuestionRepository questionRepository, ICommentRepository commentRepository) {
         this.questionRepository = questionRepository;
+        this.commentRepository = commentRepository;
     }
 
     public void proposeQuestion(ProposeQuestionCommand command) {
@@ -37,6 +40,7 @@ public class QuestionFacade {
                         .id(question.getId().asString())
                         .author(question.getAuthor())
                         .text(question.getText())
+                        .comments(commentRepository.findAll())
                 .build()).collect(Collectors.toList());
 
         return QuestionsDTO.builder()

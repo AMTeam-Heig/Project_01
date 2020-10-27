@@ -2,6 +2,7 @@ package ch.heigvd.amt.stackovergoat.domain.user;
 
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
 import lombok.*;
+import org.mindrot.jbcrypt.BCrypt;
 
 @Getter
 @Setter
@@ -19,7 +20,7 @@ public class User implements IEntity<User, UserId> {
     private String encryptedPassword;
 
     public boolean authenticate(String clearTextPassword) {
-        return clearTextPassword.toUpperCase().equals(encryptedPassword);
+        return BCrypt.checkpw(clearTextPassword, encryptedPassword);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class User implements IEntity<User, UserId> {
                 throw new java.lang.IllegalArgumentException("Password is mandatory.");
             }
             // TODO : chiffrage
-            encryptedPassword = clearTextPassword.toUpperCase();
+            encryptedPassword = BCrypt.hashpw(clearTextPassword, BCrypt.gensalt());
             return this;
         }
 

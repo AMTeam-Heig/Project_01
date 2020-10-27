@@ -2,8 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.comment;
 
 import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
-import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,9 +18,10 @@ public class CommentFacade {
     public void proposeComment(ProposeCommentCommand command) {
         if(command != null) {
             Comment submittedComment = Comment.builder()
-                    .questionId(new QuestionId(command.getQuestionId()))
+                    .subjectId(command.getSubjectId())
                     .author(command.getAuthor())
                     .comment(command.getComment())
+                    .isForAnswer(command.isForAnswer())
                     .build();
             try {
                 commentRepository.save(submittedComment);
@@ -36,7 +36,7 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
-                        .idQuestion(comment.getQuestionId().asString())
+                        .idQuestion(comment.getSubjectId())
                         .comment(comment.getComment())
                         .build()).collect(Collectors.toList());
 

@@ -6,6 +6,8 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,19 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-@WebServlet(name = "QuestionsPageHandler", urlPatterns = "/home")
+@WebServlet(name = "QuestionsQueryEndpoint", urlPatterns = "/home")
 public class QuestionsQueryEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry;
-    private QuestionFacade questionFacade;
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private QuestionFacade questionFacade;// = serviceRegistry.getIdentityManagementFacade();
 
     @Override
     public void init() throws ServletException {
         super.init();
-        serviceRegistry = ServiceRegistry.getServiceRegistry();
         questionFacade = serviceRegistry.getQuestionFacade();
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         QuestionsDTO questionsDTO;

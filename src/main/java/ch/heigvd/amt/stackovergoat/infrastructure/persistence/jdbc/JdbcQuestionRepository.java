@@ -76,19 +76,28 @@ public class JdbcQuestionRepository implements IQuestionRepository {
 
     @Override
     public void save(Question entity) {
+        String authorId = "";
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO Question (idQuestion, text, idUser) VALUES (?,?,?)");
-            sql.setString(1, entity.getId().toString());
-            sql.setString(2, entity.getText());
+
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
-            String authorId = "";
+
             ResultSet resultSetUser = userSql.executeQuery();
-            if(resultSetUser.getFetchSize() == 1) {
-                authorId = resultSetUser.getString("idQuestion");
+            if(resultSetUser.next()) {
+                authorId = resultSetUser.getString("idUser");
+            }else{
+                throw new IllegalArgumentException("insert  went wrong");
             }
+            //if(resultSetUser.getFetchSize() == 1) {
+                //authorId = resultSetUser.getString("idUser");
+           // }
+
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO Question (idQuestion, text, author) VALUES (?,?,?)");
+            sql.setString(1, entity.getId().asString());
+            sql.setString(2, entity.getText());
+
 
             sql.setString(3, authorId);
 
@@ -100,7 +109,7 @@ public class JdbcQuestionRepository implements IQuestionRepository {
             }
 
         } catch (SQLException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException(entity.getAuthor());
         }
     }
 
@@ -144,15 +153,17 @@ public class JdbcQuestionRepository implements IQuestionRepository {
 
     private Question getQuestion(ResultSet resultSet, Connection connection) throws SQLException {
         QuestionId questionId = new QuestionId(resultSet.getString("idQuestion"));
-        String userId = resultSet.getString("idUser");
+        String userId = resultSet.getString("author");
         String text = resultSet.getString("text");
         String author = "";
 
-        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE userId = ?");
+        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
-        if(resultSetUser.getFetchSize() == 1) {
+        if(resultSetUser.next()) {
             author = resultSetUser.getString("username");
+        }else{
+            throw  new IllegalArgumentException("here your error");
         }
 
         Question submittedQuestion = Question.builder()

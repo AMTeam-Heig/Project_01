@@ -2,7 +2,7 @@ package ch.heigvd.amt.stackovergoat.domain.user;
 
 import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
 import ch.heigvd.amt.stackovergoat.domain.IRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.Optional;

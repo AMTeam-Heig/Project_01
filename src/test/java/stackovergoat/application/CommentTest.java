@@ -27,7 +27,7 @@ public class CommentTest {
     private final String QUESTION_AUTHOR = "Question author";
 
     private final String COMMENT_TEXT = "This is a comment.";
-    private final String COMMENT_AUTHOR = "Comment author";
+    private final String COMMENT_AUTHOR = "Vote author";
 
     private static IQuestionRepository questionRepository;
     private static QuestionFacade questionFacade;
@@ -48,7 +48,7 @@ public class CommentTest {
     @BeforeEach
     public void initialization() {
         questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
 
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);
@@ -58,7 +58,7 @@ public class CommentTest {
     public void proposingACommentShouldAddItToFacade() {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertDoesNotThrow(() -> commentFacade.proposeComment(ProposeCommentCommand.builder()
-                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .comment("Aw heellllll nooooo!")
                 .author("Walidou")
                 .build()));
@@ -74,12 +74,12 @@ public class CommentTest {
     public void gettingCommentFromQuestionIdShouldWork() {
         questionFacade.proposeQuestion(proposeQuestionCommand);
         assertDoesNotThrow(() -> commentFacade.proposeComment(ProposeCommentCommand.builder()
-                .questionId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .comment("Aw heellllll nooooo!")
                 .author("Walidou")
                 .build()));
         CommentsQuery commentsQuery = CommentsQuery.builder()
-                .idQuestion(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .build();
         CommentsDTO commentsDTO = commentFacade.getComments(commentsQuery);
 

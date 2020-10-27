@@ -3,6 +3,7 @@ package ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory;
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
 import ch.heigvd.amt.stackovergoat.domain.IRepository;
 import ch.heigvd.amt.stackovergoat.domain.Id;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.Map;

@@ -5,6 +5,8 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFa
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +17,19 @@ import java.util.List;
 
 @WebServlet(name = "RegisterCommandEndpoint", urlPatterns = "/register.do")
 public class RegisterCommandEndpoint extends HttpServlet {
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
-    private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
+
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+
+    private IdentityManagementFacade identityManagementFacade;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
+    }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,11 +47,11 @@ public class RegisterCommandEndpoint extends HttpServlet {
             request.setAttribute("username", registerCommand.getUsername());
             request.setAttribute("clearTextPassword", registerCommand.getClearTextPassword());
             request.getRequestDispatcher("./login.do").forward(request, response);
-            return;
+
         } catch (RegistrationFailedException e) {
             request.getSession().setAttribute("errors", List.of(e.getMessage()));
             response.sendRedirect("./login");
-            return;
+
         }
 
     }

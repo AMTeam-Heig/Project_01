@@ -16,7 +16,7 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
             return findAll();
         }
         boolean fromAuthor  = (!query.getAuthor().equals(""));
-        boolean fromId      = (!query.getIdQuestion().equals(""));
+        boolean fromId      = (!query.getSubjectId().equals(""));
         boolean fromComment = (!query.getComment().equals(""));
 
         if (!(fromAuthor || fromId || fromComment)) {
@@ -25,8 +25,8 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
                         (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
-                                (fromId     && comment.getQuestionId().asString().equals(query.getIdQuestion()))   ||
-                                (fromComment   && comment.getComment().equals(query.getComment()))))
+                        (fromId     && comment.getSubjectId().equals(query.getSubjectId()))   ||
+                        (fromComment   && comment.getComment().equals(query.getComment()))))
                 .collect(Collectors.toList());
         return comments;
     }
