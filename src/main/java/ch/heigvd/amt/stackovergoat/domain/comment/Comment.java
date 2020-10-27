@@ -13,7 +13,8 @@ public class Comment implements IEntity<Comment, CommentId> {
 
     @Setter(AccessLevel.NONE)
     private CommentId id;
-    private QuestionId questionId;
+    private boolean isForAnswer = true;
+    private String subjectId;
     private String author;
     private String comment;
 
@@ -26,7 +27,7 @@ public class Comment implements IEntity<Comment, CommentId> {
 
     public static class CommentBuilder {
         public Comment build() {
-            if(questionId == null) {
+            if(subjectId == null) {
                 // TODO throw exception
             }
 
@@ -38,7 +39,7 @@ public class Comment implements IEntity<Comment, CommentId> {
                 comment = "";
             }
 
-            return new Comment(id, questionId, author, comment);
+            return new Comment(id, isForAnswer, subjectId, author, comment);
         }
     }
 }

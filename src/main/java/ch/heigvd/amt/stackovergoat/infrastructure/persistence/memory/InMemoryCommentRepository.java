@@ -25,8 +25,24 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
                         (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
-                                (fromId     && comment.getQuestionId().asString().equals(query.getIdQuestion()))   ||
-                                (fromComment   && comment.getComment().equals(query.getComment()))))
+                        (fromId     && comment.getSubjectId().equals(query.getIdQuestion()))   ||
+                        (fromComment   && comment.getComment().equals(query.getComment()))))
+                .collect(Collectors.toList());
+        return comments;
+    }
+
+    @Override
+    public Collection<Comment> getByAnswer(String answerId) {
+        List<Comment> comments = findAll().stream()
+                .filter(comment -> (comment.isForAnswer() && comment.getSubjectId().equals(answerId)))
+                .collect(Collectors.toList());
+        return comments;
+    }
+
+    @Override
+    public Collection<Comment> getByQuestion(String questionId) {
+        List<Comment> comments = findAll().stream()
+                .filter(comment -> (!comment.isForAnswer() && comment.getSubjectId().equals(questionId)))
                 .collect(Collectors.toList());
         return comments;
     }

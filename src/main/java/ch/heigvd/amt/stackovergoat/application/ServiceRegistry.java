@@ -12,6 +12,7 @@ import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
@@ -20,29 +21,45 @@ import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCom
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryUserRepository;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@ApplicationScoped
+@Named("ServiceRegistry")
 public class ServiceRegistry {
-    private static ServiceRegistry singleton;
+   // private static ServiceRegistry singleton;
 
     // Question
-    private static IQuestionRepository questionRepository;
+    @Inject
+    @Named("JdbcQuestionRepository")
+    private  IQuestionRepository questionRepository;
     private static QuestionFacade questionFacade;
 
     // Answer
-    private static IAnswerRepository answerRepository;
+    @Inject
+    @Named("JdbcAnswerRepository")
+    private  IAnswerRepository answerRepository;
     private static AnswerFacade answerFacade;
 
     // Comment
-    private static ICommentRepository commentRepository;
+    @Inject
+    @Named("JdbcCommentRepository")
+    private  ICommentRepository commentRepository;
     private static CommentFacade commentFacade;
 
     // User
-    private static IUserRepository userRepository;
+    @Inject
+    @Named("JdbcUserRepository")
+    private IUserRepository userRepository;
     private static UserFacade userFacade;
+
     //stats
     private static StatsFacade statsFacade;
     // Identity management
     private static IdentityManagementFacade identityManagementFacade;
-
+/*
     public static ServiceRegistry getServiceRegistry() {
         if (singleton == null) {
             singleton = new ServiceRegistry();
@@ -53,23 +70,24 @@ public class ServiceRegistry {
     private ServiceRegistry() {
         singleton = this;
 
-        questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository);
-
-        answerRepository = new InMemoryAnswerRepository();
-        answerFacade = new AnswerFacade(answerRepository);
-
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);
 
+        questionRepository = new InMemoryQuestionRepository();
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
+
+        answerRepository = new InMemoryAnswerRepository();
+        answerFacade = new AnswerFacade(answerRepository, commentRepository);
+
         userRepository = new InMemoryUserRepository();
         userFacade = new UserFacade(userRepository);
-        statsFacade=new StatsFacade(questionRepository,userRepository);
 
         identityManagementFacade = new IdentityManagementFacade(userRepository);
         initValues();
     }
 
+
+ */
     private void initValues() {
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("qwer")
@@ -137,21 +155,35 @@ public class ServiceRegistry {
                 .build());
     }
 
+    @PostConstruct
+    public void initFacade(){
+        userFacade = new UserFacade(userRepository);
+        commentFacade = new CommentFacade(commentRepository);
+        answerFacade = new AnswerFacade(answerRepository, commentRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
+
+    }
+
     public QuestionFacade getQuestionFacade() {
         return questionFacade;
     }
     public StatsFacade getStatsFacade() {
         return statsFacade;
     }
+    public CommentFacade getCommentFacade() {
+        return commentFacade;
+    }
     public AnswerFacade getAnswerFacade() {
         return answerFacade;
     }
-
     public UserFacade getUserFacade() {
+        //userFacade = new UserFacade(userRepository);
         return userFacade;
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {
+
+        identityManagementFacade = new IdentityManagementFacade(userRepository);
         return identityManagementFacade;
     }
 }

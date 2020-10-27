@@ -15,8 +15,8 @@ public class ProposeCommentCommand {
     private String comment = "No content";
 
     @Builder.Default
-    private String questionId = "No content";
+    private String subjectId = "No content";
 
     @Builder.Default
-    private String answerId = "No content";
+    private boolean isForAnswer = true;
 }

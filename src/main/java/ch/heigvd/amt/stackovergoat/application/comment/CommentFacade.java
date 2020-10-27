@@ -19,9 +19,10 @@ public class CommentFacade {
     public void proposeComment(ProposeCommentCommand command) {
         if(command != null) {
             Comment submittedComment = Comment.builder()
-                    .questionId(new QuestionId(command.getQuestionId()))
+                    .subjectId(command.getSubjectId())
                     .author(command.getAuthor())
                     .comment(command.getComment())
+                    .isForAnswer(command.isForAnswer())
                     .build();
             try {
                 commentRepository.save(submittedComment);
@@ -36,7 +37,7 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
-                        .idQuestion(comment.getQuestionId().asString())
+                        .idQuestion(comment.getSubjectId())
                         .comment(comment.getComment())
                         .build()).collect(Collectors.toList());
 

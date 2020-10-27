@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.domain.question;
 
 import ch.heigvd.amt.stackovergoat.domain.IEntity;
+import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,10 +12,9 @@ import java.util.List;
 public class Question implements IEntity<Question, QuestionId> {
 
     private QuestionId id;
-
     private String author;
-
     private String text;
+    private List<Comment> comments;
 
     @Override
     public Question deepClone() {
@@ -37,7 +37,11 @@ public class Question implements IEntity<Question, QuestionId> {
                 text = "";
             }
 
-            return new Question(id, author, text);
+            return new Question(id, author, text, null);
         }
+    }
+
+    public void comment(Comment comment) {
+        comments.add(comment);
     }
 }

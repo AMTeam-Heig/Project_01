@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @ApplicationScoped
 @Named("JdbcUserRepository")
 public class JdbcUserRepository implements IUserRepository {
@@ -45,6 +46,7 @@ public class JdbcUserRepository implements IUserRepository {
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
+            sql.setString(1, username);
             ResultSet res = sql.executeQuery();
 
             while(res.next())
@@ -53,17 +55,16 @@ public class JdbcUserRepository implements IUserRepository {
                 String firstname = res.getString("firstname");
                 String lastname = res.getString("lastname");
                 String email = res.getString("email");
-                String passwd = res.getString("pasword");
+                String passwd = res.getString("password");
 
                 User submittedUser =
-
                         User.builder()
                                 .id(id)
                                 .username(username)
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 return Optional.of(submittedUser);
             }
@@ -80,7 +81,7 @@ public class JdbcUserRepository implements IUserRepository {
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("INSERT INTO User (idUser, username, firstname, lastname, email, password) VALUES (?,?,?,?,?,?)");
-            sql.setString(1, user.getId().toString());
+            sql.setString(1, user.getId().asString());
             sql.setString(2, user.getUsername());
             sql.setString(3, user.getFirstname());
             sql.setString(4, user.getLastname());
@@ -88,30 +89,28 @@ public class JdbcUserRepository implements IUserRepository {
             sql.setString(6, user.getEncryptedPassword());
 
             int nbRow = sql.executeUpdate();
+
             connection.close();
 
             if(nbRow > 1){
                 throw new IllegalArgumentException("Task went wrong");
             }
-
         }catch (SQLException e){
             throw new IllegalArgumentException(e);
         }
     }
-
     @Override
     public void remove(UserId id) {
         try{
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("DELETE FROM User WHERE idUser = ?");
-            sql.setString(1, id.toString());
+            sql.setString(1, id.asString());
             int nbRow = sql.executeUpdate();
             connection.close();
         }catch(SQLException e){
             throw new IllegalArgumentException(e);
         }
     }
-
     @Override
     public int getSize() {
         return 0;
@@ -121,7 +120,8 @@ public class JdbcUserRepository implements IUserRepository {
     public Optional<User> findById(UserId id) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
+            sql.setString(1, id.asString());
             ResultSet res = sql.executeQuery();
 
             while(res.next())
@@ -130,7 +130,7 @@ public class JdbcUserRepository implements IUserRepository {
                 String firstname = res.getString("firstname");
                 String lastname = res.getString("lastname");
                 String email = res.getString("email");
-                String passwd = res.getString("pasword");
+                String passwd = res.getString("password");
 
                 User submittedUser =
 
@@ -140,7 +140,7 @@ public class JdbcUserRepository implements IUserRepository {
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 return Optional.of(submittedUser);
             }
@@ -165,7 +165,7 @@ public class JdbcUserRepository implements IUserRepository {
                 String firstname = res.getString("firstname");
                 String lastname = res.getString("lastname");
                 String email = res.getString("email");
-                String passwd = res.getString("pasword");
+                String passwd = res.getString("password");
 
                 User submittedUser =
                         User.builder()
@@ -174,7 +174,7 @@ public class JdbcUserRepository implements IUserRepository {
                                 .email(email)
                                 .firstname(firstname)
                                 .lastname(lastname)
-                                .clearTextPassword(passwd)
+                                .encryptedPassword(passwd)
                                 .build();
                 matchingEntities.add(submittedUser);
             }

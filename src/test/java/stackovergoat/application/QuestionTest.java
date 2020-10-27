@@ -1,5 +1,6 @@
 package stackovergoat.application;
 
+import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
@@ -7,7 +8,9 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
 import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UsersDTO;
 import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
+import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,6 +24,9 @@ public class QuestionTest {
     private static IQuestionRepository questionRepository;
     private static QuestionFacade questionFacade;
 
+    private static ICommentRepository commentRepository;
+    private static CommentFacade commentFacade;
+
     private final ProposeQuestionCommand proposeQuestionCommand = ProposeQuestionCommand.builder()
             .author(AUTHOR)
             .text(TEXT)
@@ -28,8 +34,11 @@ public class QuestionTest {
 
     @BeforeEach
     public void initialization() {
+        commentRepository = new InMemoryCommentRepository();
+        commentFacade = new CommentFacade(commentRepository);
+
         questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository);
     }
 
     @Test

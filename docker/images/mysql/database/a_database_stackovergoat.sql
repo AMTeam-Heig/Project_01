@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User` (
   `firstname` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) UNIQUE NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `pasword` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idUser`))
 ENGINE = InnoDB;
 
