@@ -79,7 +79,7 @@ public class CommentTest {
                 .author("Walidou")
                 .build()));
         CommentsQuery commentsQuery = CommentsQuery.builder()
-                .idQuestion(questionFacade.getAllQuestions().getQuestions().get(0).getId())
+                .subjectId(questionFacade.getAllQuestions().getQuestions().get(0).getId())
                 .build();
         CommentsDTO commentsDTO = commentFacade.getComments(commentsQuery);
 

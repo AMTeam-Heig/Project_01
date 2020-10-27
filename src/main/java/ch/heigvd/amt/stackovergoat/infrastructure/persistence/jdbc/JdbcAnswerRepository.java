@@ -4,6 +4,8 @@ import ch.heigvd.amt.stackovergoat.application.answer.AnswersQuery;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
+import ch.heigvd.amt.stackovergoat.domain.comment.CommentId;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 
 import javax.annotation.Resource;
@@ -154,14 +156,39 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
-        if(resultSetUser.getFetchSize() == 1) {
+        if(resultSetUser.next()) {
             author = resultSetUser.getString("username");
+        }else{
+            throw  new IllegalArgumentException("here your error");
+        }
+
+        PreparedStatement commentSql = connection.prepareStatement("SELECT * FROM User_comments_Answer WHERE idAnswer = ?");
+        commentSql.setString(1, userId);
+        ResultSet resultSetAnswer = commentSql.executeQuery();
+        List<Comment> comments = new LinkedList<>();
+        while (resultSetAnswer.next()) {
+            String commentAuthor = "";
+            userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
+            userSql.setString(1, resultSetAnswer.getString("idUser"));
+            resultSetUser = userSql.executeQuery();
+            if(resultSetUser.next()) {
+                commentAuthor = resultSetUser.getString("username");
+            }
+
+            comments.add(Comment.builder()
+                    .isForAnswer(true)
+                    .subjectId(resultSetAnswer.getString("idAnswer"))
+                    .author(commentAuthor)
+                    .comment(resultSetAnswer.getString("comment"))
+                    .id(new CommentId(resultSetAnswer.getString("idComment")))
+                    .build());
         }
 
         Answer submittedAnswer = Answer.builder()
                 .id(answerId)
                 .questionId(new QuestionId(questionId))
                 .author(author)
+                .comments(comments)
                 .text(text)
                 .build();
         return submittedAnswer;

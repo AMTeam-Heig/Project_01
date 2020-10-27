@@ -2,8 +2,7 @@ package ch.heigvd.amt.stackovergoat.application.comment;
 
 import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
-import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;

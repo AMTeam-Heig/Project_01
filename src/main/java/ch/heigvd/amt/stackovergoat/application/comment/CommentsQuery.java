@@ -14,10 +14,7 @@ public class CommentsQuery {
     private boolean commentsAnswer = true;
 
     @Builder.Default
-    private String idAnswer = "";
-
-    @Builder.Default
-    private String idQuestion = "";
+    private String subjectId = "";
 
     @Builder.Default
     private String author = "";

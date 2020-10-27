@@ -16,7 +16,7 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
             return findAll();
         }
         boolean fromAuthor  = (!query.getAuthor().equals(""));
-        boolean fromId      = (!query.getIdQuestion().equals(""));
+        boolean fromId      = (!query.getSubjectId().equals(""));
         boolean fromComment = (!query.getComment().equals(""));
 
         if (!(fromAuthor || fromId || fromComment)) {
@@ -25,24 +25,8 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
                         (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
-                        (fromId     && comment.getSubjectId().equals(query.getIdQuestion()))   ||
+                        (fromId     && comment.getSubjectId().equals(query.getSubjectId()))   ||
                         (fromComment   && comment.getComment().equals(query.getComment()))))
-                .collect(Collectors.toList());
-        return comments;
-    }
-
-    @Override
-    public Collection<Comment> getByAnswer(String answerId) {
-        List<Comment> comments = findAll().stream()
-                .filter(comment -> (comment.isForAnswer() && comment.getSubjectId().equals(answerId)))
-                .collect(Collectors.toList());
-        return comments;
-    }
-
-    @Override
-    public Collection<Comment> getByQuestion(String questionId) {
-        List<Comment> comments = findAll().stream()
-                .filter(comment -> (!comment.isForAnswer() && comment.getSubjectId().equals(questionId)))
                 .collect(Collectors.toList());
         return comments;
     }

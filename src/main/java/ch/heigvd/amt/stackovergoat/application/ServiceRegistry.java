@@ -38,9 +38,14 @@ public class ServiceRegistry {
 
     // Comment
     @Inject
-    @Named("JdbcCommentRepository")
-    private  ICommentRepository commentRepository;
-    private static CommentFacade commentFacade;
+    @Named("JdbcAnswerCommentRepository")
+    private  ICommentRepository answerCommentRepository;
+    private static CommentFacade answerCommentFacade;
+
+    @Inject
+    @Named("JdbcQuestionCommentRepository")
+    private  ICommentRepository questionCommentRepository;
+    private static CommentFacade questionCommentFacade;
 
     // Vote
     @Inject
@@ -160,10 +165,11 @@ public class ServiceRegistry {
     @PostConstruct
     public void initFacade(){
         userFacade = new UserFacade(userRepository);
-        commentFacade = new CommentFacade(commentRepository);
+        answerCommentFacade = new CommentFacade(answerCommentRepository);
+        questionCommentFacade = new CommentFacade(questionCommentRepository);
         voteFacade = new VoteFacade(voteRepository);
-        answerFacade = new AnswerFacade(answerRepository, commentRepository);
-        questionFacade = new QuestionFacade(questionRepository, commentRepository);
+        answerFacade = new AnswerFacade(answerRepository, answerCommentRepository);
+        questionFacade = new QuestionFacade(questionRepository, questionCommentRepository);
     }
 
     public QuestionFacade getQuestionFacade() {
@@ -172,8 +178,11 @@ public class ServiceRegistry {
     public StatsFacade getStatsFacade() {
         return statsFacade;
     }
-    public CommentFacade getCommentFacade() {
-        return commentFacade;
+    public CommentFacade getAnswerCommentFacade() {
+        return answerCommentFacade;
+    }
+    public CommentFacade getQuestionCommentFacade() {
+        return questionCommentFacade;
     }
     public AnswerFacade getAnswerFacade() {
         return answerFacade;

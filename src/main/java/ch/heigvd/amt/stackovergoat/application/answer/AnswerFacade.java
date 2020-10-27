@@ -1,10 +1,11 @@
 package ch.heigvd.amt.stackovergoat.application.answer;
 
+import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
 import java.util.List;
@@ -43,7 +44,7 @@ public class AnswerFacade {
                         .author(answer.getAuthor())
                         .idQuestion(answer.getQuestionId().asString())
                         .text(answer.getText())
-                        .comments(commentRepository.getByAnswer(answer.getId().asString()))
+                        .comments(answer.getComments())
                         .build())
                 .collect(Collectors.toList());
 

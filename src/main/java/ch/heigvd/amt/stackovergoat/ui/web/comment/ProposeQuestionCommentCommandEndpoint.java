@@ -27,7 +27,7 @@ public class ProposeQuestionCommentCommandEndpoint extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        commentFacade = serviceRegistry.getCommentFacade();
+        commentFacade = serviceRegistry.getQuestionCommentFacade();
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

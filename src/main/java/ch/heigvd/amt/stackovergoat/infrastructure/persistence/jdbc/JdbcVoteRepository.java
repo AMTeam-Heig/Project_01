@@ -1,11 +1,10 @@
 package ch.heigvd.amt.stackovergoat.infrastructure.persistence.jdbc;
 
 import ch.heigvd.amt.stackovergoat.application.vote.VotesQuery;
-import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
 import ch.heigvd.amt.stackovergoat.domain.vote.Vote;
 import ch.heigvd.amt.stackovergoat.domain.vote.VoteId;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.IntegrityConstraintViolationException;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
