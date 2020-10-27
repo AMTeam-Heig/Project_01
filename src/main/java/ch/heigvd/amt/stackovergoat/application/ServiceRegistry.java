@@ -4,8 +4,6 @@ import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
 import ch.heigvd.amt.stackovergoat.application.answer.ProposeAnswerCommand;
 import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
-import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
-import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
@@ -13,12 +11,10 @@ import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.application.vote.VoteFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
-import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
-import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.*;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -28,8 +24,6 @@ import javax.inject.Named;
 @ApplicationScoped
 @Named("ServiceRegistry")
 public class ServiceRegistry {
-   // private static ServiceRegistry singleton;
-
     // Question
     @Inject
     @Named("JdbcQuestionRepository")
@@ -184,9 +178,11 @@ public class ServiceRegistry {
     public AnswerFacade getAnswerFacade() {
         return answerFacade;
     }
-
     public UserFacade getUserFacade() {
         return userFacade;
+    }
+    public VoteFacade getVoteFacade() {
+        return voteFacade;
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {
@@ -194,7 +190,4 @@ public class ServiceRegistry {
         return identityManagementFacade;
     }
 
-    public VoteFacade getVoteFacade() {
-        return voteFacade;
-    }
 }

@@ -4,6 +4,7 @@ import ch.heigvd.amt.stackovergoat.application.answer.AnswersQuery;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
@@ -46,7 +47,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         List<Answer> answers = findAll().stream()
                 .filter(answer -> (
                                 (fromAuthor && answer.getAuthor().equals(query.getAuthor()))              ||
-                                (fromId     && answer.getId().asString().equals(query.getIdQuestion()))   ||
+                                (fromId     && answer.getQuestionId().asString().equals(query.getIdQuestion()))   ||
                                 (fromText   && answer.getText().equals(query.getText()))))
                 .collect(Collectors.toList());
         return answers;
@@ -72,23 +73,25 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
     @Override
     public void save(Answer entity) {
+        String authorId = "";
         try {
             Connection connection = dataSource.getConnection();
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
-            String authorId = "";
+
             ResultSet resultSetUser = userSql.executeQuery();
-            if(resultSetUser.getFetchSize() == 1) {
+            if(resultSetUser.next()) {
                 authorId = resultSetUser.getString("idUser");
+            }else{
+                throw new IllegalArgumentException("insert  went wrong");
             }
 
-
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO Answer (idAnswer, text, idUser) VALUES (?,?,?)");
-            sql.setString(1, entity.getId().toString());
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO Answer (idAnswer, text, idQuestion, idUser) VALUES (?,?,?,?)");
+            sql.setString(1, entity.getId().asString());
             sql.setString(2, entity.getText());
-
-            sql.setString(3, authorId);
+            sql.setString(3, entity.getQuestionId().asString());
+            sql.setString(4, authorId);
 
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -145,9 +148,10 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
         String userId = resultSet.getString("idUser");
         String text = resultSet.getString("text");
+        String questionId = resultSet.getString("idQuestion");
         String author = "";
 
-        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE userId = ?");
+        PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
         if(resultSetUser.getFetchSize() == 1) {
@@ -156,6 +160,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
         Answer submittedAnswer = Answer.builder()
                 .id(answerId)
+                .questionId(new QuestionId(questionId))
                 .author(author)
                 .text(text)
                 .build();

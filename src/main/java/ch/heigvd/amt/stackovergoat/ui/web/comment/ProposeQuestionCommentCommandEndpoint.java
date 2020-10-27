@@ -29,6 +29,7 @@ public class ProposeQuestionCommentCommandEndpoint extends HttpServlet {
         super.init();
         commentFacade = serviceRegistry.getCommentFacade();
     }
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
         ProposeCommentCommand command = null;
