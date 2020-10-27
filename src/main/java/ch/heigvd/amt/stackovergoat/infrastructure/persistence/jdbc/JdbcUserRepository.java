@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @ApplicationScoped
 @Named("JdbcUserRepository")
 public class JdbcUserRepository implements IUserRepository {
@@ -88,17 +89,16 @@ public class JdbcUserRepository implements IUserRepository {
             sql.setString(6, user.getEncryptedPassword());
 
             int nbRow = sql.executeUpdate();
+
             connection.close();
 
             if(nbRow > 1){
                 throw new IllegalArgumentException("Task went wrong");
             }
-
         }catch (SQLException e){
             throw new IllegalArgumentException(e);
         }
     }
-
     @Override
     public void remove(UserId id) {
         try{
@@ -111,7 +111,6 @@ public class JdbcUserRepository implements IUserRepository {
             throw new IllegalArgumentException(e);
         }
     }
-
     @Override
     public int getSize() {
         return 0;

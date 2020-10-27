@@ -4,7 +4,10 @@ import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
 import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 import ch.heigvd.amt.stackovergoat.application.comment.ProposeCommentCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
+import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +15,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SubmitQuestionCommentCommandHandler", urlPatterns = "/submitQuestionComment.do")
+@WebServlet(name = "ProposeQuestionCommentCommandEndpoint", urlPatterns = "/submitQuestionComment.do")
 public class ProposeQuestionCommentCommandEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
-    private CommentFacade commentFacade = serviceRegistry.getCommentFacade();
 
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private CommentFacade commentFacade;// = serviceRegistry.getIdentityManagementFacade();
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        commentFacade = serviceRegistry.getCommentFacade();
+    }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
         ProposeCommentCommand command = null;

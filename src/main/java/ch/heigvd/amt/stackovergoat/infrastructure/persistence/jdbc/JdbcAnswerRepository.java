@@ -74,17 +74,19 @@ public class JdbcAnswerRepository implements IAnswerRepository {
     public void save(Answer entity) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO Answer (idAnswer, text, idUser) VALUES (?,?,?)");
-            sql.setString(1, entity.getId().toString());
-            sql.setString(2, entity.getText());
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
             String authorId = "";
             ResultSet resultSetUser = userSql.executeQuery();
             if(resultSetUser.getFetchSize() == 1) {
-                authorId = resultSetUser.getString("idAnswer");
+                authorId = resultSetUser.getString("idUser");
             }
+
+
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO Answer (idAnswer, text, idUser) VALUES (?,?,?)");
+            sql.setString(1, entity.getId().toString());
+            sql.setString(2, entity.getText());
 
             sql.setString(3, authorId);
 
@@ -140,6 +142,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
 
     private Answer getAnswer(ResultSet resultSet, Connection connection) throws SQLException {
         AnswerId answerId = new AnswerId(resultSet.getString("idAnswer"));
+
         String userId = resultSet.getString("idUser");
         String text = resultSet.getString("text");
         String author = "";

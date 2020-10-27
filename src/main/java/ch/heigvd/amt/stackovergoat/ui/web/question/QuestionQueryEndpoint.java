@@ -17,21 +17,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "QuestionPageHandler", urlPatterns = "/question")
+@WebServlet(name = "QuestionQueryEndpoint", urlPatterns = "/question")
 public class QuestionQueryEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry;
-    private QuestionFacade questionFacade;
-    private AnswerFacade answerFacade;
 
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private AnswerFacade answerFacade;// = serviceRegistry.getIdentityManagementFacade();
+    private QuestionFacade questionFacade;
     @Override
     public void init() throws ServletException {
         super.init();
-        serviceRegistry = ServiceRegistry.getServiceRegistry();
         questionFacade = serviceRegistry.getQuestionFacade();
         answerFacade = serviceRegistry.getAnswerFacade();
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         QuestionsQuery questionsQuery = QuestionsQuery.builder()

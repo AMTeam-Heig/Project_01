@@ -91,17 +91,30 @@ public class JdbcCommentRepository implements ICommentRepository {
     public void save(Comment entity) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO Comment (idComment, text, idUser) VALUES (?,?,?)");
-            sql.setString(1, entity.getId().toString());
-            sql.setString(2, entity.getComment());
+
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
             String authorId = "";
             ResultSet resultSetUser = userSql.executeQuery();
-            if(resultSetUser.getFetchSize() == 1) {
-                authorId = resultSetUser.getString("idComment");
+            if(resultSetUser.next()) {
+                authorId = resultSetUser.getString("idUser");
+            }else{
+                throw new IllegalArgumentException("insert  went wrong");
             }
+            PreparedStatement queSql = connection.prepareStatement("SELECT * FROM Question WHERE idQuestion = ?");
+            userSql.setString(1, entity.getAuthor());
+            String questionId = "";
+            ResultSet rs = queSql.executeQuery();
+            if(rs.next()) {
+                questionId = resultSetUser.getString("idQuestion");
+            }else{
+                throw new IllegalArgumentException("insert  went wrong");
+            }
+
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Question_ (idComment, comment, idUser) VALUES (?,?,?)");
+            sql.setString(1, questionId);
+            sql.setString(2, entity.getComment());
 
             sql.setString(3, authorId);
 

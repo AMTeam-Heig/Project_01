@@ -19,8 +19,10 @@ import java.util.List;
 @WebServlet(name = "LoginCommandEndpoint", urlPatterns = "/login.do")
 public class LoginCommandEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
-    private IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private IdentityManagementFacade identityManagementFacade;// = serviceRegistry.getIdentityManagementFacade();
 
     @Override
     public void init() throws ServletException {

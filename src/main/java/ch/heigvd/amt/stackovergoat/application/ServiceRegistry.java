@@ -28,33 +28,43 @@ import javax.inject.Named;
 @ApplicationScoped
 @Named("ServiceRegistry")
 public class ServiceRegistry {
-    private static ServiceRegistry singleton;
+   // private static ServiceRegistry singleton;
 
     // Question
-    private static IQuestionRepository questionRepository;
+    @Inject
+    @Named("JdbcQuestionRepository")
+    private  IQuestionRepository questionRepository;
     private static QuestionFacade questionFacade;
 
     // Answer
-    private static IAnswerRepository answerRepository;
+    @Inject
+    @Named("JdbcAnswerRepository")
+    private  IAnswerRepository answerRepository;
     private static AnswerFacade answerFacade;
 
     // Comment
-    private static ICommentRepository commentRepository;
+    @Inject
+    @Named("JdbcCommentRepository")
+    private  ICommentRepository commentRepository;
     private static CommentFacade commentFacade;
 
     // Vote
-    private static IVoteRepository voteRepository;
+    @Inject
+    @Named("JdbcVoteRepository")
+    private IVoteRepository voteRepository;
     private static VoteFacade voteFacade;
 
     // User
-    private static IUserRepository userRepository;
+    @Inject
+    @Named("JdbcUserRepository")
+    private IUserRepository userRepository;
     private static UserFacade userFacade;
 
     //stats
     private static StatsFacade statsFacade;
     // Identity management
     private static IdentityManagementFacade identityManagementFacade;
-
+/*
     public static ServiceRegistry getServiceRegistry() {
         if (singleton == null) {
             singleton = new ServiceRegistry();
@@ -84,6 +94,8 @@ public class ServiceRegistry {
         initValues();
     }
 
+
+ */
     private void initValues() {
         userFacade.proposeUser(ProposeUserCommand.builder()
                 .username("qwer")
@@ -151,7 +163,7 @@ public class ServiceRegistry {
                 .build());
     }
 
-    //@PostConstruct
+    @PostConstruct
     public void initFacade(){
         userFacade = new UserFacade(userRepository);
         commentFacade = new CommentFacade(commentRepository);
@@ -166,22 +178,19 @@ public class ServiceRegistry {
     public StatsFacade getStatsFacade() {
         return statsFacade;
     }
-
     public CommentFacade getCommentFacade() {
         return commentFacade;
     }
-
     public AnswerFacade getAnswerFacade() {
         return answerFacade;
     }
 
     public UserFacade getUserFacade() {
-        //userFacade = new UserFacade(userRepository);
         return userFacade;
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {
-        //identityManagementFacade = new IdentityManagementFacade(userRepository);
+        identityManagementFacade = new IdentityManagementFacade(userRepository);
         return identityManagementFacade;
     }
 

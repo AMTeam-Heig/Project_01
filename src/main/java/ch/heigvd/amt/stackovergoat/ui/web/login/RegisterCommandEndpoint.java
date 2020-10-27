@@ -18,7 +18,9 @@ import java.util.List;
 @WebServlet(name = "RegisterCommandEndpoint", urlPatterns = "/register.do")
 public class RegisterCommandEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
 
     private IdentityManagementFacade identityManagementFacade;
 
@@ -45,11 +47,11 @@ public class RegisterCommandEndpoint extends HttpServlet {
             request.setAttribute("username", registerCommand.getUsername());
             request.setAttribute("clearTextPassword", registerCommand.getClearTextPassword());
             request.getRequestDispatcher("./login.do").forward(request, response);
-            return;
+
         } catch (RegistrationFailedException e) {
             request.getSession().setAttribute("errors", List.of(e.getMessage()));
             response.sendRedirect("./login");
-            return;
+
         }
 
     }

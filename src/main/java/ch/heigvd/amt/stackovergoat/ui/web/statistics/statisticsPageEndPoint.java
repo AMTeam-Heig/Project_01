@@ -6,6 +6,8 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 import ch.heigvd.amt.stackovergoat.application.statistics.StatsDTO;
 import ch.heigvd.amt.stackovergoat.application.statistics.StatsFacade;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,16 +18,17 @@ import java.io.IOException;
 @WebServlet(name = "statisticsPageEndPoint" ,urlPatterns =  "/statistics")
 public class statisticsPageEndPoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry;
-    private StatsFacade statsFacade;
+
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private StatsFacade statsFacade;// = serviceRegistry.getIdentityManagementFacade();
 
     @Override
     public void init() throws ServletException {
         super.init();
-        serviceRegistry = ServiceRegistry.getServiceRegistry();
         statsFacade = serviceRegistry.getStatsFacade();
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         StatsDTO  stats= statsFacade.getStats();

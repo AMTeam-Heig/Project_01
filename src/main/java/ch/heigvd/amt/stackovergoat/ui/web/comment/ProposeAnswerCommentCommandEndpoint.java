@@ -5,6 +5,8 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.Current
 import ch.heigvd.amt.stackovergoat.application.comment.ProposeCommentCommand;
 import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SubmitAnswerCommentCommandHandler", urlPatterns = "/submitAnswerComment.do")
+@WebServlet(name = "ProposeAnswerCommentCommandEndpoint", urlPatterns = "/submitAnswerComment.do")
 public class ProposeAnswerCommentCommandEndpoint extends HttpServlet {
 
-    private ServiceRegistry serviceRegistry = ServiceRegistry.getServiceRegistry();
-    private CommentFacade commentFacade = serviceRegistry.getCommentFacade();
+    @Inject
+    @Named("ServiceRegistry")
+    private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
+    private CommentFacade commentFacade;// = serviceRegistry.getIdentityManagementFacade();
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        commentFacade = serviceRegistry.getCommentFacade();
+    }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
         ProposeCommentCommand command = null;
