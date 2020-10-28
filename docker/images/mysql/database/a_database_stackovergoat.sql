@@ -145,10 +145,11 @@ CREATE INDEX `fk_User_has_Answer_User1_idx` ON `amt_project_01`.`User_votes_for_
 DROP TABLE IF EXISTS `amt_project_01`.`User_comments_Question_` ;
 
 CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Question_` (
+  `idComment` VARCHAR(255) NOT NULL,
   `idUser` VARCHAR(255) NOT NULL,
   `idQuestion` VARCHAR(255) NOT NULL,
   `comment` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`idUser`, `idQuestion`),
+  PRIMARY KEY (`idComment`, `idUser`, `idQuestion`),
   CONSTRAINT `fk_User_has_Question_User0`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
@@ -161,6 +162,8 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Question_` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+CREATE UNIQUE INDEX `idComment_UNIQUE` ON `amt_project_01`.`User_comments_Question_` (`idComment` ASC) VISIBLE;
+
 CREATE INDEX `fk_User_has_Question_Question1_idx` ON `amt_project_01`.`User_comments_Question_` (`idQuestion` ASC) VISIBLE;
 
 CREATE INDEX `fk_User_has_Question_User_idx` ON `amt_project_01`.`User_comments_Question_` (`idUser` ASC) VISIBLE;
@@ -172,6 +175,7 @@ CREATE INDEX `fk_User_has_Question_User_idx` ON `amt_project_01`.`User_comments_
 DROP TABLE IF EXISTS `amt_project_01`.`User_comments_Answer` ;
 
 CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Answer` (
+  `idComment` VARCHAR(255) NOT NULL,
   `idUser` VARCHAR(255) NOT NULL,
   `idAnswer` VARCHAR(255) NOT NULL,
   `comment` VARCHAR(500) NOT NULL,
@@ -187,6 +191,8 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Answer` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idComment_UNIQUE` ON `amt_project_01`.`User_comments_Answer` (`idComment` ASC) VISIBLE;
 
 CREATE INDEX `fk_User_has_Answer_Answer1_idx` ON `amt_project_01`.`User_comments_Answer` (`idAnswer` ASC) VISIBLE;
 

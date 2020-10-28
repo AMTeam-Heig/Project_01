@@ -43,8 +43,8 @@
 
         <div style="text-align: center;"><h2>Questions</h2></div>
         <c:forEach var="question" items="${questions.questions}">
-            <div>
-                <a href="/question?id=${question.id}" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px;">
+            <div style="margin: 5px 0px 5px 0px;">
+                <a href="/question?id=${question.id}" class="a"><div style="background: #c9f1df; padding: 5px 5px 5px 5px; border-radius: 15px 15px 15px 15px;">
                     <b>${question.author}</b> asked :
                 </div></a>
                 <div style="background: #f9f9f9; padding: 5px 5px 5px 5px;">
@@ -54,7 +54,5 @@
         </c:forEach>
     </div>
 </div>
-
-
 </body>
 </html>

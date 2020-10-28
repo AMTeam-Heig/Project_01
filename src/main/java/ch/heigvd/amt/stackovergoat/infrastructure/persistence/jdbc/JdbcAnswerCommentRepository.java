@@ -97,10 +97,11 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
                 throw new IllegalArgumentException("insert  went wrong");
             }
 
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Answer (idUser, idAnswer, comment) VALUES (?,?,?)");
-            sql.setString(1, authorId);
-            sql.setString(2, answerId);
-            sql.setString(3, entity.getComment());
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Answer (idComment, idUser, idAnswer, comment) VALUES (?,?,?,?)");
+            sql.setString(1, entity.getId().asString());
+            sql.setString(2, authorId);
+            sql.setString(3, answerId);
+            sql.setString(4, entity.getComment());
 
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -153,6 +154,7 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
     }
 
     private Comment getComment(ResultSet resultSet, Connection connection) throws SQLException {
+        String commentId = resultSet.getString("idComment");
         String userId = resultSet.getString("idUser");
         String comment = resultSet.getString("comment");
         String answerId = resultSet.getString("idAnswer");
@@ -166,6 +168,7 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
         }
 
         Comment submittedComment = Comment.builder()
+                .id(new CommentId(commentId))
                 .subjectId(answerId)
                 .isForAnswer(true)
                 .author(author)

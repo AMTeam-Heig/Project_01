@@ -76,7 +76,6 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
         try {
             Connection connection = dataSource.getConnection();
 
-
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
             String authorId = "";
@@ -97,10 +96,11 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
                 throw new IllegalArgumentException("insert  went wrong");
             }
 
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Question_ (idUser, idQuestion, comment) VALUES (?,?,?)");
-            sql.setString(1, authorId);
-            sql.setString(2, questionId);
-            sql.setString(3, entity.getComment());
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Question_ (idComment, idUser, idQuestion, comment) VALUES (?,?,?,?)");
+            sql.setString(1, entity.getId().asString());
+            sql.setString(2, authorId);
+            sql.setString(3, questionId);
+            sql.setString(4, entity.getComment());
 
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -153,6 +153,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     }
 
     private Comment getComment(ResultSet resultSet, Connection connection) throws SQLException {
+        String commentId = resultSet.getString("idComment");
         String userId = resultSet.getString("idUser");
         String comment = resultSet.getString("comment");
         String questionId = resultSet.getString("idQuestion");
@@ -166,6 +167,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
         }
 
         Comment submittedComment = Comment.builder()
+                .id(new CommentId(commentId))
                 .subjectId(questionId)
                 .isForAnswer(false)
                 .author(author)
