@@ -23,6 +23,8 @@ public class AnswersDTO {
         private String text;
         private String author;
         private Collection<Comment> comments;
+        private int nbrUpVotes;
+        private int nbrDownVotes;
     }
 
     @Singular

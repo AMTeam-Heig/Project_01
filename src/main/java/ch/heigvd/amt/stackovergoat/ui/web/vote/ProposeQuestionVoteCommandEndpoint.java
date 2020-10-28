@@ -25,7 +25,7 @@ public class ProposeQuestionVoteCommandEndpoint extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        voteFacade = serviceRegistry.getVoteFacade();
+        voteFacade = serviceRegistry.getQuestionVoteFacade();
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,6 +42,6 @@ public class ProposeQuestionVoteCommandEndpoint extends HttpServlet {
         }
 
         voteFacade.proposeVote(command);
-        resp.sendRedirect("/home");
+        resp.sendRedirect("/question?id=" + req.getParameter("questionId"));
     }
 }

@@ -35,7 +35,7 @@ public class Vote implements IEntity<Vote, VoteId> {
             }
 
             if(id == null) {
-                id = new VoteId(userId.concat(subjectId));
+                id = new VoteId();
             }
 
             return new Vote(id, subjectId, userId, isForAnswer, isUpVote);

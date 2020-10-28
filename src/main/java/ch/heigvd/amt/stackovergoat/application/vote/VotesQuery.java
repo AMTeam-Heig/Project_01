@@ -16,8 +16,5 @@ public class VotesQuery {
     private String idSubject = "";
 
     @Builder.Default
-    private boolean isUpVote = true;
-
-    @Builder.Default
-    private boolean isForAnswer = true;
+    private int voteValue = 0;
 }

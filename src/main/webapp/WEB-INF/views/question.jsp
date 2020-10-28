@@ -22,9 +22,23 @@
         <h1>
             <b>${question.author}</b> asked <i>${question.text}</i>
         </h1>
+
+        Up votes : ${question.nbrUpVotes}
+        Down votes : ${question.nbrDownVotes}
+
+        <form action="/submitQuestionVote.do" method="POST">
+            <input name="questionId" type="hidden" value="${question.id}">
+            <input name="vote" type="hidden" value="DOWN">
+            <input type="submit" value="Down Vote :(" />
+        </form>
+        <form action="/submitQuestionVote.do" method="POST">
+            <input name="questionId" type="hidden" value="${question.id}">
+            <input name="vote" type="hidden" value="UP">
+            <input type="submit" value="Up Vote :)" />
+        </form>
+
         <!-- COMMENTAIRES SUR LA QUESTION -->
         <h2>Comments</h2>
-
         <c:if test="${currentUser != null}">
             <form action="./submitQuestionComment.do" method="POST">
                 <div class="form-group">
@@ -67,10 +81,24 @@
             <div class="answer-group">
                 <p>
                     <h-comment-and-answer>Answered by ${answer.author}</h-comment-and-answer>
+                    <form action="/submitAnswerVote.do" method="POST">
+                        <input name="questionId" type="hidden" value="${question.id}">
+                        <input name="answerId" type="hidden" value="${answer.id}">
+                        <input name="vote" type="hidden" value="DOWN">
+                        <input type="submit" value="Down Vote :(" />
+                    </form>
+                    <form action="/submitAnswerVote.do" method="POST">
+                        <input name="questionId" type="hidden" value="${question.id}">
+                        <input name="answerId" type="hidden" value="${answer.id}">
+                        <input name="vote" type="hidden" value="UP">
+                        <input type="submit" value="Up Vote :)" />
+                    </form>
                     <br/>
                 <p>
                     ${answer.text}
                 </p>
+                Up votes : ${answer.nbrUpVotes}
+                Down votes : ${answer.nbrDownVotes}
 
                 <c:forEach var="comment" items="${answer.comments}">
                     <p>
