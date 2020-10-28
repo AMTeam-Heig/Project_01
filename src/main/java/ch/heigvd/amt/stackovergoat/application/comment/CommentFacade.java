@@ -36,9 +36,12 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
-                        .idQuestion(comment.getSubjectId())
+                        .idSubject(comment.getSubjectId())
                         .comment(comment.getComment())
-                        .build()).collect(Collectors.toList());
+                        .author(comment.getAuthor())
+                        .id(comment.getId().asString())
+                        .build())
+                .collect(Collectors.toList());
 
         return CommentsDTO.builder()
                 .comments(allCommentsDTO)
@@ -50,8 +53,10 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
+                        .idSubject(comment.getSubjectId())
                         .comment(comment.getComment())
                         .author(comment.getAuthor())
+                        .id(comment.getId().asString())
                         .build())
                 .collect(Collectors.toList());
 

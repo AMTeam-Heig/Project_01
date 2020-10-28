@@ -38,17 +38,17 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
             return findAll();
         }
         boolean fromAuthor  = (!query.getAuthor().equals(""));
-        boolean fromId      = (!query.getSubjectId().equals(""));
+        boolean fromSubjectId      = (!query.getSubjectId().equals(""));
         boolean fromText    = (!query.getComment().equals(""));
 
-        if (!(fromAuthor || fromId || fromText)) {
+        if (!(fromAuthor || fromSubjectId || fromText)) {
             return findAll();
         }
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
-                        (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
-                        (fromId     && comment.getId().asString().equals(query.getSubjectId()))   ||
-                        (fromText   && comment.getComment().equals(query.getComment()))))
+                        (fromAuthor     && comment.getAuthor().equals(query.getAuthor()))              ||
+                        (fromSubjectId  && comment.getSubjectId().equals(query.getSubjectId()))   ||
+                        (fromText       && comment.getComment().equals(query.getComment()))))
                 .collect(Collectors.toList());
         return comments;
     }
@@ -58,7 +58,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
         List<Comment> comments = new LinkedList<>();
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User_comments_Question_");
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User_comments_Question");
             ResultSet resultSet = sql.executeQuery();
 
             while (resultSet.next()) {
@@ -75,6 +75,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     public void save(Comment entity) {
         try {
             Connection connection = dataSource.getConnection();
+
 
             PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
             userSql.setString(1, entity.getAuthor());
@@ -96,11 +97,11 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
                 throw new IllegalArgumentException("insert  went wrong");
             }
 
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Question_ (idComment, idUser, idQuestion, comment) VALUES (?,?,?,?)");
-            sql.setString(1, entity.getId().asString());
-            sql.setString(2, authorId);
-            sql.setString(3, questionId);
-            sql.setString(4, entity.getComment());
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Question (idUser, idQuestion, comment, idComment) VALUES (?,?,?,?)");
+            sql.setString(1, authorId);
+            sql.setString(2, questionId);
+            sql.setString(3, entity.getComment());
+            sql.setString(4, entity.getId().asString());
 
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -118,7 +119,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     public void remove(CommentId id) {
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Question_ WHERE idComment = ?");
+            PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Question WHERE idComment = ?");
             sql.setString(1, id.toString());
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -137,7 +138,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     public Optional<Comment> findById(CommentId comment) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User_comments_Question_ WHERE idComment = ?");
+            PreparedStatement sql = connection.prepareStatement("SELECT * FROM User_comments_Question WHERE idComment = ?");
             sql.setString(1, comment.asString());
             ResultSet res = sql.executeQuery();
 
@@ -153,21 +154,21 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     }
 
     private Comment getComment(ResultSet resultSet, Connection connection) throws SQLException {
-        String commentId = resultSet.getString("idComment");
         String userId = resultSet.getString("idUser");
         String comment = resultSet.getString("comment");
         String questionId = resultSet.getString("idQuestion");
+        String id = resultSet.getString("idComment");
         String author = "";
 
         PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
-        if(resultSetUser.getFetchSize() == 1) {
+        if(resultSetUser.next()) {
             author = resultSetUser.getString("username");
         }
 
         Comment submittedComment = Comment.builder()
-                .id(new CommentId(commentId))
+                .id(new CommentId(id))
                 .subjectId(questionId)
                 .isForAnswer(false)
                 .author(author)

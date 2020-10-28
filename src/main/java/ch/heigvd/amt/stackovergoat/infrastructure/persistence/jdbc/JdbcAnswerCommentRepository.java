@@ -38,17 +38,17 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
             return findAll();
         }
         boolean fromAuthor  = (!query.getAuthor().equals(""));
-        boolean fromId      = (!query.getSubjectId().equals(""));
+        boolean fromSubjectId      = (!query.getSubjectId().equals(""));
         boolean fromText    = (!query.getComment().equals(""));
 
-        if (!(fromAuthor || fromId || fromText)) {
+        if (!(fromAuthor || fromSubjectId || fromText)) {
             return findAll();
         }
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
-                        (fromAuthor && comment.getAuthor().equals(query.getAuthor()))              ||
-                        (fromId     && comment.getId().asString().equals(query.getSubjectId()))   ||
-                        (fromText   && comment.getComment().equals(query.getComment()))))
+                        (fromAuthor     && comment.getAuthor().equals(query.getAuthor()))              ||
+                        (fromSubjectId  && comment.getSubjectId().equals(query.getSubjectId()))   ||
+                        (fromText       && comment.getComment().equals(query.getComment()))))
                 .collect(Collectors.toList());
         return comments;
     }
@@ -97,11 +97,11 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
                 throw new IllegalArgumentException("insert  went wrong");
             }
 
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Answer (idComment, idUser, idAnswer, comment) VALUES (?,?,?,?)");
-            sql.setString(1, entity.getId().asString());
-            sql.setString(2, authorId);
-            sql.setString(3, answerId);
-            sql.setString(4, entity.getComment());
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User_comments_Answer (idUser, idAnswer, comment, idComment) VALUES (?,?,?,?)");
+            sql.setString(1, authorId);
+            sql.setString(2, answerId);
+            sql.setString(3, entity.getComment());
+            sql.setString(4, entity.getId().asString());
 
             int nbRow = sql.executeUpdate();
             connection.close();
@@ -154,8 +154,8 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
     }
 
     private Comment getComment(ResultSet resultSet, Connection connection) throws SQLException {
-        String commentId = resultSet.getString("idComment");
         String userId = resultSet.getString("idUser");
+        String id = resultSet.getString("idComment");
         String comment = resultSet.getString("comment");
         String answerId = resultSet.getString("idAnswer");
         String author = "";
@@ -163,12 +163,12 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
         PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
-        if(resultSetUser.getFetchSize() == 1) {
+        if(resultSetUser.next()) {
             author = resultSetUser.getString("username");
         }
 
         Comment submittedComment = Comment.builder()
-                .id(new CommentId(commentId))
+                .id(new CommentId(id))
                 .subjectId(answerId)
                 .isForAnswer(true)
                 .author(author)
