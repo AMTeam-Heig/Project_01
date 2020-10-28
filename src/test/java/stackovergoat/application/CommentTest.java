@@ -6,9 +6,11 @@ import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
 import ch.heigvd.amt.stackovergoat.application.comment.ProposeCommentCommand;
 import ch.heigvd.amt.stackovergoat.application.question.ProposeQuestionCommand;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
+import ch.heigvd.amt.stackovergoat.application.vote.VoteFacade;
 import ch.heigvd.amt.stackovergoat.domain.comment.CommentId;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
+import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,6 +37,9 @@ public class CommentTest {
     private static ICommentRepository commentRepository;
     private static CommentFacade commentFacade;
 
+    private static IVoteRepository voteRepository;
+    private static VoteFacade voteFacade;
+
     private final ProposeQuestionCommand proposeQuestionCommand = ProposeQuestionCommand.builder()
             .author(QUESTION_AUTHOR)
             .text(QUESTION_TEXT)
@@ -48,7 +53,7 @@ public class CommentTest {
     @BeforeEach
     public void initialization() {
         questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository, commentRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository, voteRepository);
 
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);

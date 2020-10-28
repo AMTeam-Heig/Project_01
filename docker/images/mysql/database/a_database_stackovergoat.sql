@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS `amt_project_01`.`User_votes_for_Question` ;
 CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_votes_for_Question` (
   `idUser` VARCHAR(255) NOT NULL,
   `idQuestion` VARCHAR(255) NOT NULL,
-  `isUpvote` TINYINT NOT NULL,
+  `isUpvote` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`idUser`, `idQuestion`),
   CONSTRAINT `fk_User_has_Question_User`
     FOREIGN KEY (`idUser`)
@@ -120,7 +120,7 @@ DROP TABLE IF EXISTS `amt_project_01`.`User_votes_for_Answer` ;
 CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_votes_for_Answer` (
   `idUser` VARCHAR(255) NOT NULL,
   `idAnswer` VARCHAR(255) NOT NULL,
-  `isUpvote` TINYINT NOT NULL,
+  `isUpvote` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`idUser`, `idAnswer`),
   CONSTRAINT `fk_User_has_Answer_User1`
     FOREIGN KEY (`idUser`)

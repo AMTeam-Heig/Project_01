@@ -49,9 +49,14 @@ public class ServiceRegistry {
 
     // Vote
     @Inject
-    @Named("JdbcVoteRepository")
-    private IVoteRepository voteRepository;
-    private static VoteFacade voteFacade;
+    @Named("JdbcAnswerVoteRepository")
+    private IVoteRepository answerVoteRepository;
+    private static VoteFacade answerVoteFacade;
+
+    @Inject
+    @Named("JdbcQuestionVoteRepository")
+    private IVoteRepository questionVoteRepository;
+    private static VoteFacade questionVoteFacade;
 
     // User
     @Inject
@@ -167,9 +172,10 @@ public class ServiceRegistry {
         userFacade = new UserFacade(userRepository);
         answerCommentFacade = new CommentFacade(answerCommentRepository);
         questionCommentFacade = new CommentFacade(questionCommentRepository);
-        voteFacade = new VoteFacade(voteRepository);
-        answerFacade = new AnswerFacade(answerRepository, answerCommentRepository);
-        questionFacade = new QuestionFacade(questionRepository, questionCommentRepository);
+        answerVoteFacade = new VoteFacade(answerVoteRepository);
+        questionVoteFacade = new VoteFacade(questionVoteRepository);
+        answerFacade = new AnswerFacade(answerRepository, answerCommentRepository, answerVoteRepository);
+        questionFacade = new QuestionFacade(questionRepository, questionCommentRepository, questionVoteRepository);
     }
 
     public QuestionFacade getQuestionFacade() {
@@ -190,8 +196,11 @@ public class ServiceRegistry {
     public UserFacade getUserFacade() {
         return userFacade;
     }
-    public VoteFacade getVoteFacade() {
-        return voteFacade;
+    public VoteFacade getAnswerVoteFacade() {
+        return answerVoteFacade;
+    }
+    public VoteFacade getQuestionVoteFacade() {
+        return questionVoteFacade;
     }
 
     public IdentityManagementFacade getIdentityManagementFacade() {

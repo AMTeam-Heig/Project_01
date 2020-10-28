@@ -13,14 +13,17 @@ import ch.heigvd.amt.stackovergoat.application.user.ProposeUserCommand;
 import ch.heigvd.amt.stackovergoat.application.user.UserFacade;
 import ch.heigvd.amt.stackovergoat.application.user.UsersDTO;
 import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
+import ch.heigvd.amt.stackovergoat.application.vote.VoteFacade;
 import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
+import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryAnswerRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryCommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryQuestionRepository;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.memory.InMemoryVoteRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -47,6 +50,9 @@ public class AnswerTest {
     private static ICommentRepository commentRepository;
     private static CommentFacade commentFacade;
 
+    private static IVoteRepository voteRepository;
+    private static VoteFacade voteFacade;
+
     private final ProposeQuestionCommand proposeQuestionCommand = ProposeQuestionCommand.builder()
             .author(QUESTION_AUTHOR)
             .text(QUESTION_TEXT)
@@ -62,11 +68,14 @@ public class AnswerTest {
         commentRepository = new InMemoryCommentRepository();
         commentFacade = new CommentFacade(commentRepository);
 
+        voteRepository = new InMemoryVoteRepository();
+        voteFacade = new VoteFacade(voteRepository);
+
         questionRepository = new InMemoryQuestionRepository();
-        questionFacade = new QuestionFacade(questionRepository, commentRepository);
+        questionFacade = new QuestionFacade(questionRepository, commentRepository, voteRepository);
 
         answerRepository = new InMemoryAnswerRepository();
-        answerFacade = new AnswerFacade(answerRepository, commentRepository);
+        answerFacade = new AnswerFacade(answerRepository, commentRepository, voteRepository);
     }
 
     @Test

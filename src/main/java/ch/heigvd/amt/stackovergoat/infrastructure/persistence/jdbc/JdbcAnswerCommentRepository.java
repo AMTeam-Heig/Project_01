@@ -120,7 +120,7 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
         try{
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Answer WHERE idComment = ?");
-            sql.setString(1, id.toString());
+            sql.setString(1, id.asString());
             int nbRow = sql.executeUpdate();
             connection.close();
         }catch(SQLException e){

@@ -6,6 +6,7 @@ import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
+import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
@@ -15,10 +16,12 @@ import java.util.stream.Collectors;
 public class AnswerFacade {
     private IAnswerRepository answerRepository;
     private ICommentRepository commentRepository;
+    private  IVoteRepository voteRepository;
 
-    public AnswerFacade(IAnswerRepository answerRepository, ICommentRepository commentRepository) {
+    public AnswerFacade(IAnswerRepository answerRepository, ICommentRepository commentRepository, IVoteRepository voteRepository) {
         this.answerRepository = answerRepository;
         this.commentRepository = commentRepository;
+        this.voteRepository = voteRepository;
     }
 
     public void proposeAnswer(ProposeAnswerCommand command) {
@@ -49,6 +52,12 @@ public class AnswerFacade {
                                 CommentsQuery.builder()
                                         .subjectId(answer.getId().asString())
                                         .build()).stream().collect(Collectors.toList()))
+                        .nbrDownVotes(voteRepository.findAll().stream().filter(vote -> {
+                            return vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
+                        }).collect(Collectors.toList()).size())
+                        .nbrUpVotes(voteRepository.findAll().stream().filter(vote -> {
+                            return !vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
+                        }).collect(Collectors.toList()).size())
                         .build())
                 .collect(Collectors.toList());
 

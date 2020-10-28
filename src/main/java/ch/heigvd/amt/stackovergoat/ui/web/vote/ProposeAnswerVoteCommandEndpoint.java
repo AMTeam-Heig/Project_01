@@ -25,7 +25,7 @@ public class ProposeAnswerVoteCommandEndpoint extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        voteFacade = serviceRegistry.getVoteFacade();
+        voteFacade = serviceRegistry.getAnswerVoteFacade();
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
