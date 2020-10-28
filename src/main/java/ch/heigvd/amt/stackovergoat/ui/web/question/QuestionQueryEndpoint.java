@@ -4,6 +4,9 @@ import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
 import ch.heigvd.amt.stackovergoat.application.answer.AnswerFacade;
 import ch.heigvd.amt.stackovergoat.application.answer.AnswersDTO;
 import ch.heigvd.amt.stackovergoat.application.answer.AnswersQuery;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentFacade;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentsDTO;
+import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionFacade;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsDTO;
 import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
@@ -26,12 +29,14 @@ public class QuestionQueryEndpoint extends HttpServlet {
     private ServiceRegistry serviceRegistry;// = ServiceRegistry.getServiceRegistry();
     private AnswerFacade answerFacade;// = serviceRegistry.getIdentityManagementFacade();
     private QuestionFacade questionFacade;
+
     @Override
     public void init() throws ServletException {
         super.init();
         questionFacade = serviceRegistry.getQuestionFacade();
         answerFacade = serviceRegistry.getAnswerFacade();
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         QuestionsQuery questionsQuery = QuestionsQuery.builder()

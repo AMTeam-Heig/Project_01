@@ -4,8 +4,6 @@ import ch.heigvd.amt.stackovergoat.application.question.QuestionsQuery;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.Question;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
-import ch.heigvd.amt.stackovergoat.domain.user.User;
-import ch.heigvd.amt.stackovergoat.domain.user.UserId;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
@@ -160,7 +158,7 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         PreparedStatement userSql = connection.prepareStatement("SELECT * FROM User WHERE idUser = ?");
         userSql.setString(1, userId);
         ResultSet resultSetUser = userSql.executeQuery();
-        if(resultSetUser.next()) {
+        if (resultSetUser.next()) {
             author = resultSetUser.getString("username");
         }else{
             throw  new IllegalArgumentException("here your error");

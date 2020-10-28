@@ -80,11 +80,11 @@ public class JdbcUserRepository implements IUserRepository {
     public void save(User user) {
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("INSERT INTO User (idUser, username, firstname, lastname, email, password) VALUES (?,?,?,?,?,?)");
+            PreparedStatement sql = connection.prepareStatement("INSERT INTO User (idUser, username, lastname, firstname, email, password) VALUES (?,?,?,?,?,?)");
             sql.setString(1, user.getId().asString());
             sql.setString(2, user.getUsername());
-            sql.setString(3, user.getFirstname());
-            sql.setString(4, user.getLastname());
+            sql.setString(3, user.getLastname());
+            sql.setString(4, user.getFirstname());
             sql.setString(5, user.getEmail());
             sql.setString(6, user.getEncryptedPassword());
 

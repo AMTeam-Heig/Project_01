@@ -1,5 +1,6 @@
 package ch.heigvd.amt.stackovergoat.application.question;
 
+import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.Question;
@@ -40,7 +41,10 @@ public class QuestionFacade {
                         .id(question.getId().asString())
                         .author(question.getAuthor())
                         .text(question.getText())
-                        .comments(commentRepository.findAll())
+                        .comments(commentRepository.find(
+                                CommentsQuery.builder()
+                                        .subjectId(question.getId().asString())
+                                        .build()).stream().collect(Collectors.toList()))
                 .build()).collect(Collectors.toList());
 
         return QuestionsDTO.builder()
