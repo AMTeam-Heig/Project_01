@@ -46,8 +46,8 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
         }
         List<Comment> comments = findAll().stream()
                 .filter(comment -> (
-                        (fromAuthor     && comment.getAuthor().equals(query.getAuthor()))              ||
-                        (fromSubjectId  && comment.getSubjectId().equals(query.getSubjectId()))   ||
+                        (fromAuthor     && comment.getAuthor().equals(query.getAuthor()))       ||
+                        (fromSubjectId  && comment.getSubjectId().equals(query.getSubjectId())) ||
                         (fromText       && comment.getComment().equals(query.getComment()))))
                 .collect(Collectors.toList());
         return comments;
