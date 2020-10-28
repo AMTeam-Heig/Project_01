@@ -89,11 +89,9 @@ public class CommentTest {
 
     @Test
     public void commentFacadeShouldStoreCorrectComment() {
-        /*
         commentFacade.proposeComment(proposeCommentCommand);
         assertEquals(COMMENT_AUTHOR, commentFacade.getAllComments().getComments().get(0).getAuthor());
-        assertEquals(COMMENT_TEXT, commentFacade.getAllComments().getComments().get(0).getText());
-        */
+        assertEquals(COMMENT_TEXT, commentFacade.getAllComments().getComments().get(0).getComment());
     }
 
     @Test
@@ -122,11 +120,17 @@ public class CommentTest {
 
     @Test
     public void getCommentsShouldReturnANonEmptyCollection() {
-        // assertDoesNotThrow(() -> commentFacade.proposeComment(proposeCommentCommand));
+        assertDoesNotThrow(() -> commentFacade.proposeComment(proposeCommentCommand));
     }
 
     @Test
     public void findAllAndFindWithNullQueryShouldBeTheSame() {
         assertEquals(commentFacade.getComments(null), commentFacade.getAllComments());
+    }
+
+    @Test
+    public void findWithQueryShouldReturnSomething() {
+        assertDoesNotThrow(() -> commentFacade.proposeComment(proposeCommentCommand));
+        assertEquals(commentFacade.getComments(CommentsQuery.builder().subjectId(commentFacade.getAllComments().getComments().get(0).getIdSubject()).build()), commentFacade.getAllComments());
     }
 }
