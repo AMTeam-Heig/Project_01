@@ -110,7 +110,7 @@
                             <h1>
                                 Change Password:
                             </h1>
-                            <input type="password" name="newClearTextPassword" id="newClearTextPassword" class="form-control" placeholder="Nouveau Mot de Passe">
+                            <input type="password" name="newClearTextPassword" id="newClearTextPassword" class="form-control" placeholder="New password">
                             <button>
                                 Validate
                             </button>
@@ -201,7 +201,5 @@
                                     </div>
                                 </c:forEach>
                             </div>
-
-
 </body>
 </html>
