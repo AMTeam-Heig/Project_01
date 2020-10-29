@@ -160,8 +160,8 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         ResultSet resultSetUser = userSql.executeQuery();
         if(resultSetUser.next()) {
             author = resultSetUser.getString("username");
-        }else{
-            throw  new IllegalArgumentException("here your error");
+        } else {
+            throw new IllegalArgumentException("here your error");
         }
 
         Answer submittedAnswer = Answer.builder()
