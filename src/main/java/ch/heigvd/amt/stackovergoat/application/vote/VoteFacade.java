@@ -1,7 +1,9 @@
 package ch.heigvd.amt.stackovergoat.application.vote;
 
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.domain.vote.Vote;
 import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
+import ch.heigvd.amt.stackovergoat.domain.vote.VoteId;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
@@ -63,5 +65,9 @@ public class VoteFacade {
         return VotesDTO.builder()
                 .votes(allVotesDTO)
                 .build();
+    }
+
+    public void remove(String id) {
+        voteRepository.remove(new VoteId(id));
     }
 }

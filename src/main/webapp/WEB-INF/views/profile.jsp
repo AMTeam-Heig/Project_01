@@ -119,14 +119,12 @@
                                             <input name="questionId" type="hidden" value="${question.id}">
                                             <input name="userId" type="hidden" value="${currentUser.id}">
                                             <button
+                                                    type="submit"
                                                     class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                                                    type="button"
                                                     style="transition: all 0.15s ease 0s;">
                                                 Remove
                                             </button>
                                         </form>
-
-
                                     </div>
                                 </c:forEach>
                             </div>
@@ -148,8 +146,8 @@
                                             <input name="answerId" type="hidden" value="${answer.id}">
                                             <input name="userId" type="hidden" value="${currentUser.id}">
                                             <button
+                                                    type="submit"
                                                     class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                                                    type="button"
                                                     style="transition: all 0.15s ease 0s;">
                                                 Remove
                                             </button>
@@ -179,7 +177,7 @@
                                             <input name="userId" type="hidden" value="${currentUser.id}">
                                             <button
                                                     class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                                                    type="button"
+                                                    type="submit"
                                                     style="transition: all 0.15s ease 0s;">
                                                 Remove
                                             </button>
@@ -202,7 +200,7 @@
                                             <input name="userId" type="hidden" value="${currentUser.id}">
                                             <button
                                                     class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                                                    type="button"
+                                                    type="submit"
                                                     style="transition: all 0.15s ease 0s;">
                                                 Remove
                                             </button>

@@ -5,6 +5,7 @@ import ch.heigvd.amt.stackovergoat.application.vote.VotesQuery;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.IQuestionRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.Question;
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
@@ -77,5 +78,9 @@ public class QuestionFacade {
         return QuestionsDTO.builder()
                 .questions(allQuestionsDTO)
                 .build();
+    }
+
+    public void remove(String id) {
+        questionRepository.remove(new QuestionId(id));
     }
 }
