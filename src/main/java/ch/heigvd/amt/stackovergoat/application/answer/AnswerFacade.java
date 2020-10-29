@@ -3,7 +3,6 @@ package ch.heigvd.amt.stackovergoat.application.answer;
 import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
-import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.domain.vote.IVoteRepository;
@@ -53,10 +52,10 @@ public class AnswerFacade {
                                         .subjectId(answer.getId().asString())
                                         .build()).stream().collect(Collectors.toList()))
                         .nbrDownVotes(voteRepository.findAll().stream().filter(vote -> {
-                            return vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
+                            return !vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
                         }).collect(Collectors.toList()).size())
                         .nbrUpVotes(voteRepository.findAll().stream().filter(vote -> {
-                            return !vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
+                            return vote.isUpVote() && vote.getSubjectId().equals(answer.getId().asString());
                         }).collect(Collectors.toList()).size())
                         .build())
                 .collect(Collectors.toList());

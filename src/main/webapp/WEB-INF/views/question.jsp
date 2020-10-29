@@ -14,6 +14,12 @@
 </head>
 <body>
 
+<div align="center">
+    <c:forEach var="error" items="${errors}">
+        <div class="error">${error}</div>
+    </c:forEach>
+</div>
+
 <jsp:include flush="true" page="./fragments/header.jsp"/>
 
 <div class="card-group">

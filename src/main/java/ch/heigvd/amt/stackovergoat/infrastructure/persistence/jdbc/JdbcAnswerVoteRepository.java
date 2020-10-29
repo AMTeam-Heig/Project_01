@@ -36,16 +36,14 @@ public class JdbcAnswerVoteRepository implements IVoteRepository {
         }
         boolean fromAuthor    = (!query.getIdUser().equals(""));
         boolean fromSubjectId = (!query.getIdSubject().equals(""));
-        boolean fromVote      = (query.getVoteValue() != 0);
 
-        if (!(fromAuthor || fromSubjectId || fromVote)) {
+        if (!(fromAuthor || fromSubjectId)) {
             return findAll();
         }
         List<Vote> votes = findAll().stream()
                 .filter(vote -> (
                         (fromAuthor     && vote.getUserId().equals(query.getIdUser()))       ||
-                        (fromSubjectId  && vote.getSubjectId().equals(query.getIdSubject())) ||
-                                (fromVote       && (vote.isUpVote() && query.getVoteValue() > 0 || !vote.isUpVote() && query.getVoteValue() < 0))))
+                        (fromSubjectId  && vote.getSubjectId().equals(query.getIdSubject()))))
                 .collect(Collectors.toList());
         return votes;
     }
