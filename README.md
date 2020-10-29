@@ -16,5 +16,7 @@ docker pull ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
  
  ```bash
  docker run -p 9090:9080 ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat
+ docker run -p 3306:3306 ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
+ docker run -p 6060:8080 ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
  ```
 
