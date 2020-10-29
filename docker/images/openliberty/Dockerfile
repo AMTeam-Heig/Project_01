@@ -1,4 +1,4 @@
-#multistage
+
 FROM openliberty/open-liberty:kernel-java11-openj9-ubi
 
 # ---

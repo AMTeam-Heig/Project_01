@@ -3,5 +3,5 @@
 #make sure that we generate the WAR
 # mvn  -f ../../../pom.xml clean package
 #build the image by the Dockerfile
-cp ../../target/Project_01.war ./openliberty/liberty/artifact/Project_01.war
-docker build -t stackover-goat/stackovergoat .
+cp ../../../target/Project_01.war ./liberty/artifact/Project_01.war
+
