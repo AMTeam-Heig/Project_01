@@ -44,7 +44,7 @@ jobs:
       
         run: |
            echo ${{ secrets.KEYAPT }} | docker login ghcr.io -u ChickenLivesMatter --password-stdin
-           cd  docker/images/openliberty
+           cd  docker/images
            chmod 777 build-image.sh
            ./build-image.sh
            docker tag stackover-goat/stackovergoat ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
