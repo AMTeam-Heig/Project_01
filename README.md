@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img width="200" height="200" src=src/main/webapp/assets/img/goat-title.png>
+  <img width="200" height="200" src=src/main/webapp/assets/img/goat.png>
 </p> 
 
 
