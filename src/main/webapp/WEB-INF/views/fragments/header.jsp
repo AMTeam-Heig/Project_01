@@ -3,7 +3,7 @@
 <link href="./assets/css/bootstraps/bootstrap.css" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!--<img src="./assets/img/goat-title.png" height="45px" class="navbar-brand"/>-->
+    <img src="./assets/img/goat-title.png" height="45px" class="navbar-brand"/>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

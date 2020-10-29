@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(filterName = "RulesFilter", urlPatterns = "/*1111111111111111111111") //TODO enlever
+@WebFilter(filterName = "RulesFilter", urlPatterns = "/*")
 public class RulesFilter implements Filter {
     @Inject
     @Named("ServiceRegistry")
