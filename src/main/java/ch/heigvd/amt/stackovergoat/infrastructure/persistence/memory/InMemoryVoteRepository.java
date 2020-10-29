@@ -29,4 +29,9 @@ public class InMemoryVoteRepository extends InMemoryRepository<Vote, VoteId> imp
         return votes;
     }
 
+    @Override
+    public void removeFromSubjectId(String subjectId) {
+        // TODO
+    }
+
 }

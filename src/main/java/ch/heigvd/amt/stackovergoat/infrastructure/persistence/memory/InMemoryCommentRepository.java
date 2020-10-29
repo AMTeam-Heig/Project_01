@@ -31,4 +31,9 @@ public class InMemoryCommentRepository extends InMemoryRepository<Comment, Comme
         return comments;
     }
 
+    @Override
+    public void removeFromSubjectId(String subjectId) {
+        // TODO
+    }
+
 }

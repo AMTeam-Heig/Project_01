@@ -128,6 +128,11 @@ public class JdbcAnswerVoteRepository implements IVoteRepository {
         return votes;
     }
 
+    @Override
+    public void removeFromSubjectId(String subjectId) {
+        // TODO
+    }
+
     private Vote getVote(ResultSet resultSet, Connection connection) throws SQLException {
         String userId = resultSet.getString("idUser");
         boolean isUpvote = resultSet.getString("isUpvote").equals("true");

@@ -72,6 +72,11 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
     }
 
     @Override
+    public void removeFromSubjectId(String subjectId) {
+        // TODO
+    }
+
+    @Override
     public void save(Comment entity) {
         try {
             Connection connection = dataSource.getConnection();

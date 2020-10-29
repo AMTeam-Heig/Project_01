@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.application.answer;
 
 import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
+import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
@@ -15,12 +16,18 @@ import java.util.stream.Collectors;
 public class AnswerFacade {
     private IAnswerRepository answerRepository;
     private ICommentRepository commentRepository;
-    private  IVoteRepository voteRepository;
+    private IVoteRepository voteRepository;
 
     public AnswerFacade(IAnswerRepository answerRepository, ICommentRepository commentRepository, IVoteRepository voteRepository) {
         this.answerRepository = answerRepository;
         this.commentRepository = commentRepository;
         this.voteRepository = voteRepository;
+    }
+
+    public void removeAnswer(String answerId) {
+        commentRepository.removeFromSubjectId(answerId);
+        voteRepository.removeFromSubjectId(answerId);
+        answerRepository.remove(new AnswerId(answerId));
     }
 
     public void proposeAnswer(ProposeAnswerCommand command) {
