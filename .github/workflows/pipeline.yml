@@ -58,7 +58,6 @@ jobs:
 
            docker tag sql-server/stackovergoat ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
            docker push ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
-
-          docker tag php-server/stackovergoat ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
-          docker push ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
+           docker tag php-server/stackovergoat ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
+           docker push ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
 
