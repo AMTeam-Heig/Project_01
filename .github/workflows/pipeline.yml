@@ -50,14 +50,7 @@ jobs:
            ./script.sh
            cd ../../../
            docker build -t stackover-goat/stackovergoat docker/images/openliberty
-           docker build -t sql-server/stackovergoat docker/images/mysql
-           docker build -t php-server/stackovergoat docker/images/phpmyadmin
-
            docker tag stackover-goat/stackovergoat ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
            docker push ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
 
-           docker tag sql-server/stackovergoat ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
-           docker push ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
-           docker tag php-server/stackovergoat ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
-           docker push ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
 
