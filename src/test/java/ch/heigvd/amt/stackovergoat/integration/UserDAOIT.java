@@ -4,8 +4,10 @@ import ch.heigvd.amt.stackovergoat.application.ServiceRegistry;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.IdentityManagementFacade;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticateCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.AuthenticationFailedException;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
+import ch.heigvd.amt.stackovergoat.application.user.UsersDTO;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -15,10 +17,10 @@ import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
 
-//@RunWith(Arquillian.class)
+@RunWith(Arquillian.class)
 public class UserDAOIT {
 
-    /*private final static String WARNAME = "arquillian-managed.war";
+    private final static String WARNAME = "arquillian-managed.war";
 
     @Inject
     ServiceRegistry serviceRegistry;
@@ -30,7 +32,7 @@ public class UserDAOIT {
         return archive;
     }
 
-    /*@Test
+    @Test
     public void creatingAUserAndFindingIt() throws RegistrationFailedException, AuthenticationFailedException {
         IdentityManagementFacade identityManagementFacade = serviceRegistry.getIdentityManagementFacade();
         RegisterCommand registerCommand = RegisterCommand.builder()
@@ -47,7 +49,7 @@ public class UserDAOIT {
                 .clearTextPassword("test")
                 .build();
 
-        identityManagementFacade.authenticate(authenticateCommand);
-    }*/
+        CurrentUserDTO usr = identityManagementFacade.authenticate(authenticateCommand);
+    }
 
 }

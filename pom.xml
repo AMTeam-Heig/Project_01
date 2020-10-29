@@ -130,7 +130,7 @@
         <artifactId>liberty-maven-plugin</artifactId>
         <version>3.2</version>
         <!-- uncomment this to generate an executable jar - but packaging a .war in a Docker image is faster -->
-        <executions>
+        <!--<executions>
           <execution>
             <id>package-server</id>
             <phase>package</phase>
@@ -148,7 +148,13 @@
         <configuration>
           <include>runnable</include>
         </configuration>
+-->
+      </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
       </plugin>
 
       <plugin>
