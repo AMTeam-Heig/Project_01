@@ -26,5 +26,40 @@
     </div>
 </div>
 
+<h2>My questions</h2>
+<c:forEach var="question" items="${questions.questions}">
+    <div class="question-group">
+        <p>
+            <a href="/question?id=${question.id}" class="a">${question.text}</a>
+        </p>
+        Up votes : ${question.nbrUpVotes}
+        Down votes : ${question.nbrDownVotes}
+
+        <form action="./removeQuestion.do" method="POST">
+            <input name="questionId" type="hidden" value="${question.id}">
+            <input name="userId" type="hidden" value="${currentUser.id}">
+            <button type="submit" class="btn btn-secondary">Remove</button>
+        </form>
+    </div>
+</c:forEach>
+
+<h2>My answers</h2>
+<c:forEach var="answer" items="${answers.answers}">
+    <div class="answer-group">
+        <p>
+            <a href="/question?id=${answer.idQuestion}" class="a">${answer.text}</a>
+        </p>
+        Up votes : ${answer.nbrUpVotes}
+        Down votes : ${answer.nbrDownVotes}
+
+        <form action="./removeAnswer.do" method="POST">
+            <input name="answerId" type="hidden" value="${answer.id}">
+            <input name="userId" type="hidden" value="${currentUser.id}">
+            <button type="submit" class="btn btn-secondary">Remove</button>
+        </form>
+    </div>
+</c:forEach>
+
+
 </body>
 </html>
