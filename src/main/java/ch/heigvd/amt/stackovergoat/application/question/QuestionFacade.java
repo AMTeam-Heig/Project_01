@@ -51,10 +51,10 @@ public class QuestionFacade {
                                         .subjectId(question.getId().asString())
                                         .build()).stream().collect(Collectors.toList()))
                         .nbrDownVotes(voteRepository.findAll().stream().filter(vote -> {
-                            return vote.isUpVote() && vote.getSubjectId().equals(question.getId().asString());
+                            return !vote.isUpVote() && vote.getSubjectId().equals(question.getId().asString());
                         }).collect(Collectors.toList()).size())
                         .nbrUpVotes(voteRepository.findAll().stream().filter(vote -> {
-                            return !vote.isUpVote() && vote.getSubjectId().equals(question.getId().asString());
+                            return vote.isUpVote() && vote.getSubjectId().equals(question.getId().asString());
                         }).collect(Collectors.toList()).size())
                 .build()).collect(Collectors.toList());
 

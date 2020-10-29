@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
 
 @WebServlet(name = "SubmitQuestionVoteCommandHandler", urlPatterns = "/submitQuestionVote.do")
 public class ProposeQuestionVoteCommandEndpoint extends HttpServlet {
@@ -40,8 +43,12 @@ public class ProposeQuestionVoteCommandEndpoint extends HttpServlet {
                     .isForAnswer(false)
                     .build();
         }
-
-        voteFacade.proposeVote(command);
+        try {
+            voteFacade.proposeVote(command);
+            req.getSession().setAttribute("error", null);
+        } catch (Exception e) {
+            req.getSession().setAttribute("error", "You can vote only once for each question or answer !");
+        }
         resp.sendRedirect("/question?id=" + req.getParameter("questionId"));
     }
 }
