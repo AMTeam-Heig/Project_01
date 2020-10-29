@@ -44,9 +44,11 @@ public class RulesFilter implements Filter {
 
             ((HttpServletResponse) resp).sendRedirect("./login"); // TODO change this
             return;
+        } else {
+            chain.doFilter(req, resp);
+            return;
         }
 
-        chain.doFilter(req, resp);
     }
 
     private boolean isForbiddenResource(HttpServletRequest request, String username) {
