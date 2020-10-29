@@ -11,6 +11,8 @@ services:
       - mysql
   mysql:
     build: ../images/mysql
+    ports:
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
     cap_add:
