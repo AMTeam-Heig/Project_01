@@ -48,6 +48,7 @@ jobs:
            cd  docker/images/openliberty
            chmod 777 script.sh
            ./script.sh
+          cd ../../../
            docker build -t stackover-goat/stackovergoat docker/images/openliberty
            docker tag stackover-goat/stackovergoat ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
            docker push ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
