@@ -43,7 +43,7 @@
 						Register
 					</span>
             </div>
-            <form action="./register.do" method="POST">
+            <form action="./register.do" method="POST" accept-charset="utf-8">
                 <div class="form-group row">
                     <div class="col-md-5">
                         <label for="firstname" class="col-form-label">Prénom</label>

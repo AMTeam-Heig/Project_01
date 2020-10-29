@@ -46,7 +46,7 @@
         <!-- COMMENTAIRES SUR LA QUESTION -->
         <h2>Comments</h2>
         <c:if test="${currentUser != null}">
-            <form action="./submitQuestionComment.do" method="POST">
+            <form action="./submitQuestionComment.do" method="POST" accept-charset="utf-8">
                 <div class="form-group">
                     <input name="comment"
                            type="text"
@@ -73,7 +73,7 @@
         </c:forEach>
         <h2>Answers</h2>
         <c:if test="${currentUser != null}">
-            <form action="./submitAnswer.do" method="POST">
+            <form action="./submitAnswer.do" method="POST" accept-charset="utf-8">
                 <div class="form-group">
                     <input name="answer" type="text" class="form-control" id="answerQ"
                            placeholder="answer the question !">
@@ -114,7 +114,7 @@
                 </c:forEach>
 
                 <c:if test="${currentUser != null}">
-                    <form action="./submitAnswerComment.do" method="POST">
+                    <form action="./submitAnswerComment.do" method="POST" accept-charset="utf-8">
                         <div class="form-group">
                             <input name="comment" type="text" class="form-control" id="commentA"
                                    placeholder="comment the answer !">
