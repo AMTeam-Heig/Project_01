@@ -1,6 +1,7 @@
 package ch.heigvd.amt.stackovergoat.application.answer;
 
 import ch.heigvd.amt.stackovergoat.application.comment.CommentsQuery;
+import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.answer.IAnswerRepository;
 import ch.heigvd.amt.stackovergoat.domain.answer.Answer;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
@@ -78,5 +79,9 @@ public class AnswerFacade {
         return AnswersDTO.builder()
                 .answers(allAnswersDTO)
                 .build();
+    }
+
+    public void remove(String id) {
+        answerRepository.remove(new AnswerId(id));
     }
 }

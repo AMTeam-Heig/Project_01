@@ -1,6 +1,8 @@
 package ch.heigvd.amt.stackovergoat.application.comment;
 
+import ch.heigvd.amt.stackovergoat.domain.answer.AnswerId;
 import ch.heigvd.amt.stackovergoat.domain.comment.Comment;
+import ch.heigvd.amt.stackovergoat.domain.comment.CommentId;
 import ch.heigvd.amt.stackovergoat.domain.comment.ICommentRepository;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
@@ -63,5 +65,9 @@ public class CommentFacade {
         return CommentsDTO.builder()
                 .comments(allCommentsDTO)
                 .build();
+    }
+
+    public void remove(String id) {
+        commentRepository.remove(new CommentId(id));
     }
 }

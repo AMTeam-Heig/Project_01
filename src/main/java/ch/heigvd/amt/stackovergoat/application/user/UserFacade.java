@@ -1,7 +1,9 @@
 package ch.heigvd.amt.stackovergoat.application.user;
 
+import ch.heigvd.amt.stackovergoat.domain.question.QuestionId;
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
+import ch.heigvd.amt.stackovergoat.domain.user.UserId;
 import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 
 import java.util.Collection;
@@ -42,5 +44,9 @@ public class UserFacade {
         return UsersDTO.builder()
                 .users(allUsersDTO)
                 .build();
+    }
+
+    public void remove(String id) {
+        userRepository.remove(new UserId(id));
     }
 }

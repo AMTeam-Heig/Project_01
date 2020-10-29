@@ -116,7 +116,7 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         try{
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("DELETE FROM Question WHERE idQuestion = ?");
-            sql.setString(1, id.toString());
+            sql.setString(1, id.asString());
             int nbRow = sql.executeUpdate();
             connection.close();
         }catch(SQLException e){

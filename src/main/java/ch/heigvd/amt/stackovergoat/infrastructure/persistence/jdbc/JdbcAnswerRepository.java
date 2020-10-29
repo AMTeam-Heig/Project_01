@@ -113,7 +113,7 @@ public class JdbcAnswerRepository implements IAnswerRepository {
         try{
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("DELETE FROM Answer WHERE idAnswer = ?");
-            sql.setString(1, id.toString());
+            sql.setString(1, id.asString());
             int nbRow = sql.executeUpdate();
             connection.close();
         }catch(SQLException e){
