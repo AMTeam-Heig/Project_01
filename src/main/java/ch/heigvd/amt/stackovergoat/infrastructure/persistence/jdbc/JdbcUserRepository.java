@@ -111,10 +111,7 @@ public class JdbcUserRepository implements IUserRepository {
             throw new IllegalArgumentException(e);
         }
     }
-    @Override
-    public int getSize() {
-        return 0;
-    }
+
 
     @Override
     public Optional<User> findById(UserId id) {
@@ -183,4 +180,21 @@ public class JdbcUserRepository implements IUserRepository {
         }
         return matchingEntities;
     }
+
+    @Override
+    public int getSize() {
+     int nb=0;
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("   SELECT COUNT(*) FROM User");
+            ResultSet res = sql.executeQuery();
+            while (res.next()) {
+                nb += res.getInt(1);
+            }
+        }catch (SQLException e){
+            throw new IllegalArgumentException(e);
+        }
+        return nb;
+    }
+
 }

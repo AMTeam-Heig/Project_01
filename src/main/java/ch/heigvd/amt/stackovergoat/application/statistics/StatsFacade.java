@@ -17,7 +17,6 @@ public class StatsFacade {
         return StatsDTO.builder()
                 .nbQuestion(questionRepository.getSize())
                 .nbUser(userRepository.getSize())
-                .nbVisitor(0)
                 .build();
     }
 }

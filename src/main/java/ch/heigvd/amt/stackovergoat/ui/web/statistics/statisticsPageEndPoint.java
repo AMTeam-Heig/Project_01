@@ -31,8 +31,8 @@ public class statisticsPageEndPoint extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        StatsDTO  stats= statsFacade.getStats();
-        req.setAttribute("stats", stats);
+        StatsDTO  statistiques= statsFacade.getStats();
+        req.setAttribute("stats", statistiques);
         req.getRequestDispatcher("/WEB-INF/views/statistics.jsp").forward(req, resp);
     }
 }

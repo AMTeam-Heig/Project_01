@@ -29,8 +29,7 @@
         <div style="text-align: center;"><h2>Here some numbers</h2></div>
 
                 <h2>Number of questions  : </h2>${stats.nbQuestion}<br/>
-                <h2>Number of registered  : </h2>${stats.nbUser}<br/>
-                <h2>Number of visitors : </h2> ${stats.nbVisitor}<br/>
+                <h2>Number of users  : </h2>${stats.nbUser}<br/>
     </div>
 </div>
 
