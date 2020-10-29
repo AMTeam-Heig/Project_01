@@ -58,7 +58,6 @@ public class AuthorizationFilter implements Filter {
         if(URI.startsWith("/comment")) {
             return true;
         }
-        // TODO : set to false
         return false;
     }
 
