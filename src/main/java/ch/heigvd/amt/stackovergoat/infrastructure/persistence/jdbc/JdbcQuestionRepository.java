@@ -175,7 +175,7 @@ public class JdbcQuestionRepository implements IQuestionRepository {
             PreparedStatement sql = connection.prepareStatement("   SELECT COUNT(*) FROM Question");
             ResultSet resQ = sql.executeQuery();
             while (resQ.next()) {
-                nbRow += 1;
+                nbRow += resQ.getInt(1);
             }
         }catch (SQLException e){
             throw new IllegalArgumentException(String.valueOf(nbRow));
