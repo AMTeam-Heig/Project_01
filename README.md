@@ -1,22 +1,32 @@
+
+
+<p align="center">
+  <img width="200" height="200" src=src/main/webapp/assets/img/goat.png>
+</p> 
+
+
+
 ![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg) ![tests](https://github.com/AMTeam-Heig/Project_01/workflows/tests/badge.svg)
-## StackOverGoat 
+
+ 
 ### Objectif
 The main goal of this project is to implement a simple version of https://stackoverflow.com/ website :
-### How to use 
 
-Github offer the possibility of creating images and save them under the GitHub Container Registry .Using this future we created an image contain both the server (openLiberty) and the application .
+### Quick start
 
-First you need to pull the image from the GitHub Container Registry
-In the example below the image pulled by its name and the latest version tag:
+Is realy simple to use our application, All you need is  to clone the project and run the script :
 
+First clone the project 
 ```bash
-docker pull ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat:latest
+git clone git@github.com:AMTeam-Heig/Project_01.git
 ```
- Once the image was pulled you can run it using the following command :
- 
- ```bash
- docker run -p 9090:9080 ghcr.io/chickenlivesmatter/stackover-goat/stackovergoat
- docker run -p 3306:3306 ghcr.io/chickenlivesmatter/sql-server/stackovergoat:latest
- docker run -p 6060:8080 ghcr.io/chickenlivesmatter/php-server/stackovergoat:latest
- ```
+Then execute  the script to start the application :
+```bash
+./start.sh
+```
 
+The application can be used over the image in the GitHub Container Registry that offer the possibility of creating images and save them under the GitHub Container Registry .Using this future we created an image contain both the server (openLiberty) and the application .
+ All you need is to run this : 
+ ```bash
+ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
+ ```

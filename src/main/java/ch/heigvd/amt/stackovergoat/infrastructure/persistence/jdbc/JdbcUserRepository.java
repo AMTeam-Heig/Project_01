@@ -113,10 +113,7 @@ public class JdbcUserRepository implements IUserRepository {
             throw new IllegalArgumentException(e);
         }
     }
-    @Override
-    public int getSize() {
-        return 0;
-    }
+
 
     @Override
     public Optional<User> findById(UserId id) {
@@ -187,9 +184,9 @@ public class JdbcUserRepository implements IUserRepository {
     }
 
     @Override
-    public void changePassword(String username, String newClearTextPassword){
+    public void changePassword(String username, String newClearTextPassword) {
 
-        try{
+        try {
             Connection connection = dataSource.getConnection();
             PreparedStatement sql = connection.prepareStatement("UPDATE User SET password = ? WHERE username = ?");
             sql.setString(1, BCrypt.hashpw(newClearTextPassword, BCrypt.gensalt()));
@@ -197,9 +194,26 @@ public class JdbcUserRepository implements IUserRepository {
             sql.executeUpdate();
             System.out.println("Request sent with new pass " + newClearTextPassword);
             connection.close();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new IllegalArgumentException(e);
         }
+
+    }
+
+    @Override
+    public int getSize() {
+     int nb=0;
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("   SELECT COUNT(*) FROM User");
+            ResultSet res = sql.executeQuery();
+            while (res.next()) {
+                nb += res.getInt(1);
+            }
+        }catch (SQLException e){
+            throw new IllegalArgumentException(e);
+        }
+        return nb;
     }
 
 }

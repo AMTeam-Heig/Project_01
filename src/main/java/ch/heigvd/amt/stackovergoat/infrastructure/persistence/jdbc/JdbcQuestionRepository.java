@@ -124,11 +124,6 @@ public class JdbcQuestionRepository implements IQuestionRepository {
         }
     }
 
-    @Override
-    public int getSize() {
-        return 0;
-    }
-
 
     @Override
     public Optional<Question> findById(QuestionId question) {
@@ -170,5 +165,21 @@ public class JdbcQuestionRepository implements IQuestionRepository {
                 .text(text)
                 .build();
         return submittedQuestion;
+    }
+    @Override
+    public int getSize() {
+        int nbRow=0;
+
+        try{
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("   SELECT COUNT(*) FROM Question");
+            ResultSet resQ = sql.executeQuery();
+            while (resQ.next()) {
+                nbRow += resQ.getInt(1);
+            }
+        }catch (SQLException e){
+            throw new IllegalArgumentException(String.valueOf(nbRow));
+        }
+        return nbRow;
     }
 }
