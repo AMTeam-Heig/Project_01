@@ -1,3 +1,11 @@
+
+
+<p align="center">
+  <img width="200" height="200" src=src/main/webapp/assets/img/goat.png>
+</p> 
+
+
+
 ![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg) ![tests](https://github.com/AMTeam-Heig/Project_01/workflows/tests/badge.svg)
 ## StackOverGoat 
 ### Objectif
