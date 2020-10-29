@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`Question` (
   CONSTRAINT `fk_Question_User1`
     FOREIGN KEY (`author`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `idQuestion_UNIQUE` ON `amt_project_01`.`Question` (`idQuestion` ASC) VISIBLE;
@@ -69,13 +69,13 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`Answer` (
   CONSTRAINT `fk_Answer_Question1`
     FOREIGN KEY (`idQuestion`)
     REFERENCES `amt_project_01`.`Question` (`idQuestion`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE ,
   CONSTRAINT `fk_Answer_User1`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `idAnswer_UNIQUE` ON `amt_project_01`.`Answer` (`idAnswer` ASC) VISIBLE;
@@ -98,13 +98,13 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_votes_for_Question` (
   CONSTRAINT `fk_User_has_Question_User`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE ,
   CONSTRAINT `fk_User_has_Question_Question1`
     FOREIGN KEY (`idQuestion`)
     REFERENCES `amt_project_01`.`Question` (`idQuestion`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_User_has_Question_Question1_idx` ON `amt_project_01`.`User_votes_for_Question` (`idQuestion` ASC) VISIBLE;
@@ -125,13 +125,13 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_votes_for_Answer` (
   CONSTRAINT `fk_User_has_Answer_User1`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE ,
   CONSTRAINT `fk_User_has_Answer_Answer1`
     FOREIGN KEY (`idAnswer`)
     REFERENCES `amt_project_01`.`Answer` (`idAnswer`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_User_has_Answer_Answer1_idx` ON `amt_project_01`.`User_votes_for_Answer` (`idAnswer` ASC) VISIBLE;
@@ -153,13 +153,13 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Question` (
   CONSTRAINT `fk_User_has_Question_User0`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE ,
   CONSTRAINT `fk_User_has_Question_Question10`
     FOREIGN KEY (`idQuestion`)
     REFERENCES `amt_project_01`.`Question` (`idQuestion`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_User_has_Question_Question1_idx` ON `amt_project_01`.`User_comments_Question` (`idQuestion` ASC) VISIBLE;
@@ -181,13 +181,13 @@ CREATE TABLE IF NOT EXISTS `amt_project_01`.`User_comments_Answer` (
   CONSTRAINT `fk_User_has_Answer_User10`
     FOREIGN KEY (`idUser`)
     REFERENCES `amt_project_01`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE ,
   CONSTRAINT `fk_User_has_Answer_Answer10`
     FOREIGN KEY (`idAnswer`)
     REFERENCES `amt_project_01`.`Answer` (`idAnswer`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE )
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_User_has_Answer_Answer1_idx` ON `amt_project_01`.`User_comments_Answer` (`idAnswer` ASC) VISIBLE;

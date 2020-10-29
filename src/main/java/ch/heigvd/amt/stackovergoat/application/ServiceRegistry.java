@@ -176,14 +176,14 @@ public class ServiceRegistry {
         questionVoteFacade = new VoteFacade(questionVoteRepository);
         answerFacade = new AnswerFacade(answerRepository, answerCommentRepository, answerVoteRepository);
         questionFacade = new QuestionFacade(questionRepository, questionCommentRepository, questionVoteRepository);
+        identityManagementFacade = new IdentityManagementFacade(userRepository);
+        statsFacade=new StatsFacade(questionRepository,userRepository);
     }
 
     public QuestionFacade getQuestionFacade() {
         return questionFacade;
     }
-    public StatsFacade getStatsFacade() {
-        return statsFacade;
-    }
+    public StatsFacade getStatsFacade() { return statsFacade;}
     public CommentFacade getAnswerCommentFacade() {
         return answerCommentFacade;
     }
@@ -202,10 +202,6 @@ public class ServiceRegistry {
     public VoteFacade getQuestionVoteFacade() {
         return questionVoteFacade;
     }
-
-    public IdentityManagementFacade getIdentityManagementFacade() {
-        identityManagementFacade = new IdentityManagementFacade(userRepository);
-        return identityManagementFacade;
-    }
+    public IdentityManagementFacade getIdentityManagementFacade() { return identityManagementFacade; }
 
 }

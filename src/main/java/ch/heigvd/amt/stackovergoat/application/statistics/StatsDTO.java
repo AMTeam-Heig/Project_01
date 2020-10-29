@@ -8,5 +8,4 @@ import lombok.Getter;
 public class StatsDTO {
     int nbQuestion;
     int nbUser;
-    int nbVisitor;
 }
