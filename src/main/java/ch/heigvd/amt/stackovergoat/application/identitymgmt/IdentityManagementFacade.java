@@ -5,6 +5,8 @@ import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.Authent
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.authenticate.CurrentUserDTO;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegisterCommand;
 import ch.heigvd.amt.stackovergoat.application.identitymgmt.login.RegistrationFailedException;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.profile.UpdateFailedException;
+import ch.heigvd.amt.stackovergoat.application.identitymgmt.profile.UpdatePasswordCommand;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 
@@ -55,5 +57,13 @@ public class IdentityManagementFacade {
                 .build();
 
         return currentUser;
+    }
+
+    public void changePassword(UpdatePasswordCommand command) throws UpdateFailedException {
+        try {
+            userRepository.changePassword(command.getUsername(), command.getNewClearTextPassword());
+        } catch(Exception e){
+            throw new UpdateFailedException(e.getMessage());
+        }
     }
 }

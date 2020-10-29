@@ -24,6 +24,20 @@
         <h2>Lastname : </h2>${currentUser.lastname}<br/>
         <h2>E-mail : </h2> ${currentUser.email}<br/>
     </div>
+    <div>
+        <form action="./profile.do" method="POST">
+            <h1>
+                Change Password:
+            </h1>
+            <input type="password" name="newClearTextPassword" id="newClearTextPassword" class="form-control" placeholder="Nouveau Mot de Passe">
+            <button>
+                Validate
+            </button>
+        </form>
+        <c:forEach var="error" items="${errors}">
+            <div class="error">${error}</div>
+        </c:forEach>
+    </div>
 </div>
 
 <h2>My questions</h2>

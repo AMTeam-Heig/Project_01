@@ -52,4 +52,14 @@ public class InMemoryUserRepository extends InMemoryRepository<User, UserId> imp
         return Optional.of(matchingEntities.get(0).deepClone());
     }
 
+    @Override
+    public void changePassword(String username, String newClearTextPassword) throws IntegrityConstraintViolationException{
+        //This function does nothing - for compilation purposes
+        synchronized (username) {
+            if (!findByUsername(username).isEmpty()) {
+                throw new IntegrityConstraintViolationException("Cannot save/update person...");
+            }
+        }
+    }
+
 }
