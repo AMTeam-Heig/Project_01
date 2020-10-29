@@ -5,6 +5,7 @@ import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 import ch.heigvd.amt.stackovergoat.domain.user.UserId;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
@@ -66,6 +67,7 @@ public class JdbcUserRepository implements IUserRepository {
                                 .lastname(lastname)
                                 .encryptedPassword(passwd)
                                 .build();
+                connection.close();
                 return Optional.of(submittedUser);
             }
 
@@ -179,6 +181,23 @@ public class JdbcUserRepository implements IUserRepository {
             throw new IllegalArgumentException(e);
         }
         return matchingEntities;
+    }
+
+    @Override
+    public void changePassword(String username, String newClearTextPassword) {
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement("UPDATE User SET password = ? WHERE username = ?");
+            sql.setString(1, BCrypt.hashpw(newClearTextPassword, BCrypt.gensalt()));
+            sql.setString(2, username);
+            sql.executeUpdate();
+            System.out.println("Request sent with new pass " + newClearTextPassword);
+            connection.close();
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
+
     }
 
     @Override
