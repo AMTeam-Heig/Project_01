@@ -14,7 +14,7 @@ The main goal of this project is to implement a simple version of https://stacko
 
 ### Quick start
 
-Is realy simple to use our ,you just need to clone the project and run the script :
+Is realy simple to use our application, All you need is  to clone the project and run the script :
 
 First clone the project 
 ```bash
