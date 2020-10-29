@@ -28,5 +28,5 @@ Then execute  the script to start the application :
 The application can be used over the image in the GitHub Container Registry that offer the possibility of creating images and save them under the GitHub Container Registry .Using this future we created an image contain both the server (openLiberty) and the application .
  All you need is to run this : 
  ```bash
-ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
+docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
  ```
