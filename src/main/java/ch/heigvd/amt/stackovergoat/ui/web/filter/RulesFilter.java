@@ -54,30 +54,37 @@ public class RulesFilter implements Filter {
     }
 
     private boolean isForbiddenResource(HttpServletRequest request, String username) {
-        String ownerUsernameForVote = "";
-        String ownerUsernameForRemoval = "";
-
         if (request.getRequestURI().contains("/submitAnswerVote")) {
             String subjectId = request.getParameter("answerId");
-            ownerUsernameForVote = answerFacade.getAnswers(AnswersQuery.builder().idAnswer(subjectId).build()).getAnswers().get(0).getAuthor();
-
-        } else if (request.getRequestURI().contains("/submitQuestionVote")) {
+            String ownerUsernameForVote = answerFacade.getAnswers(
+                    AnswersQuery.builder().idAnswer(subjectId).build())
+                    .getAnswers().get(0).getAuthor();
+            return username.equals(ownerUsernameForVote);
+        }
+        if (request.getRequestURI().contains("/submitQuestionVote")) {
             String subjectId = request.getParameter("questionId");
-            ownerUsernameForVote = questionFacade.getQuestions(QuestionsQuery.builder().idQuestion(subjectId).build()).getQuestions().get(0).getAuthor();
-
+            String ownerUsernameForVote = questionFacade.getQuestions(
+                    QuestionsQuery.builder().idQuestion(subjectId).build())
+                    .getQuestions().get(0).getAuthor();
+            return username.equals(ownerUsernameForVote);
         }
 
         if (request.getRequestURI().contains("/removeAnswer")) {
             String subjectId = request.getParameter("answerId");
-            ownerUsernameForRemoval = answerFacade.getAnswers(AnswersQuery.builder().idAnswer(subjectId).build()).getAnswers().get(0).getAuthor();
-
-        } else if (request.getRequestURI().contains("/removeQuestion")) {
+            String ownerUsernameForRemoval = answerFacade.getAnswers(
+                    AnswersQuery.builder().idAnswer(subjectId).build())
+                    .getAnswers().get(0).getAuthor();
+            return !username.equals(ownerUsernameForRemoval);
+        }
+        if (request.getRequestURI().contains("/removeQuestion")) {
             String subjectId = request.getParameter("questionId");
-            ownerUsernameForRemoval = questionFacade.getQuestions(QuestionsQuery.builder().idQuestion(subjectId).build()).getQuestions().get(0).getAuthor();
-
+            String ownerUsernameForRemoval = questionFacade.getQuestions(
+                    QuestionsQuery.builder().idQuestion(subjectId).build())
+                    .getQuestions().get(0).getAuthor();
+            return !username.equals(ownerUsernameForRemoval);
         }
 
-        return username.equals(ownerUsernameForVote) && !username.equals(ownerUsernameForRemoval);
+        return false;
     }
 
     @Override
