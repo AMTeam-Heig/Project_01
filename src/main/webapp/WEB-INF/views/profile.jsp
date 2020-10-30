@@ -112,7 +112,26 @@
                             </h1>
                             <input type="password" name="newClearTextPassword" id="newClearTextPassword" class="form-control" placeholder="New password">
                             <button>
-                                Validate
+                                Update password
+                            </button>
+                        </form>
+                        <c:forEach var="error" items="${errors}">
+                            <div class="error">${error}</div>
+                        </c:forEach>
+                    </div>
+                    <div>
+                        <form action="./profile.up" method="POST">
+                            <h1>
+                                Update your profile
+                            </h1>
+                            <h2>
+                                Update your profile
+                            </h2>
+                            <input type="text" name="newLastname" id="newLastname" class="form-control" placeholder="New lastname">
+                            <input type="text" name="newFirstname" id="newFirstname" class="form-control" placeholder="New firstname">
+                            <input type="text" name="newEmail" id="newEmail" class="form-control" placeholder="New email">
+                            <button>
+                                Change profile information
                             </button>
                         </form>
                         <c:forEach var="error" items="${errors}">
