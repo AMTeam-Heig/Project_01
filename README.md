@@ -28,6 +28,9 @@ docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat
  ```
  
  ### Known issues & bugs
+ We corrected a few bugs since the presentation :
+ - HTML / CSS in single question page,
+ - Updating the session when changing user information. 
  
  #### Tests
  
