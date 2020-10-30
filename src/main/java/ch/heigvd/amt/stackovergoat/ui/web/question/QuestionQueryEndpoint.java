@@ -55,6 +55,7 @@ public class QuestionQueryEndpoint extends HttpServlet {
         }
 
         req.setAttribute("question", questionDTO);
+        req.setAttribute("questionVotes", questionDTO.getNbrUpVotes() - questionDTO.getNbrDownVotes());
         req.setAttribute("answers", answersDTO);
         req.getRequestDispatcher("/WEB-INF/views/question.jsp").forward(req, resp);
     }

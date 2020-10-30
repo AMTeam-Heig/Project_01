@@ -38,7 +38,7 @@ public class ProposeQuestionVoteCommandEndpoint extends HttpServlet {
         if (user != null && req.getParameter("vote") != null && !req.getParameter("vote").equals("")) {
             command = ProposeVoteCommand.builder()
                     .subjectId(req.getParameter("questionId"))
-                    .isUpVote(req.getParameter("vote").equals("UP"))
+                    .isUpVote(req.getParameter("vote").equals("+"))
                     .userId(user.getId())
                     .isForAnswer(false)
                     .build();
