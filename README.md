@@ -5,7 +5,7 @@
 </p> 
  
 ### Objectif
-The main goal of this project is to implement a simple version of https://stackoverflow.com/ website :
+The main goal of this project is to implement a simple version of [stack overflow](https://stackoverflow.com/) website :
 
 ### Quick start
 
@@ -26,4 +26,4 @@ All you need to test it is to run this script :
 docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
  ```
 
-_Team : Clarisse Fleurimont, Baptiste Hardrick, Elodie Lagier and Walid Massaoudi_
+_Team : [Clarisse Fleurimont](clarisse.fleurimont@heig-vd.ch), [Baptiste Hardrick](baptiste.hardrick@heig-vd.ch), [Elodie Lagier](elodie.lagier@heig-vd.ch) and [Walid Massaoudi](walid.massaoudi@heig-vd.ch)_
