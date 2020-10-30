@@ -45,7 +45,10 @@ public class UserPageUpdateCommandEndpoint extends HttpServlet {
                     .email(request.getParameter("newEmail"))
                     .build();
 
-            identityManagementFacade.updateProfile(updateProfileCommand);
+            CurrentUserDTO currentUserDTO = identityManagementFacade.updateProfile(updateProfileCommand);
+
+            request.getSession().setAttribute("currentUser", currentUserDTO);
+
             response.sendRedirect("./profile");
         } catch (UpdateFailedException e) {
             request.getSession().setAttribute("errors", List.of(e.getMessage()));

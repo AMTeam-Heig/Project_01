@@ -68,9 +68,23 @@ public class IdentityManagementFacade {
         }
     }
 
-    public void updateProfile(UpdateProfileCommand command) throws UpdateFailedException {
+    public CurrentUserDTO updateProfile(UpdateProfileCommand command) throws UpdateFailedException {
         try {
             userRepository.updateProfile(command.getUsername(), command.getLastname(), command.getFirstname(), command.getEmail());
+
+            User user = userRepository.findByUsername(command.getUsername())
+                    .orElseThrow(() -> new UpdateFailedException("User not found"));
+
+            CurrentUserDTO currentUser = CurrentUserDTO.builder()
+                    .id(user.getId().asString())
+                    .username(user.getUsername())
+                    .firstname(user.getFirstname())
+                    .lastname(user.getLastname())
+                    .email(user.getEmail())
+                    .build();
+
+            return currentUser;
+
         } catch(Exception e){
             throw new UpdateFailedException(e.getMessage());
         }
