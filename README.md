@@ -49,8 +49,5 @@ docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat
  
  Adding a comment is functionnal. However, removing them doesn't work. It seems to be related to primary keys in the database.
  
- #### Update Session
- 
- We can change our email, lastname and firstname effeciently. The problem is that the user session isn't updated in real time. We have to logout then reconnect to see the changes on our profile page.
 
 _Team : [Clarisse Fleurimont](https://github.com/Stellucidam), [Baptiste Hardrick](https://github.com/batach31), [Elodie Lagier](https://github.com/CosmicElodie) and [Walid Massaoudi](https://github.com/ChickenLivesMatter)_
