@@ -17,7 +17,7 @@ git clone git@github.com:AMTeam-Heig/Project_01.git
 ```
 Then execute  the script to start the application :
 ```bash
-./start.sh
+./start_docker.sh
 ```
 
 The application can be used over the image in the GitHub Container Registry. That offers the possibility of creating images and saving them under the GitHub Container Registry. Using this feature we created an image containing both the server (openLiberty) and the application.
