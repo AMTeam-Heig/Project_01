@@ -1,20 +1,15 @@
-
+![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg) ![tests](https://github.com/AMTeam-Heig/Project_01/workflows/tests/badge.svg)
 
 <p align="center">
   <img width="200" height="200" src=src/main/webapp/assets/img/goat.png>
 </p> 
-
-
-
-![Building and publishing the Docker image](https://github.com/AMTeam-Heig/Project_01/workflows/Building%20and%20publishing%20the%20Docker%20image/badge.svg) ![tests](https://github.com/AMTeam-Heig/Project_01/workflows/tests/badge.svg)
-
  
 ### Objectif
 The main goal of this project is to implement a simple version of https://stackoverflow.com/ website :
 
 ### Quick start
 
-Is realy simple to use our application, All you need is  to clone the project and run the script :
+It is realy simple to use our application, all you need is to clone the project and run the script :
 
 First clone the project 
 ```bash
@@ -25,8 +20,10 @@ Then execute  the script to start the application :
 ./start.sh
 ```
 
-The application can be used over the image in the GitHub Container Registry that offer the possibility of creating images and save them under the GitHub Container Registry .Using this future we created an image contain both the server (openLiberty) and the application .
- All you need is to run this : 
+The application can be used over the image in the GitHub Container Registry. That offers the possibility of creating images and saving them under the GitHub Container Registry. Using this feature we created an image containing both the server (openLiberty) and the application.
+All you need to test it is to run this script : 
  ```bash
 docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
  ```
+
+_Team : Clarisse Fleurimont, Baptiste Hardrick, Elodie Lagier and Walid Massaoudi_
