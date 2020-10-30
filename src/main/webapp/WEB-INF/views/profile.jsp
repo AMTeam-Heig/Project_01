@@ -107,10 +107,11 @@
 
                     <div>
                         <form action="./profile.do" method="POST">
-                            <h1>
+                            <h2>
                                 Change Password:
-                            </h1>
-                            <input type="password" name="newClearTextPassword" id="newClearTextPassword" class="form-control" placeholder="New password">
+                            </h2>
+                            <input type="password" name="newClearTextPassword" id="newClearTextPassword"
+                                   class="form-control" placeholder="New password">
                             <button>
                                 Update password
                             </button>
@@ -121,15 +122,15 @@
                     </div>
                     <div>
                         <form action="./profile.up" method="POST">
-                            <h1>
-                                Update your profile
-                            </h1>
                             <h2>
                                 Update your profile
                             </h2>
-                            <input type="text" name="newLastname" id="newLastname" class="form-control" placeholder="New lastname">
-                            <input type="text" name="newFirstname" id="newFirstname" class="form-control" placeholder="New firstname">
-                            <input type="text" name="newEmail" id="newEmail" class="form-control" placeholder="New email">
+                            <input type="text" name="newLastname" id="newLastname" class="form-control"
+                                   placeholder="New lastname">
+                            <input type="text" name="newFirstname" id="newFirstname" class="form-control"
+                                   placeholder="New firstname">
+                            <input type="text" name="newEmail" id="newEmail" class="form-control"
+                                   placeholder="New email">
                             <button>
                                 Change profile information
                             </button>
@@ -198,17 +199,17 @@
                             Comments History
                         </h3>
                         <div class="flex flex-wrap justify-center">
-                            <h4 class="text-3xl font-semibold leading-normal mb-2 text-orange-800 mb-2">
-                                Question Comments
-                            </h4>
                             <div class="w-full lg:w-9/12 px-4">
+                                <h4 class="text-3xl font-semibold leading-normal mb-2 text-orange-800 mb-2">
+                                    Question Comments
+                                </h4>
                                 <c:forEach var="comment" items="${commentsQ.comments}">
                                     <div> <!-- one per question-->
                                         <p class="mb-4 text-lg leading-relaxed text-gray-800" align="justify">
                                             <a href="/question?id=${comment.idSubject}" class="a">${comment.comment}</a>
                                         </p>
                                         <form action="./removeQuestionComment.do" method="POST">
-                                            <input name="questionId" type="hidden" value="${comment.id}">
+                                            <input name="commentId" type="hidden" value="${comment.id}">
                                             <input name="userId" type="hidden" value="${currentUser.id}">
                                             <button
                                                     class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
@@ -219,6 +220,28 @@
                                         </form>
                                     </div>
                                 </c:forEach>
+                                <h4 class="text-3xl font-semibold leading-normal mb-2 text-orange-800 mb-2">
+                                    Answer Comments
+                                </h4>
+                                <div>
+                                    <c:forEach var="comment" items="${commentsA.comments}">
+                                        <div> <!-- one per question-->
+                                            <p class="mb-4 text-lg leading-relaxed text-gray-800" align="justify">
+                                                    ${comment.comment}
+                                            </p>
+                                            <form action="./removeAnswerComment.do" method="POST">
+                                                <input name="commentId" type="hidden" value="${comment.id}">
+                                                <input name="userId" type="hidden" value="${currentUser.id}">
+                                                <button
+                                                        class="bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                                                        type="submit"
+                                                        style="transition: all 0.15s ease 0s;">
+                                                    Remove
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+
                             </div>
-</body>
-</html>
+                        </div>

@@ -44,7 +44,7 @@ public class RulesFilter implements Filter {
             request.getSession().setAttribute("targetUrl", targetUrl);
             request.getSession().removeAttribute("targetUrl");
 
-            ((HttpServletResponse) resp).sendRedirect("./profile"); // TODO change this
+            ((HttpServletResponse) resp).sendRedirect("./profile");
             return;
         } else {
             chain.doFilter(req, resp);
@@ -68,22 +68,6 @@ public class RulesFilter implements Filter {
                     .getQuestions().get(0).getAuthor();
             return username.equals(ownerUsernameForVote);
         }
-
-        if (request.getRequestURI().contains("/removeAnswer")) {
-            String subjectId = request.getParameter("answerId");
-            String ownerUsernameForRemoval = answerFacade.getAnswers(
-                    AnswersQuery.builder().idAnswer(subjectId).build())
-                    .getAnswers().get(0).getAuthor();
-            return !username.equals(ownerUsernameForRemoval);
-        }
-        if (request.getRequestURI().contains("/removeQuestion")) {
-            String subjectId = request.getParameter("questionId");
-            String ownerUsernameForRemoval = questionFacade.getQuestions(
-                    QuestionsQuery.builder().idQuestion(subjectId).build())
-                    .getQuestions().get(0).getAuthor();
-            return !username.equals(ownerUsernameForRemoval);
-        }
-
         return false;
     }
 

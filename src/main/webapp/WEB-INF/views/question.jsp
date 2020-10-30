@@ -34,9 +34,8 @@
 <main class="profile-page">
     <section class="relative block" style="height: 500px;">
         <div
-                class="absolute top-0 w-full h-full bg-center bg-cover"
-                style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'
-        >
+            class="absolute top-0 w-full h-full bg-center bg-cover"
+            style='background-image: url("./assets/img/header-profil.jpg");'>
             <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
     </section>
@@ -51,6 +50,7 @@
                                 <h1 class="text-2xl font-bold pt-8 lg:pt-0">${question.text}</h1>
                                 <p class="text-black leading-none" style="margin:10px 30px 10px 10px;">${question.author}</p>
                                 <p style="margin:10px 30px 10px 10px;">
+
                                 <form action="/submitQuestionVote.do" method="POST">
                                     <input name="questionId" type="hidden" value="${question.id}">
                                     <input type="submit" name="vote" value="-" />
@@ -59,6 +59,8 @@
                                 </form>
                                 </p>
                                 <hr style="margin:15px 15px 15px 15px;">
+
+
                                 <!-- déroulement -->
                                 <div class="flex h-screen md:-mx-4">
                                     <div class="w-full my-4">
@@ -141,13 +143,36 @@
                                                         <p>
                                                         <form action="/submitAnswerVote.do" method="POST">
                                                             <input name="questionId" type="hidden" value="${question.id}">
-                                                            <input name="answerId" type="hidden" value="${answer.id}">
+                                                            <input name="answerId" type="hidden" value="${answer.id}"><b>
                                                             <input type="submit" name="vote" value="-" />
                                                                 ${answer.nbrUpVotes - answer.nbrDownVotes}
-                                                            <input type="submit" name="vote" value="+" />
+                                                            <input type="submit" name="vote" value="+" /></b>
                                                         </form>
                                                         <p>
                                                     </div>
+                                                    <c:if test="${currentUser != null}">
+                                                        <form action="./submitAnswerComment.do" method="POST" accept-charset="utf-8">
+                                                            <div class="form-group">
+                                                                <input name="comment" type="text" class="form-control" id="commentA"
+                                                                       placeholder="comment the answer !">
+                                                            </div>
+                                                            <input id="answerId" name="answerId" type="hidden" value="${answer.id}">
+                                                            <input id="questionId" name="questionId" type="hidden" value="${question.id}">
+                                                            <div style="text-align: center; margin:15px 15px 15px 15px;">
+                                                                <button type="submit" class="btn btn-secondary">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </c:if>
+                                                    <c:forEach var="comment" items="${answer.comments}">
+                                                        <div align="right">
+                                                            <div style="border-radius:25px 25px 25px 25px; background:#9ef7d0; padding:15px 15px 15px 15px; width:55%;">
+                                                                    ${comment.comment}
+                                                            </div>
+                                                            <div align="right" style="padding:5px 45px 5px 15px;">
+                                                                    ${comment.author}
+                                                            </div>
+                                                        </div>
+                                                    </c:forEach>
                                                 </c:forEach>
                                             </div>
                                             <!-- fin section déroulante-->

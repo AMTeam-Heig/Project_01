@@ -119,9 +119,22 @@ public class JdbcAnswerCommentRepository implements ICommentRepository {
     public void remove(CommentId id) {
         try{
             Connection connection = dataSource.getConnection();
-            PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Answer WHERE idComment = ?");
-            sql.setString(1, id.asString());
-            int nbRow = sql.executeUpdate();
+            Optional<Comment> toDelete = findById(id);
+            if (!toDelete.isEmpty()) {
+                String authorId = "";
+                PreparedStatement userSql = connection.prepareStatement("SELECT idUser FROM User WHERE username = ?");
+                userSql.setString(1, toDelete.get().getAuthor());
+                ResultSet resultSetUser = userSql.executeQuery();
+                if(resultSetUser.next()) {
+                    authorId = resultSetUser.getString("idUser");
+                }
+
+                PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Answer WHERE idComment = ? AND idUser = ? AND idAnswer = ?");
+                sql.setString(1, id.asString());
+                sql.setString(2, authorId);
+                sql.setString(3, toDelete.get().getSubjectId());
+                int nbRow = sql.executeUpdate();
+            }
             connection.close();
         }catch(SQLException e){
             throw new IllegalArgumentException(e);
