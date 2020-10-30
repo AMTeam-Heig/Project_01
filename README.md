@@ -26,5 +26,31 @@ All you need to test it is to run this script :
  ```bash
 docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
  ```
+ 
+ ### Known issues & bugs
+ 
+ #### Tests
+ 
+ ##### Arquillian/Integration tests
+ 
+ Arquillian & integration tests can be run on branch fb-arquillian. This can be done by running the script ```run-integration-tests.sh```.
+ 
+ Unfortunately, some compilation errors with maven remain thus we can't be sure these tests work.
+ 
+ ##### Codecept
+ 
+ The situation is similar to what was described previously (cf. Arquillian). 
+ 
+ The scenarios are prepared but we encountered module issues with NodeJS while running them.
+ 
+ Note that all e2e tests passed on the week preceeding the last commit.
+ 
+ #### Comments removal
+ 
+ Adding a comment is functionnal. However, removing them doesn't work. It seems to be related to primary keys in the database.
+ 
+ #### Update Session
+ 
+ We can change our email, lastname and firstname effeciently. The problem is that the user session isn't updated in real time. We have to logout then reconnect to see the changes on our profile page.
 
 _Team : [Clarisse Fleurimont](https://github.com/Stellucidam), [Baptiste Hardrick](https://github.com/batach31), [Elodie Lagier](https://github.com/CosmicElodie) and [Walid Massaoudi](https://github.com/ChickenLivesMatter)_
