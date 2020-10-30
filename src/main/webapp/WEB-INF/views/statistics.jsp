@@ -12,7 +12,6 @@
             sizes="76x76"
             href="./assets/img/apple-icon.png"
     />
-    <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"/>
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"
@@ -36,7 +35,6 @@
                 class="absolute top-0 w-full h-full bg-center bg-cover"
                 style='background-image: url("./assets/img/header-profil.jpg");'
         >
-            <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
     </section>
     <section class="relative py-16 bg-gray-300">

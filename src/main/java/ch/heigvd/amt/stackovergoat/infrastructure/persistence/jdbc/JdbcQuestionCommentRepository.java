@@ -117,26 +117,19 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
 
     @Override
     public void remove(CommentId id) {
-        try{
+        try {
             Connection connection = dataSource.getConnection();
             Optional<Comment> toDelete = findById(id);
-            if (!toDelete.isEmpty()) {
-                String authorId = "";
-                PreparedStatement userSql = connection.prepareStatement("SELECT idUser FROM User WHERE username = ?");
-                userSql.setString(1, toDelete.get().getAuthor());
-                ResultSet resultSetUser = userSql.executeQuery();
-                if(resultSetUser.next()) {
-                    authorId = resultSetUser.getString("idUser");
-                }
-
-                PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Question WHERE idComment = ? AND idUser = ? AND idQuestion = ?");
+            if (toDelete.isPresent()) {
+                PreparedStatement sql = connection.prepareStatement("DELETE FROM User_comments_Question WHERE (idComment = ? AND idUser = ? AND idQuestion = ?)");
                 sql.setString(1, id.asString());
-                sql.setString(2, authorId);
+                sql.setString(2, toDelete.get().getUserId());
                 sql.setString(3, toDelete.get().getSubjectId());
                 int nbRow = sql.executeUpdate();
             }
+
             connection.close();
-        }catch(SQLException e){
+        } catch(SQLException e) {
             throw new IllegalArgumentException(e);
         }
     }
@@ -181,6 +174,7 @@ public class JdbcQuestionCommentRepository implements ICommentRepository {
         }
 
         Comment submittedComment = Comment.builder()
+                .userId(userId)
                 .id(new CommentId(id))
                 .subjectId(questionId)
                 .isForAnswer(false)

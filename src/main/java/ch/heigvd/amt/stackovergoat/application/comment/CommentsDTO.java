@@ -16,6 +16,7 @@ public class CommentsDTO {
     @Getter
     @EqualsAndHashCode
     public static class CommentDTO {
+        private String idUser;
         private String id;
         private String idSubject;
         private String comment;

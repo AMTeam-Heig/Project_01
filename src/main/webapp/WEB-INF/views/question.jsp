@@ -12,7 +12,6 @@
             sizes="76x76"
             href="./assets/img/apple-icon.png"
     />
-    <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"/>
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"
@@ -34,9 +33,8 @@
 <main class="profile-page">
     <section class="relative block" style="height: 500px;">
         <div
-            class="absolute top-0 w-full h-full bg-center bg-cover"
-            style='background-image: url("./assets/img/header-profil.jpg");'>
-            <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+                class="absolute top-0 w-full h-full bg-center bg-cover"
+                style='background-image: url("./assets/img/header-profil.jpg");'>
         </div>
     </section>
     <section class="relative py-16 bg-gray-300">
@@ -64,7 +62,7 @@
                                 <!-- déroulement -->
                                 <div class="flex h-screen md:-mx-4">
                                     <div class="w-full my-4">
-                                        <div x-data={show:false} class="rounded-sm" style="max-height:450px; overflow-y: scroll;">
+                                        <div x-data={show:false} class="rounded-sm" style="max-height:380px; overflow-y: scroll;">
                                             <div class="border border-b-0 bg-gray-100 px-10 py-6" id="headingOne">
                                                 <a @click="show=!show">
                                                     <button class="text-green-500 hover:text-green-700 focus:outline-none" type="button">
@@ -106,7 +104,7 @@
                                                 </c:forEach>
                                             </div>
                                         </div>
-                                        <div x-data={show:false} class="rounded-sm" style="max-height:450px; overflow-y: scroll;">
+                                        <div x-data={show:false} class="rounded-sm" style="max-height:380px; overflow-y: scroll;">
                                             <div class="border border-b-0 bg-gray-100 px-10 py-6" id="headingOne">
                                                 <a @click="show=!show">
                                                     <button class="text-green-500 hover:text-green-700 focus:outline-none" type="button">

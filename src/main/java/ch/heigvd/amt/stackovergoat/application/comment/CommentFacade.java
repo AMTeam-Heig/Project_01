@@ -38,6 +38,7 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
+                        .idUser(comment.getUserId())
                         .idSubject(comment.getSubjectId())
                         .comment(comment.getComment())
                         .author(comment.getAuthor())
@@ -55,6 +56,7 @@ public class CommentFacade {
 
         List<CommentsDTO.CommentDTO> allCommentsDTO = allComments.stream()
                 .map(comment -> CommentsDTO.CommentDTO.builder()
+                        .idUser(comment.getUserId())
                         .idSubject(comment.getSubjectId())
                         .comment(comment.getComment())
                         .author(comment.getAuthor())

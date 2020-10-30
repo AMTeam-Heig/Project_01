@@ -177,7 +177,7 @@ public class ServiceRegistry {
         answerFacade = new AnswerFacade(answerRepository, answerCommentRepository, answerVoteRepository);
         questionFacade = new QuestionFacade(questionRepository, questionCommentRepository, questionVoteRepository);
         identityManagementFacade = new IdentityManagementFacade(userRepository);
-        statsFacade=new StatsFacade(questionRepository,userRepository);
+        statsFacade = new StatsFacade(questionRepository,userRepository);
     }
 
     public QuestionFacade getQuestionFacade() {

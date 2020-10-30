@@ -28,9 +28,8 @@ public class RemoveAnswerCommentEndpoint extends HttpServlet {
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrentUserDTO user = (CurrentUserDTO)req.getSession().getAttribute("currentUser");
-        if (user != null && req.getParameter("commentId") != null) {
-            commentFacade.remove(req.getParameter("commentId"));
-        }
+
+        commentFacade.remove(req.getParameter("commentId"));
         resp.sendRedirect("./profile");
     }
 }
