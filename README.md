@@ -26,4 +26,4 @@ All you need to test it is to run this script :
 docker run 9080:9080 ghcr.io/amteam-heig/project_01/stackover-goat/stackovergoat:latest
  ```
 
-_Team : [Clarisse Fleurimont](clarisse.fleurimont@heig-vd.ch), [Baptiste Hardrick](baptiste.hardrick@heig-vd.ch), [Elodie Lagier](elodie.lagier@heig-vd.ch) and [Walid Massaoudi](walid.massaoudi@heig-vd.ch)_
+_Team : [Clarisse Fleurimont](https://github.com/Stellucidam), [Baptiste Hardrick](https://github.com/batach31), [Elodie Lagier](https://github.com/CosmicElodie) and [Walid Massaoudi](https://github.com/ChickenLivesMatter)_
