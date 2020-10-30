@@ -62,4 +62,14 @@ public class InMemoryUserRepository extends InMemoryRepository<User, UserId> imp
         }
     }
 
+    @Override
+    public void updateProfile(String username, String lastname, String firstname, String email) throws IntegrityConstraintViolationException{
+        //This function does nothing - for compilation purposes
+        synchronized (username) {
+            if (!findByUsername(username).isEmpty()) {
+                throw new IntegrityConstraintViolationException("Cannot save/update person...");
+            }
+        }
+    }
+
 }

@@ -5,6 +5,7 @@ import ch.heigvd.amt.stackovergoat.application.user.UsersQuery;
 import ch.heigvd.amt.stackovergoat.domain.user.IUserRepository;
 import ch.heigvd.amt.stackovergoat.domain.user.User;
 import ch.heigvd.amt.stackovergoat.domain.user.UserId;
+import ch.heigvd.amt.stackovergoat.infrastructure.persistence.exception.IntegrityConstraintViolationException;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.annotation.Resource;
@@ -198,6 +199,67 @@ public class JdbcUserRepository implements IUserRepository {
             throw new IllegalArgumentException(e);
         }
 
+    }
+
+    @Override
+    public void updateProfile(String username, String lastname, String firstname, String email) throws IntegrityConstraintViolationException {
+        try {
+            if((lastname == null || lastname == "")  && (firstname == null || firstname == "") && (email == null || email == "")){
+                return;
+            }
+            String statement = "UPDATE User SET ";
+            if(lastname != null && !lastname.isEmpty()){
+                statement += "lastname = ?";
+                if((firstname != null && !firstname.isEmpty()) || (email != null && !email.isEmpty())){
+                    statement += ", ";
+                }
+            }
+            if(firstname != null && !firstname.isEmpty()){
+                statement += "firstname = ?";
+                if(email != null && !email.isEmpty()){
+                    statement += ", ";
+                }
+            }
+            if(email != null && !email.isEmpty()){
+                statement += "email = ?";
+            }
+            statement += " WHERE username = ?";
+
+            Connection connection = dataSource.getConnection();
+            PreparedStatement sql = connection.prepareStatement(statement);
+            if((lastname == null || lastname.isEmpty()) && (firstname == null || firstname.isEmpty()) && (email != null && !email.isEmpty())){
+                sql.setString(1, email);
+                sql.setString(2, username);
+            }else if((lastname == null || lastname.isEmpty()) && (firstname != null && !firstname.isEmpty()) && (email == null || email.isEmpty())){
+                sql.setString(1, firstname);
+                sql.setString(2, username);
+            }else if((lastname == null || lastname.isEmpty()) && (firstname != null && !firstname.isEmpty()) && (email != null && !email.isEmpty())){
+                sql.setString(1, firstname);
+                sql.setString(2, email);
+                sql.setString(3, username);
+            }else if((lastname != null && !lastname.isEmpty()) && (firstname == null || firstname.isEmpty()) && (email == null || email.isEmpty())){
+                sql.setString(1, lastname);
+                sql.setString(2, username);
+            }else if((lastname != null && !lastname.isEmpty()) && (firstname == null || firstname.isEmpty()) && (email != null && !email.isEmpty())){
+                sql.setString(1, lastname);
+                sql.setString(2, email);
+                sql.setString(3, username);
+            }else if((lastname != null && !lastname.isEmpty()) && (firstname != null && !firstname.isEmpty()) && (email == null || email.isEmpty())){
+                sql.setString(1, lastname);
+                sql.setString(2, firstname);
+                sql.setString(3, username);
+            }else{
+                sql.setString(1, lastname);
+                sql.setString(2, firstname);
+                sql.setString(3, email);
+                sql.setString(4, username);
+            }
+
+            sql.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override

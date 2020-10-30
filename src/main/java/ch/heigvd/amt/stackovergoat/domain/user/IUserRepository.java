@@ -12,4 +12,5 @@ public interface IUserRepository extends IRepository<User, UserId> {
     public Optional<User> findByUsername(String username);
     public void save(User user) throws IntegrityConstraintViolationException;
     public void changePassword(String username, String newClearTextPassword) throws IntegrityConstraintViolationException;
+    public void updateProfile(String username, String lastname, String firstname, String email) throws IntegrityConstraintViolationException;
 }
