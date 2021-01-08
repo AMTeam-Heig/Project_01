@@ -1,5 +1,31 @@
 version: '3'
 services:
+  gami-db:
+    image: mysql:8.0.21
+    container_name: gamification-db
+    restart: always
+    ports:
+      - '3303:3303'
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: gamification_datab
+
+  amt_gamification:
+    image: ghcr.io/amteam-heig/gamification-engine/spring/gamification:latest
+    container_name: amt_gamification
+    depends_on:
+      - gami-db
+    ports:
+      - "9081:9081"
+      - "9444:9444"
+    environment:
+      MYSQL_HOST: gami-db
+      MYSQL_PORT: 3303
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mysql
+
+    command: bash -c "/usr/wait-for-it.sh --timeout=0 gami-db:3303 && java -Djava.security.egd=file:/dev/./urandom -jar /app/amt_gamification.jar"
+
   openliberty:
     build: ../images/openliberty
     ports:
@@ -9,6 +35,7 @@ services:
       - mysql:db
     depends_on:
       - mysql
+      - amt_gamification
   mysql:
     build: ../images/mysql
     ports:
@@ -29,3 +56,4 @@ services:
       - mysql:db
     depends_on:
       - mysql
+      - gami-db
